@@ -2,31 +2,38 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>engel am See · Digitale Gästemappe</title>
 
 <style>
 :root{
   --gold:#b99d42;
+  --gold-dark:#927a2e;
   --cream:#f6f3eb;
-  --paper:#fffdfa;
-  --ink:#312e2a;
+  --paper:#fffdf9;
+  --ink:#302d29;
   --muted:#817b72;
-  --line:#ddd7cb;
-  --teal:#6b9b9e;
-  --olive:#b1b873;
-  --mauve:#916f80;
+  --line:#e3ded4;
+  --soft:#f0ece3;
+  --white:#ffffff;
+  --shadow:0 18px 50px rgba(48,45,41,.10);
+  --radius:18px;
 }
 
 *{
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--cream);
   color:var(--ink);
-  font-family:Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 button,
@@ -39,40 +46,63 @@ button{
   cursor:pointer;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header{
-  height:68px;
-  background:var(--paper);
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:72px;
+  background:rgba(255,253,249,.96);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  max-width:1180px;
+  height:100%;
+  margin:auto;
+  padding:0 24px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 24px;
-  position:sticky;
-  top:0;
-  z-index:20;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  color:var(--gold);
-  gap:8px;
+  gap:10px;
+  color:var(--gold-dark);
 }
 
 .mark{
-  font:700 48px Georgia;
-  line-height:.5;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--gold);
+  color:white;
+  font-family:Georgia,serif;
+  font-size:25px;
 }
 
 .brandtext{
-  font:700 20px Georgia;
+  font-family:Georgia,serif;
+  font-size:20px;
+  line-height:1;
 }
 
 .brandtext small{
   display:block;
-  font-size:11px;
+  margin-top:4px;
+  font-family:Arial,sans-serif;
+  font-size:9px;
   letter-spacing:2px;
-  font-weight:400;
+  text-transform:uppercase;
 }
 
 .nav{
@@ -84,858 +114,1857 @@ header{
   border:1px solid var(--line);
   background:white;
   color:var(--ink);
-  border-radius:20px;
-  padding:8px 14px;
+  border-radius:999px;
+  padding:9px 16px;
 }
 
-.nav button.on{
+.nav button.active{
   background:var(--gold);
-  color:white;
   border-color:var(--gold);
+  color:white;
 }
 
-.guest{
-  width:100%;
-  max-width:1200px;
+/* =========================
+   PAGE
+========================= */
+
+.page{
+  max-width:1100px;
   margin:auto;
+  background:var(--paper);
+  min-height:calc(100vh - 72px);
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  min-height:545px;
-  max-width:545px;
-  margin:auto;
-  background-size:cover;
-  background-position:center;
+  min-height:540px;
   position:relative;
   display:flex;
   align-items:flex-end;
   overflow:hidden;
+
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(25,25,20,.78),
+      rgba(25,25,20,.05) 70%
+    ),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85");
+
+  background-size:cover;
+  background-position:center;
 }
 
-.hero:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,.62),
-    rgba(0,0,0,.05) 65%
-  );
-}
-
-.heroContent{
-  position:relative;
-  z-index:2;
-  color:white;
-  padding:42px 28px 30px;
+.hero-content{
   width:100%;
+  padding:80px 60px 58px;
+  color:white;
 }
 
-.kicker{
-  color:#d8bd60;
+.eyebrow{
   font-size:11px;
   letter-spacing:3px;
-  font-weight:700;
-  margin-bottom:8px;
+  text-transform:uppercase;
+  margin-bottom:14px;
 }
 
-#title{
-  font:400 38px Georgia;
+.hero h1{
+  max-width:800px;
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:54px;
   line-height:1.05;
-  margin:0 0 16px;
+  font-weight:400;
 }
 
-#intro{
-  font-size:14px;
-  line-height:1.6;
-  max-width:470px;
+.hero h1 i{
+  color:#d7bd63;
+  font-weight:400;
 }
+
+.hero-line{
+  width:48px;
+  height:2px;
+  background:var(--gold);
+  margin:22px 0;
+}
+
+.hero p{
+  max-width:600px;
+  margin:0;
+  font-size:16px;
+  line-height:1.7;
+}
+
+/* =========================
+   QUICK NAVIGATION
+========================= */
 
 .quick{
-  max-width:545px;
-  margin:-24px auto 0;
   position:relative;
   z-index:5;
+  margin:-24px 28px 0;
   background:var(--paper);
-  box-shadow:0 9px 25px rgba(49,46,42,.14);
-  border-radius:5px;
+  border-radius:16px;
+  box-shadow:var(--shadow);
   overflow:hidden;
+
   display:grid;
   grid-template-columns:repeat(3,1fr);
 }
 
 .quick button{
-  min-height:92px;
+  min-height:145px;
+  padding:25px 18px 22px;
+
+  background:var(--paper);
   border:0;
   border-right:1px solid var(--line);
   border-bottom:1px solid var(--line);
-  background:var(--paper);
-  color:var(--ink);
-  padding:12px 8px;
-  transition:.2s;
-}
 
-.quick button:hover{
-  background:#f1ecdf;
+  color:var(--ink);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
 }
 
 .quick button:nth-child(3n){
   border-right:0;
 }
 
-.quick button:nth-last-child(-n+3){
+.quick button:nth-child(n+4){
   border-bottom:0;
 }
 
-.icon{
+.quick button:hover{
+  background:#faf7f0;
+  transform:translateY(-2px);
+}
+
+.quick .icon{
+  width:42px;
+  height:42px;
+  margin-bottom:10px;
+
+  border:1px solid #d8cda9;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:var(--gold-dark);
   font-size:20px;
-  color:var(--gold);
-  margin-bottom:8px;
 }
 
 .quick strong{
   display:block;
-  font:400 14px Georgia;
-  margin-bottom:4px;
+  font-family:Georgia,serif;
+  font-size:19px;
+  font-weight:400;
+  margin-bottom:7px;
 }
 
 .quick small{
   display:block;
-  font-size:11px;
-  line-height:1.3;
+  max-width:190px;
   color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
 }
 
-.main{
-  max-width:545px;
-  margin:auto;
-  padding:42px 23px 85px;
-}
+/* =========================
+   INTRO
+========================= */
 
-.center{
+.intro{
+  padding:72px 60px 45px;
   text-align:center;
 }
 
-.center h2{
-  font:400 27px Georgia;
-  margin:8px 0 8px;
+.intro .eyebrow{
+  color:var(--gold-dark);
+  margin-bottom:10px;
 }
 
-.intro{
-  font-size:12px;
+.intro h2{
+  margin:0 0 14px;
+  font-family:Georgia,serif;
+  font-size:34px;
+  font-weight:400;
+}
+
+.intro p{
+  max-width:650px;
+  margin:auto;
   color:var(--muted);
+  line-height:1.7;
 }
 
-.cards{
-  display:grid;
-  gap:18px;
-  margin-top:26px;
+/* =========================
+   SECTION
+========================= */
+
+.content{
+  padding:0 42px 70px;
 }
 
-.card{
-  background:var(--paper);
-  border:1px solid var(--line);
-  padding:22px;
-  border-radius:5px;
-  scroll-margin-top:90px;
+.section{
+  scroll-margin-top:95px;
+  padding:65px 18px 10px;
 }
 
-.card .tag{
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:1.5px;
+.section-head{
+  margin-bottom:30px;
+}
+
+.section-eyebrow{
+  color:var(--gold-dark);
+  font-size:10px;
+  letter-spacing:3px;
   text-transform:uppercase;
   margin-bottom:8px;
 }
 
-.card h3{
-  font:400 24px Georgia;
+.section h2{
   margin:0 0 10px;
+  font-family:Georgia,serif;
+  font-size:34px;
+  font-weight:400;
+}
+
+.section-lead{
+  max-width:650px;
+  margin:0;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+/* =========================
+   CONTENT CARDS
+========================= */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.card{
+  padding:28px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(48,45,41,.08);
+}
+
+.card-icon{
+  font-size:24px;
+  color:var(--gold-dark);
+  margin-bottom:18px;
+}
+
+.card h3{
+  margin:0 0 9px;
+  font-family:Georgia,serif;
+  font-size:22px;
+  font-weight:400;
 }
 
 .card p{
+  margin:0 0 20px;
   color:var(--muted);
-  font-size:13px;
-  line-height:1.6;
-  margin:0 0 18px;
+  line-height:1.65;
+  font-size:14px;
 }
 
 .cta{
   border:1px solid var(--gold);
-  color:var(--gold);
-  background:white;
-  border-radius:20px;
-  padding:8px 14px;
+  background:transparent;
+  color:var(--gold-dark);
+  border-radius:999px;
+  padding:9px 15px;
+  font-size:13px;
 }
 
-.footerContact{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:545px;
+.cta:hover{
   background:var(--gold);
   color:white;
-  text-align:center;
-  padding:12px;
-  font-size:12px;
-  z-index:10;
 }
 
-/* ADMIN */
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+  margin-top:20px;
+  padding:22px 24px;
+  background:var(--soft);
+  border-radius:14px;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  margin-top:30px;
+  padding:25px;
+  text-align:center;
+  background:var(--gold);
+  color:white;
+  font-size:13px;
+}
+
+.footer button{
+  border:0;
+  background:none;
+  color:white;
+  text-decoration:underline;
+  padding:0;
+}
+
+/* =========================
+   DETAIL MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:500;
+
+  background:rgba(35,32,27,.55);
+  backdrop-filter:blur(5px);
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  max-height:85vh;
+  overflow:auto;
+
+  background:var(--paper);
+  border-radius:20px;
+  box-shadow:0 25px 80px rgba(0,0,0,.25);
+}
+
+.modal-top{
+  padding:28px 30px 20px;
+  border-bottom:1px solid var(--line);
+
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.modal-top h2{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:29px;
+  font-weight:400;
+}
+
+.close{
+  width:34px;
+  height:34px;
+  border:1px solid var(--line);
+  background:white;
+  border-radius:50%;
+  font-size:18px;
+  color:var(--muted);
+}
+
+.modal-body{
+  padding:28px 30px 32px;
+}
+
+.modal-body h3{
+  margin:0 0 8px;
+  font-family:Georgia,serif;
+  font-size:20px;
+  font-weight:400;
+}
+
+.modal-body p{
+  margin:0 0 22px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.modal-body ul{
+  margin:0 0 22px;
+  padding-left:20px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* =========================
+   ADMIN
+========================= */
 
 #admin{
   display:none;
-  min-height:calc(100vh - 68px);
-  background:#f0ede5;
+  min-height:calc(100vh - 72px);
+  background:var(--cream);
+  padding:40px 24px 70px;
 }
 
-.adminWrap{
-  max-width:1200px;
+.admin-wrap{
+  max-width:900px;
   margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-  padding:30px;
 }
 
-.adminBox{
+.admin-head{
+  margin-bottom:30px;
+}
+
+.admin-head h1{
+  margin:0 0 8px;
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:36px;
+}
+
+.admin-head p{
+  margin:0;
+  color:var(--muted);
+}
+
+.admin-card{
   background:white;
   border:1px solid var(--line);
-  border-radius:8px;
-  padding:24px;
+  border-radius:18px;
+  padding:28px;
+  margin-bottom:20px;
 }
 
-.adminBox h2{
-  font:400 25px Georgia;
+.admin-card h2{
   margin:0 0 20px;
+  font-family:Georgia,serif;
+  font-weight:400;
 }
 
 .field{
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
 
 .field label{
   display:block;
+  margin-bottom:7px;
   font-size:12px;
   color:var(--muted);
-  margin-bottom:6px;
+  font-weight:bold;
 }
 
 .field input,
 .field textarea{
   width:100%;
   border:1px solid var(--line);
-  border-radius:5px;
-  padding:10px;
-  background:white;
+  border-radius:10px;
+  padding:12px 13px;
   color:var(--ink);
-}
-
-.field textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-.adminActions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-
-.primary{
-  background:var(--gold);
-  color:white;
-  border:0;
-  border-radius:5px;
-  padding:10px 16px;
-}
-
-.secondary{
-  background:white;
-  color:var(--ink);
-  border:1px solid var(--line);
-  border-radius:5px;
-  padding:10px 16px;
-}
-
-.areaList{
-  display:grid;
-  gap:10px;
-}
-
-.areaRow{
-  display:grid;
-  grid-template-columns:42px 1fr auto;
-  gap:12px;
-  align-items:center;
-  border:1px solid var(--line);
-  padding:12px;
-  border-radius:5px;
   background:#fffdfa;
 }
 
-.areaIcon{
-  width:38px;
-  height:38px;
-  display:grid;
-  place-items:center;
+.field textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.admin-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.primary{
+  border:0;
+  background:var(--gold);
+  color:white;
+  border-radius:999px;
+  padding:11px 18px;
+}
+
+.secondary{
   border:1px solid var(--line);
-  border-radius:50%;
-  color:var(--gold);
-  font-size:18px;
-}
-
-.areaRow strong{
-  display:block;
-  font:400 16px Georgia;
-}
-
-.areaRow small{
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-  margin-top:4px;
-}
-
-.edit{
   background:white;
-  border:1px solid var(--line);
-  border-radius:50%;
-  width:34px;
-  height:34px;
+  color:var(--ink);
+  border-radius:999px;
+  padding:11px 18px;
 }
 
-.imagePreview{
-  width:100%;
-  max-height:220px;
-  object-fit:cover;
-  border-radius:5px;
-  margin-top:8px;
-}
-
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:760px){
+
   header{
-    padding:0 13px;
+    height:64px;
+  }
+
+  .header-inner{
+    padding:0 15px;
   }
 
   .brandtext{
-    font-size:16px;
-  }
-
-  .mark{
-    font-size:40px;
+    font-size:17px;
   }
 
   .nav button{
-    padding:7px 9px;
+    padding:8px 12px;
     font-size:12px;
   }
 
-  .adminWrap{
+  .hero{
+    min-height:470px;
+  }
+
+  .hero-content{
+    padding:55px 25px 42px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .quick{
+    margin:-18px 14px 0;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .quick button{
+    min-height:145px;
+    padding:20px 10px;
+  }
+
+  .quick button:nth-child(3n){
+    border-right:1px solid var(--line);
+  }
+
+  .quick button:nth-child(2n){
+    border-right:0;
+  }
+
+  .quick button:nth-child(n+4){
+    border-bottom:1px solid var(--line);
+  }
+
+  .quick button:nth-child(n+5){
+    border-bottom:0;
+  }
+
+  .quick strong{
+    font-size:17px;
+    text-align:center;
+  }
+
+  .quick small{
+    text-align:center;
+  }
+
+  .intro{
+    padding:55px 25px 30px;
+  }
+
+  .intro h2{
+    font-size:29px;
+  }
+
+  .content{
+    padding:0 20px 50px;
+  }
+
+  .section{
+    padding:50px 5px 5px;
+  }
+
+  .section h2{
+    font-size:29px;
+  }
+
+  .cards{
     grid-template-columns:1fr;
-    padding:15px;
+  }
+
+  .card{
+    padding:23px;
   }
 }
 </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="brand">
-    <span class="mark">e</span>
-    <span class="brandtext">
-      engel
-      <small>am See</small>
-    </span>
-  </div>
+<!-- =========================
+     HEADER
+========================= -->
 
-  <div class="nav">
-    <button id="gb" class="on" onclick="guest()">Gästeansicht</button>
-    <button id="ab" onclick="admin()">Bearbeiten</button>
+<header>
+  <div class="header-inner">
+
+    <div class="brand">
+      <div class="mark">e</div>
+
+      <div class="brandtext">
+        engel
+        <small>am See</small>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button id="guestButton" class="active" onclick="showGuest()">
+        Gästeansicht
+      </button>
+
+      <button id="adminButton" onclick="showAdmin()">
+        Bearbeiten
+      </button>
+    </nav>
+
   </div>
 </header>
 
 
-<!-- GÄSTEANSICHT -->
+<!-- =========================
+     GÄSTEANSICHT
+========================= -->
 
-<section id="guest">
+<div id="guest">
 
-  <div class="hero" id="hero">
-    <div class="heroContent">
-      <div class="kicker">WILLKOMMEN</div>
-      <h1 id="title"></h1>
-      <div id="intro"></div>
-    </div>
-  </div>
+  <main class="page">
 
-  <div class="quick" id="quick"></div>
+    <!-- HERO -->
 
-  <main class="main">
+    <section class="hero" id="hero">
 
-    <div class="center">
-      <div class="kicker">IHR AUFENTHALT</div>
-      <h2>Alles, was Sie brauchen.</h2>
-      <div class="intro">
-        Informationen, Empfehlungen und alles rund um Ihren Aufenthalt.
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Willkommen
+        </div>
+
+        <h1 id="title">
+          Du. Dein See. <i>Dein Engel.</i>
+        </h1>
+
+        <div class="hero-line"></div>
+
+        <p id="intro">
+          Schön, dass Sie bei uns sind.
+          Wir wünschen Ihnen eine erholsame Zeit am See.
+        </p>
+
       </div>
+
+    </section>
+
+
+    <!-- SCHNELLMENÜ -->
+
+    <div class="quick" id="quick"></div>
+
+
+    <!-- EINLEITUNG -->
+
+    <section class="intro">
+
+      <div class="eyebrow">
+        Ihr Aufenthalt
+      </div>
+
+      <h2>
+        Alles, was Sie brauchen.
+      </h2>
+
+      <p>
+        Entdecken Sie unser Haus, unsere Angebote und unsere
+        persönlichen Empfehlungen für Ihren Aufenthalt.
+      </p>
+
+    </section>
+
+
+    <!-- INHALTE -->
+
+    <div class="content">
+
+      <!-- =========================
+           MEIN AUFENTHALT
+      ========================= -->
+
+      <section class="section" id="section-stay">
+
+        <div class="section-head">
+
+          <div class="section-eyebrow">
+            Mein Aufenthalt
+          </div>
+
+          <h2>
+            Alles rund um Ihren Aufenthalt
+          </h2>
+
+          <p class="section-lead">
+            Hier finden Sie die wichtigsten Informationen
+            für einen entspannten Aufenthalt bei uns.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-icon">⌂</div>
+
+            <h3>An- & Abreise</h3>
+
+            <p>
+              Informationen zu Check-in, Check-out und
+              allen wichtigen Abläufen rund um Ihre An- und Abreise.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('An- & Abreise',`
+                <h3>Check-in</h3>
+                <p>Die konkreten Check-in-Informationen können hier hinterlegt werden.</p>
+
+                <h3>Check-out</h3>
+                <p>Die konkreten Check-out-Informationen können hier hinterlegt werden.</p>
+              `)">
+              Mehr erfahren
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">⌁</div>
+
+            <h3>Ihr Zimmer</h3>
+
+            <p>
+              Wissenswertes zu Zimmer, Ausstattung und
+              Services während Ihres Aufenthalts.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Ihr Zimmer',`
+                <h3>Zimmerinformationen</h3>
+                <p>Hier können später Informationen zur Zimmerausstattung, Reinigung, Handtüchern und weiteren Services stehen.</p>
+              `)">
+              Mehr erfahren
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">◉</div>
+
+            <h3>Rezeption</h3>
+
+            <p>
+              Wir helfen Ihnen gerne bei Fragen,
+              Wünschen und Anliegen weiter.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Rezeption',`
+                <h3>Kontakt</h3>
+                <p id="modalPhone"></p>
+                <p>Für persönliche Anliegen steht Ihnen unser Rezeptionsteam gerne zur Verfügung.</p>
+              `)">
+              Kontakt
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">♡</div>
+
+            <h3>Service</h3>
+
+            <p>
+              Weitere Services und Informationen für
+              einen angenehmen Aufenthalt.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Service',`
+                <h3>Serviceangebote</h3>
+                <p>Hier können künftig die verschiedenen Services des Hauses hinterlegt werden.</p>
+              `)">
+              Mehr erfahren
+            </button>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ESSEN & TRINKEN
+      ========================= -->
+
+      <section class="section" id="section-food">
+
+        <div class="section-head">
+
+          <div class="section-eyebrow">
+            Essen & Trinken
+          </div>
+
+          <h2>
+            Frühstück, Restaurant und Bar
+          </h2>
+
+          <p class="section-lead">
+            Genießen Sie kulinarische Momente und entdecken
+            Sie unsere Angebote rund um Essen & Trinken.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-icon">☕</div>
+
+            <h3>Frühstück</h3>
+
+            <p>
+              Alles Wissenswerte rund um unser Frühstücksangebot
+              und die entsprechenden Zeiten.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Frühstück',`
+                <h3>Frühstück</h3>
+                <p>Die tatsächlichen Frühstückszeiten und Informationen zum Angebot werden hier ergänzt.</p>
+              `)">
+              Frühstück ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">♜</div>
+
+            <h3>Restaurant</h3>
+
+            <p>
+              Informationen zu unserem Restaurant,
+              Speisen und Reservierungen.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Restaurant',`
+                <h3>Restaurant</h3>
+                <p>Hier können Restaurantinformationen, Speisekarte, Öffnungszeiten und Reservierungsmöglichkeiten hinterlegt werden.</p>
+              `)">
+              Restaurant entdecken
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">◌</div>
+
+            <h3>Bar</h3>
+
+            <p>
+              Der passende Ort für einen Drink und
+              einen entspannten Abend.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Bar',`
+                <h3>Bar</h3>
+                <p>Hier können Öffnungszeiten, Angebot und weitere Informationen zur Bar ergänzt werden.</p>
+              `)">
+              Bar entdecken
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">≋</div>
+
+            <h3>Speisekarten</h3>
+
+            <p>
+              Speisekarten und weitere kulinarische Angebote
+              direkt in der digitalen Gästemappe.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Speisekarten',`
+                <h3>Speisekarten</h3>
+                <p>Hier können später digitale Speisekarten als Links oder Dokumente eingebunden werden.</p>
+              `)">
+              Speisekarten öffnen
+            </button>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           WELLNESS
+      ========================= -->
+
+      <section class="section" id="section-spa">
+
+        <div class="section-head">
+
+          <div class="section-eyebrow">
+            Wellness & Spa
+          </div>
+
+          <h2>
+            Spa, Sauna und Anwendungen
+          </h2>
+
+          <p class="section-lead">
+            Zeit für Ruhe, Entspannung und Erholung.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-icon">♨</div>
+
+            <h3>Spa</h3>
+
+            <p>
+              Entdecken Sie unseren Wellnessbereich und
+              die verschiedenen Möglichkeiten zur Entspannung.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Spa',`
+                <h3>Spa</h3>
+                <p>Hier werden später die konkreten Informationen zum Spa-Bereich ergänzt.</p>
+              `)">
+              Spa entdecken
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">◒</div>
+
+            <h3>Sauna</h3>
+
+            <p>
+              Informationen zu Sauna, Nutzung und
+              den entsprechenden Zeiten.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Sauna',`
+                <h3>Sauna</h3>
+                <p>Hier können Saunaangebote, Öffnungszeiten und wichtige Hinweise ergänzt werden.</p>
+              `)">
+              Sauna ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">✦</div>
+
+            <h3>Anwendungen</h3>
+
+            <p>
+              Massagen, Beauty und weitere Anwendungen
+              für Ihre persönliche Auszeit.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Anwendungen',`
+                <h3>Anwendungen</h3>
+                <p>Hier können Anwendungen, Preise, Dauer und Buchungsmöglichkeiten hinterlegt werden.</p>
+              `)">
+              Anwendungen ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">+</div>
+
+            <h3>Termin buchen</h3>
+
+            <p>
+              Finden Sie hier später die Möglichkeit,
+              direkt einen Wellness-Termin anzufragen.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Termin buchen',`
+                <h3>Wellness-Termin</h3>
+                <p>Hier kann später eine direkte Kontakt- oder Buchungsmöglichkeit eingebunden werden.</p>
+              `)">
+              Termin anfragen
+            </button>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           SEE & ERLEBEN
+      ========================= -->
+
+      <section class="section" id="section-experience">
+
+        <div class="section-head">
+
+          <div class="section-eyebrow">
+            See & Erleben
+          </div>
+
+          <h2>
+            Aktivitäten und Ausflüge
+          </h2>
+
+          <p class="section-lead">
+            Entdecken Sie die Umgebung und machen Sie Ihren
+            Aufenthalt zu Ihrem persönlichen Erlebnis.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-icon">≈</div>
+
+            <h3>Am See</h3>
+
+            <p>
+              Ideen und Möglichkeiten für besondere Momente
+              direkt am Wasser.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Am See',`
+                <h3>Erlebnisse am See</h3>
+                <p>Hier können später konkrete Aktivitäten rund um den See ergänzt werden.</p>
+              `)">
+              Entdecken
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">⌁</div>
+
+            <h3>Aktiv unterwegs</h3>
+
+            <p>
+              Wandern, Radfahren und weitere Möglichkeiten,
+              die Umgebung aktiv zu entdecken.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Aktiv unterwegs',`
+                <h3>Aktivitäten</h3>
+                <p>Hier können Wanderungen, Radtouren und weitere Aktivitäten hinterlegt werden.</p>
+              `)">
+              Aktivitäten ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">△</div>
+
+            <h3>Ausflüge</h3>
+
+            <p>
+              Interessante Ziele und Ausflugsideen
+              für Ihre Zeit außerhalb des Hauses.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Ausflüge',`
+                <h3>Ausflugstipps</h3>
+                <p>Hier werden später konkrete Ausflugsziele mit Beschreibung, Entfernung und gegebenenfalls Links ergänzt.</p>
+              `)">
+              Ausflüge entdecken
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">✦</div>
+
+            <h3>Wetter & Planung</h3>
+
+            <p>
+              Später können hier aktuelle Informationen
+              und passende Empfehlungen eingebunden werden.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Wetter & Planung',`
+                <h3>Wetter & Planung</h3>
+                <p>Dieser Bereich kann später mit aktuellen Wetterinformationen und passenden Aktivitäten verbunden werden.</p>
+              `)">
+              Mehr erfahren
+            </button>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           EMPFEHLUNGEN
+      ========================= -->
+
+      <section class="section" id="section-recommendations">
+
+        <div class="section-head">
+
+          <div class="section-eyebrow">
+            Empfehlungen
+          </div>
+
+          <h2>
+            Unsere persönlichen Tipps
+          </h2>
+
+          <p class="section-lead">
+            Empfehlungen, die wir unseren Gästen wirklich
+            gerne weitergeben.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-icon">♡</div>
+
+            <h3>Essen gehen</h3>
+
+            <p>
+              Unsere persönlichen Restaurant-Empfehlungen
+              in der Umgebung.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Restaurant-Empfehlungen',`
+                <h3>Unsere Restaurant-Tipps</h3>
+                <p>Hier werden später konkrete persönliche Empfehlungen mit Beschreibung und Link ergänzt.</p>
+              `)">
+              Empfehlungen ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">☕</div>
+
+            <h3>Cafés & Genuss</h3>
+
+            <p>
+              Kleine Lieblingsorte für Kaffee, Kuchen
+              und entspannte Stunden.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Cafés & Genuss',`
+                <h3>Cafés & Genuss</h3>
+                <p>Hier können später persönliche Café- und Genuss-Empfehlungen hinterlegt werden.</p>
+              `)">
+              Tipps ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">△</div>
+
+            <h3>Besondere Orte</h3>
+
+            <p>
+              Orte in der Umgebung, die man nicht
+              unbedingt im Reiseführer findet.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Besondere Orte',`
+                <h3>Besondere Orte</h3>
+                <p>Hier können persönliche Geheimtipps des Hauses ergänzt werden.</p>
+              `)">
+              Orte entdecken
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">✦</div>
+
+            <h3>Unser Tipp</h3>
+
+            <p>
+              Empfehlungen des Teams für einen
+              besonders schönen Tag.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Unser Tipp',`
+                <h3>Unser persönlicher Tipp</h3>
+                <p>Hier kann künftig regelmäßig ein besonderer Tipp des Hauses präsentiert werden.</p>
+              `)">
+              Tipp ansehen
+            </button>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           WICHTIGE INFORMATIONEN
+      ========================= -->
+
+      <section class="section" id="section-info">
+
+        <div class="section-head">
+
+          <div class="section-eyebrow">
+            Wichtige Informationen
+          </div>
+
+          <h2>
+            Wissenswertes A–Z
+          </h2>
+
+          <p class="section-lead">
+            Die wichtigsten Informationen schnell und
+            übersichtlich an einem Ort.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-icon">ⓘ</div>
+
+            <h3>Kontakt</h3>
+
+            <p>
+              Rezeption und wichtige Kontaktdaten des Hauses.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Kontakt',`
+                <h3>Rezeption</h3>
+                <p id="detailPhone"></p>
+              `)">
+              Kontakt ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">⌂</div>
+
+            <h3>WLAN</h3>
+
+            <p>
+              Informationen zum WLAN und zur Verbindung.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('WLAN',`
+                <h3>WLAN</h3>
+                <p>Hier werden später WLAN-Name und Passwort beziehungsweise die entsprechenden Zugangsinformationen hinterlegt.</p>
+              `)">
+              WLAN anzeigen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">!</div>
+
+            <h3>Notfallinformationen</h3>
+
+            <p>
+              Wichtige Informationen für Notfälle und
+              medizinische Hilfe.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Notfallinformationen',`
+                <h3>Im Notfall</h3>
+                <p>Hier können die konkreten Notfallinformationen des Hauses hinterlegt werden.</p>
+              `)">
+              Informationen ansehen
+            </button>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">A–Z</div>
+
+            <h3>Gästeinformationen</h3>
+
+            <p>
+              Weitere wichtige Hinweise zu Ihrem Aufenthalt.
+            </p>
+
+            <button class="cta"
+              onclick="openDetail('Gästeinformationen A–Z',`
+                <h3>Gästeinformationen</h3>
+                <p>Hier können weitere Themen wie Parken, Haustiere, Reinigung, Gepäck, Abreise und vieles mehr gesammelt werden.</p>
+              `)">
+              A–Z öffnen
+            </button>
+          </article>
+
+        </div>
+
+      </section>
+
     </div>
 
-    <div class="cards" id="cards"></div>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+      ☎ Rezeption · <span id="footerPhone">+49 7543 9330</span>
+    </footer>
 
   </main>
 
-  <div class="footerContact" id="contact"></div>
-
-</section>
+</div>
 
 
-<!-- ADMINANSICHT -->
+<!-- =========================
+     ADMIN
+========================= -->
 
 <section id="admin">
 
-  <div class="adminWrap">
+  <div class="admin-wrap">
 
-    <div class="adminBox">
+    <div class="admin-head">
 
-      <h2>Gästemappe bearbeiten</h2>
+      <h1>Gästemappe bearbeiten</h1>
+
+      <p>
+        Änderungen werden auf diesem Gerät gespeichert.
+      </p>
+
+    </div>
+
+
+    <div class="admin-card">
+
+      <h2>Startseite</h2>
 
       <div class="field">
-        <label>Titel</label>
-        <input id="iTitle">
+        <label>TITEL</label>
+
+        <input
+          id="iTitle"
+          type="text"
+        >
       </div>
 
+
       <div class="field">
-        <label>Begrüßungstext</label>
+        <label>BEGRÜSSUNG</label>
+
         <textarea id="iIntro"></textarea>
       </div>
 
-      <div class="field">
-        <label>Telefon Rezeption</label>
-        <input id="iPhone">
-      </div>
 
       <div class="field">
-        <label>Hero-Bild</label>
-        <input id="photo" type="file" accept="image/*" onchange="photoChange(event)">
-        <img id="photoPreview" class="imagePreview">
+        <label>REZEPTION / TELEFON</label>
+
+        <input
+          id="iPhone"
+          type="text"
+        >
       </div>
 
-      <div class="adminActions">
-        <button class="primary" onclick="save()">Änderungen speichern</button>
-        <button class="secondary" onclick="reset()">Zurücksetzen</button>
-        <button class="secondary" onclick="guest()">Gästeansicht öffnen</button>
+
+      <div class="admin-actions">
+
+        <button
+          class="primary"
+          onclick="saveSettings()"
+        >
+          Änderungen speichern
+        </button>
+
+        <button
+          class="secondary"
+          onclick="resetSettings()"
+        >
+          Zurücksetzen
+        </button>
+
+        <button
+          class="secondary"
+          onclick="showGuest()"
+        >
+          Zur Gästeansicht
+        </button>
+
       </div>
 
     </div>
 
 
-    <div class="adminBox">
+    <div class="admin-card">
 
       <h2>Bereiche</h2>
 
-      <div class="areaList" id="areas"></div>
-
-      <div class="adminActions">
-        <button class="primary" onclick="addArea()">+ Bereich hinzufügen</button>
-      </div>
+      <p style="color:var(--muted);line-height:1.7;margin:0;">
+        Die Inhalte der einzelnen Bereiche können wir als
+        nächsten Schritt gemeinsam mit den echten Informationen
+        des Engel am See füllen.
+      </p>
 
     </div>
 
   </div>
 
 </section>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="modal"
+  onclick="closeModalOutside(event)"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-top">
+
+      <h2 id="modalTitle">
+        Informationen
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      class="modal-body"
+      id="modalBody"
+    ></div>
+
+  </div>
+
+</div>
 
 
 <script>
 
-const base = {
+/* =========================
+   DATEN
+========================= */
+
+const defaultData = {
+
   title: "Du. Dein See. Dein Engel.",
-  intro: "Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.",
-  phone: "+49 7543 9330",
 
-  image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85",
+  intro:
+    "Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.",
 
-  areas: [
-    {
-      icon:"⌂",
-      name:"Mein Aufenthalt",
-      desc:"Alles rund um Ihren Aufenthalt"
-    },
-    {
-      icon:"♜",
-      name:"Essen & Trinken",
-      desc:"Frühstück, Restaurant und Bar"
-    },
-    {
-      icon:"♧",
-      name:"Wellness & Spa",
-      desc:"Spa, Sauna und Anwendungen"
-    },
-    {
-      icon:"≈",
-      name:"See & Erleben",
-      desc:"Aktivitäten und Ausflüge"
-    },
-    {
-      icon:"⌖",
-      name:"Empfehlungen",
-      desc:"Unsere persönlichen Tipps"
-    },
-    {
-      icon:"ⓘ",
-      name:"Wichtige Informationen",
-      desc:"Wissenswertes A–Z"
-    }
-  ]
+  phone:
+    "+49 7543 9330"
+
 };
 
 
-let d =
-  JSON.parse(localStorage.getItem("engelMapV11") || "null")
-  || structuredClone(base);
+/* =========================
+   DATEN LADEN
+========================= */
+
+let data =
+  JSON.parse(
+    localStorage.getItem("engelGuestMap")
+  ) || {...defaultData};
 
 
-function esc(s){
-  return String(s).replace(/[&<>"']/g,function(c){
-    return {
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[c];
-  });
-}
-
+/* =========================
+   RENDER
+========================= */
 
 function render(){
 
-  /* TITEL + INTRO */
-
   document.getElementById("title").innerHTML =
-    esc(d.title)
-      .replace(/\n/g,"<br>")
+    escapeHTML(data.title)
       .replace(
         "Dein Engel.",
         "<i>Dein Engel.</i>"
       );
 
-  document.getElementById("intro").textContent = d.intro;
+  document.getElementById("intro").textContent =
+    data.intro;
+
+  document.getElementById("footerPhone").textContent =
+    data.phone;
+
+  document.getElementById("iTitle").value =
+    data.title;
+
+  document.getElementById("iIntro").value =
+    data.intro;
+
+  document.getElementById("iPhone").value =
+    data.phone;
+
+}
 
 
-  /* HERO-BILD */
+/* =========================
+   SCHNELLMENÜ
+========================= */
 
-  document.getElementById("hero").style.backgroundImage =
-    `url("${d.image}")`;
+function createQuickMenu(){
 
+  const items = [
 
-  /* KONTAKT */
+    {
+      icon:"⌂",
+      name:"Mein Aufenthalt",
+      desc:"Alles rund um Ihren Aufenthalt",
+      target:"section-stay"
+    },
 
-  document.getElementById("contact").textContent =
-    "☎ Rezeption · " + d.phone;
+    {
+      icon:"♜",
+      name:"Essen & Trinken",
+      desc:"Frühstück, Restaurant und Bar",
+      target:"section-food"
+    },
 
+    {
+      icon:"♧",
+      name:"Wellness & Spa",
+      desc:"Spa, Sauna und Anwendungen",
+      target:"section-spa"
+    },
 
-  /* ADMIN-FELDER */
+    {
+      icon:"≈",
+      name:"See & Erleben",
+      desc:"Aktivitäten und Ausflüge",
+      target:"section-experience"
+    },
 
-  document.getElementById("iTitle").value = d.title;
-  document.getElementById("iIntro").value = d.intro;
-  document.getElementById("iPhone").value = d.phone;
+    {
+      icon:"✦",
+      name:"Empfehlungen",
+      desc:"Unsere persönlichen Tipps",
+      target:"section-recommendations"
+    },
 
-  document.getElementById("photoPreview").src = d.image;
+    {
+      icon:"ⓘ",
+      name:"Wichtige Informationen",
+      desc:"Wissenswertes A–Z",
+      target:"section-info"
+    }
 
+  ];
 
-  /* QUICK BUTTONS */
 
   document.getElementById("quick").innerHTML =
-    d.areas.map((a,i)=>`
+    items.map(item => `
 
-      <button onclick="scrollToArea(${i})">
+      <button
+        onclick="goTo('${item.target}')"
+      >
 
         <div class="icon">
-          ${esc(a.icon)}
+          ${item.icon}
         </div>
 
         <strong>
-          ${esc(a.name)}
+          ${item.name}
         </strong>
 
         <small>
-          ${esc(a.desc)}
+          ${item.desc}
         </small>
 
       </button>
 
     `).join("");
 
-
-  /* DETAIL-KARTEN */
-
-  document.getElementById("cards").innerHTML =
-    d.areas.map((a,i)=>`
-
-      <article class="card" id="card-${i}">
-
-        <div class="tag">
-          ${esc(a.name)}
-        </div>
-
-        <h3>
-          ${esc(a.name)}
-        </h3>
-
-        <p>
-          ${esc(a.desc)}.
-          Hier können später ausführliche Informationen,
-          Bilder, Öffnungszeiten und direkte Aktionen
-          hinterlegt werden.
-        </p>
-
-        <button class="cta" onclick="showInfo('${esc(a.name)}')">
-          Mehr erfahren
-        </button>
-
-      </article>
-
-    `).join("");
-
-
-  /* ADMIN-BEREICHE */
-
-  document.getElementById("areas").innerHTML =
-    d.areas.map((a,i)=>`
-
-      <div class="areaRow">
-
-        <div class="areaIcon">
-          ${esc(a.icon)}
-        </div>
-
-        <div>
-          <strong>
-            ${esc(a.name)}
-          </strong>
-
-          <small>
-            ${esc(a.desc)}
-          </small>
-        </div>
-
-        <button
-          class="edit"
-          onclick="edit(${i})"
-          title="Bereich bearbeiten"
-        >
-          ✎
-        </button>
-
-      </div>
-
-    `).join("");
 }
 
 
-/* QUICK-BUTTON → ZUM BEREICH SCROLLEN */
+/* =========================
+   SCROLL
+========================= */
 
-function scrollToArea(i){
+function goTo(id){
 
-  const target =
-    document.getElementById("card-" + i);
+  const element =
+    document.getElementById(id);
 
-  if(!target) return;
+  if(!element) return;
 
-  target.scrollIntoView({
+  element.scrollIntoView({
     behavior:"smooth",
-    block:"center"
+    block:"start"
   });
-}
-
-
-/* DEMO FÜR "MEHR ERFAHREN" */
-
-function showInfo(name){
-
-  alert(
-    "Bereich: " + name +
-    "\n\nHier können später die ausführlichen Informationen hinterlegt werden."
-  );
 
 }
 
 
-/* GÄSTEANSICHT */
+/* =========================
+   MODAL ÖFFNEN
+========================= */
 
-function guest(){
+function openDetail(title, html){
 
-  document.getElementById("guest").style.display = "block";
-  document.getElementById("admin").style.display = "none";
+  document.getElementById("modalTitle").textContent =
+    title;
 
-  document.getElementById("gb").classList.add("on");
-  document.getElementById("ab").classList.remove("on");
+  document.getElementById("modalBody").innerHTML =
+    html;
+
+  const phone =
+    document.getElementById("modalPhone");
+
+  if(phone){
+    phone.textContent =
+      "☎ Rezeption · " + data.phone;
+  }
+
+  const detailPhone =
+    document.getElementById("detailPhone");
+
+  if(detailPhone){
+    detailPhone.textContent =
+      "☎ Rezeption · " + data.phone;
+  }
+
+  document.getElementById("modal")
+    .classList.add("open");
+
+}
+
+
+/* =========================
+   MODAL SCHLIESSEN
+========================= */
+
+function closeModal(){
+
+  document.getElementById("modal")
+    .classList.remove("open");
+
+}
+
+
+function closeModalOutside(event){
+
+  if(event.target.id === "modal"){
+    closeModal();
+  }
+
+}
+
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+      closeModal();
+    }
+
+  }
+);
+
+
+/* =========================
+   GÄSTEANSICHT
+========================= */
+
+function showGuest(){
+
+  document.getElementById("guest").style.display =
+    "block";
+
+  document.getElementById("admin").style.display =
+    "none";
+
+  document.getElementById("guestButton")
+    .classList.add("active");
+
+  document.getElementById("adminButton")
+    .classList.remove("active");
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 }
 
 
-/* ADMINANSICHT */
+/* =========================
+   BEARBEITEN
+========================= */
 
-function admin(){
+function showAdmin(){
 
-  document.getElementById("guest").style.display = "none";
-  document.getElementById("admin").style.display = "block";
+  document.getElementById("guest").style.display =
+    "none";
 
-  document.getElementById("gb").classList.remove("on");
-  document.getElementById("ab").classList.add("on");
+  document.getElementById("admin").style.display =
+    "block";
+
+  document.getElementById("guestButton")
+    .classList.remove("active");
+
+  document.getElementById("adminButton")
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 }
 
 
-/* ÄNDERUNGEN SPEICHERN */
+/* =========================
+   SPEICHERN
+========================= */
 
-function save(){
+function saveSettings(){
 
-  d.title =
+  data.title =
     document.getElementById("iTitle").value;
 
-  d.intro =
+  data.intro =
     document.getElementById("iIntro").value;
 
-  d.phone =
+  data.phone =
     document.getElementById("iPhone").value;
 
   localStorage.setItem(
-    "engelMapV11",
-    JSON.stringify(d)
+    "engelGuestMap",
+    JSON.stringify(data)
   );
 
   render();
 
   alert("Änderungen wurden gespeichert.");
+
 }
 
 
-/* ZURÜCKSETZEN */
+/* =========================
+   ZURÜCKSETZEN
+========================= */
 
-function reset(){
+function resetSettings(){
 
-  d = structuredClone(base);
+  data = {...defaultData};
 
   localStorage.setItem(
-    "engelMapV11",
-    JSON.stringify(d)
+    "engelGuestMap",
+    JSON.stringify(data)
   );
 
   render();
+
 }
 
 
-/* BILD ÄNDERN */
+/* =========================
+   HTML ESCAPEN
+========================= */
 
-function photoChange(e){
+function escapeHTML(value){
 
-  const file = e.target.files[0];
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-  if(!file) return;
-
-  const reader = new FileReader();
-
-  reader.onload = function(){
-
-    d.image = reader.result;
-
-    document.getElementById("photoPreview").src =
-      d.image;
-
-    localStorage.setItem(
-      "engelMapV11",
-      JSON.stringify(d)
-    );
-
-    render();
-  };
-
-  reader.readAsDataURL(file);
 }
 
 
-/* BEREICH BEARBEITEN */
+/* =========================
+   START
+========================= */
 
-function edit(i){
-
-  const name =
-    prompt(
-      "Name des Bereichs:",
-      d.areas[i].name
-    );
-
-  if(name === null) return;
-
-  const desc =
-    prompt(
-      "Kurzbeschreibung:",
-      d.areas[i].desc
-    );
-
-  if(desc === null) return;
-
-  d.areas[i].name = name;
-  d.areas[i].desc = desc;
-
-  localStorage.setItem(
-    "engelMapV11",
-    JSON.stringify(d)
-  );
-
-  render();
-}
-
-
-/* BEREICH HINZUFÜGEN */
-
-function addArea(){
-
-  const name =
-    prompt("Name des neuen Bereichs:");
-
-  if(!name) return;
-
-  const desc =
-    prompt("Kurzbeschreibung:");
-
-  if(desc === null) return;
-
-  const icon =
-    prompt("Icon / Symbol:", "○");
-
-  d.areas.push({
-    icon: icon || "○",
-    name:name,
-    desc:desc
-  });
-
-  localStorage.setItem(
-    "engelMapV11",
-    JSON.stringify(d)
-  );
-
-  render();
-}
-
-
-/* START */
-
+createQuickMenu();
 render();
 
 </script>
