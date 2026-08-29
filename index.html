@@ -3,90 +3,942 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>engel am See · Digitale Gästemappe V1.1</title>
-<style>
-:root{--gold:#b99d42;--cream:#f6f3eb;--paper:#fffdfa;--ink:#312e2a;--muted:#817b72;--line:#ddd7cb;--teal:#69b9be;--olive:#b1b873;--mauve:#916f77}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}
-header{height:68px;background:#fffdfa;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:30}
-.brand{display:flex;align-items:center;color:var(--gold);gap:8px}.mark{font:700 48px Georgia;line-height:.5}.brandtext{font:20px Georgia}.brandtext small{display:block;font:10px Arial;letter-spacing:2px;text-align:center;margin-top:4px}.nav{display:flex;gap:7px}.nav button{border:1px solid var(--line);background:#fffdfa;border-radius:20px;padding:8px 13px;font-size:11px}.nav .on{background:var(--gold);color:#fff;border-color:var(--gold)}
-#guest{max-width:540px;margin:auto;background:var(--paper);min-height:100vh}.hero{height:545px;background-size:cover;background-position:center;position:relative;color:#fff}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(30,26,22,.65))}.heroInner{position:absolute;inset:0;z-index:2;padding:28px;display:flex;flex-direction:column}.heroBrand{align-self:flex-end;color:#fff}.heroBrand .mark{font-size:43px}.heroBrand .brandtext{font-size:16px}.copy{margin-top:auto}.eyebrow{color:var(--gold);font-size:9px;letter-spacing:2.3px;text-transform:uppercase}.copy .eyebrow{color:#e4cc78}.copy h1{font:400 39px/1.04 Georgia;margin:8px 0}.copy h1 i{color:#e4cc78}.copy p{font-size:13px;line-height:1.65;max-width:390px}.line{width:40px;height:2px;background:var(--gold);margin:15px 0}
-.quick{margin:-24px 14px 0;position:relative;z-index:5;background:#fffdfa;box-shadow:0 9px 25px #3c342622;border-radius:5px;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden}.quick button{background:none;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 5px;min-height:92px}.quick button:nth-child(3n){border-right:0}.quick button:nth-last-child(-n+3){border-bottom:0}.qicon{width:28px;height:28px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);margin:auto auto 8px}.quick strong{font:400 12px Georgia}
-.main{padding:42px 23px 85px}.center{text-align:center}.center h2{font:400 27px Georgia;margin:8px 0}.intro{font-size:12px;color:var(--muted);line-height:1.6;max-width:400px;margin:auto}.cards{display:grid;gap:12px;margin-top:24px}.card{background:#fff;border:1px solid var(--line);padding:19px;border-radius:4px}.card h3{font:400 21px Georgia;margin:7px 0}.card p{font-size:12px;color:#625d56;line-height:1.65}.tag{font-size:8px;color:var(--gold);letter-spacing:1.7px;text-transform:uppercase}.cta{background:var(--gold);color:#fff;border:0;border-radius:3px;padding:11px 15px;font-size:11px}.contact{position:sticky;bottom:0;background:var(--gold);color:#fff;text-align:center;padding:13px;font-size:11px}
+<title>engel am See · Digitale Gästemappe</title>
 
-#admin{display:none;background:#f0ede5;min-height:calc(100vh - 68px)}.adminwrap{max-width:1200px;margin:auto;display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 68px)}.side{background:#fffdfa;border-right:1px solid var(--line);padding:25px 15px}.side .brand{margin:0 8px 30px}.sideitem{padding:11px;border-radius:4px;font-size:11px;color:#625d56;margin:3px 0}.sideitem.active{background:#eee6d2;color:#6b5920}.work{padding:30px}.worktop{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.worktop h1{font:400 29px Georgia;margin:0}.worktop p{font-size:11px;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1.1fr;gap:16px}.panel{background:#fffdfa;border:1px solid var(--line);border-radius:5px;padding:20px}.panel h2{font:400 20px Georgia;margin:0 0 18px}.field{margin-bottom:14px}.field label{display:block;color:var(--gold);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}.field input,.field textarea{width:100%;border:1px solid #d2ccbf;background:#fff;padding:10px;border-radius:3px;outline:none;color:var(--ink)}.field textarea{min-height:85px;resize:vertical}.photo{height:105px;width:100%;object-fit:cover;border-radius:3px;margin-bottom:6px}.save,.add{border:0;background:var(--gold);color:#fff;border-radius:3px;padding:11px 16px;font-size:11px}.reset{border:1px solid var(--line);background:#fffdfa;padding:10px 15px;border-radius:3px;font-size:11px}.actions{display:flex;gap:8px;margin-top:17px}.area{display:grid;gap:8px}.areaRow{display:grid;grid-template-columns:32px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);padding:11px;border-radius:3px}.areaIcon{color:var(--gold);font-size:17px;text-align:center}.areaRow strong{font:400 15px Georgia}.areaRow small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.edit{border:1px solid var(--line);background:#fff;padding:6px 8px;border-radius:3px}.hint{font-size:10px;color:var(--muted);line-height:1.5;margin-top:15px}
-@media(max-width:760px){header{padding:0 13px}.brandtext{font-size:16px}.nav button{padding:7px 9px}.adminwrap{display:block}.side{display:none}.work{padding:16px}.grid{grid-template-columns:1fr}}
+<style>
+:root{
+  --gold:#b99d42;
+  --cream:#f6f3eb;
+  --paper:#fffdfa;
+  --ink:#312e2a;
+  --muted:#817b72;
+  --line:#ddd7cb;
+  --teal:#6b9b9e;
+  --olive:#b1b873;
+  --mauve:#916f80;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Arial,sans-serif;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+header{
+  height:68px;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  color:var(--gold);
+  gap:8px;
+}
+
+.mark{
+  font:700 48px Georgia;
+  line-height:.5;
+}
+
+.brandtext{
+  font:700 20px Georgia;
+}
+
+.brandtext small{
+  display:block;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:400;
+}
+
+.nav{
+  display:flex;
+  gap:8px;
+}
+
+.nav button{
+  border:1px solid var(--line);
+  background:white;
+  color:var(--ink);
+  border-radius:20px;
+  padding:8px 14px;
+}
+
+.nav button.on{
+  background:var(--gold);
+  color:white;
+  border-color:var(--gold);
+}
+
+.guest{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+}
+
+.hero{
+  min-height:545px;
+  max-width:545px;
+  margin:auto;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.62),
+    rgba(0,0,0,.05) 65%
+  );
+}
+
+.heroContent{
+  position:relative;
+  z-index:2;
+  color:white;
+  padding:42px 28px 30px;
+  width:100%;
+}
+
+.kicker{
+  color:#d8bd60;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+#title{
+  font:400 38px Georgia;
+  line-height:1.05;
+  margin:0 0 16px;
+}
+
+#intro{
+  font-size:14px;
+  line-height:1.6;
+  max-width:470px;
+}
+
+.quick{
+  max-width:545px;
+  margin:-24px auto 0;
+  position:relative;
+  z-index:5;
+  background:var(--paper);
+  box-shadow:0 9px 25px rgba(49,46,42,.14);
+  border-radius:5px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+.quick button{
+  min-height:92px;
+  border:0;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+  color:var(--ink);
+  padding:12px 8px;
+  transition:.2s;
+}
+
+.quick button:hover{
+  background:#f1ecdf;
+}
+
+.quick button:nth-child(3n){
+  border-right:0;
+}
+
+.quick button:nth-last-child(-n+3){
+  border-bottom:0;
+}
+
+.icon{
+  font-size:20px;
+  color:var(--gold);
+  margin-bottom:8px;
+}
+
+.quick strong{
+  display:block;
+  font:400 14px Georgia;
+  margin-bottom:4px;
+}
+
+.quick small{
+  display:block;
+  font-size:11px;
+  line-height:1.3;
+  color:var(--muted);
+}
+
+.main{
+  max-width:545px;
+  margin:auto;
+  padding:42px 23px 85px;
+}
+
+.center{
+  text-align:center;
+}
+
+.center h2{
+  font:400 27px Georgia;
+  margin:8px 0 8px;
+}
+
+.intro{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.cards{
+  display:grid;
+  gap:18px;
+  margin-top:26px;
+}
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:22px;
+  border-radius:5px;
+  scroll-margin-top:90px;
+}
+
+.card .tag{
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.card h3{
+  font:400 24px Georgia;
+  margin:0 0 10px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin:0 0 18px;
+}
+
+.cta{
+  border:1px solid var(--gold);
+  color:var(--gold);
+  background:white;
+  border-radius:20px;
+  padding:8px 14px;
+}
+
+.footerContact{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:545px;
+  background:var(--gold);
+  color:white;
+  text-align:center;
+  padding:12px;
+  font-size:12px;
+  z-index:10;
+}
+
+/* ADMIN */
+
+#admin{
+  display:none;
+  min-height:calc(100vh - 68px);
+  background:#f0ede5;
+}
+
+.adminWrap{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  padding:30px;
+}
+
+.adminBox{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:24px;
+}
+
+.adminBox h2{
+  font:400 25px Georgia;
+  margin:0 0 20px;
+}
+
+.field{
+  margin-bottom:16px;
+}
+
+.field label{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.field input,
+.field textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:5px;
+  padding:10px;
+  background:white;
+  color:var(--ink);
+}
+
+.field textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.adminActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.primary{
+  background:var(--gold);
+  color:white;
+  border:0;
+  border-radius:5px;
+  padding:10px 16px;
+}
+
+.secondary{
+  background:white;
+  color:var(--ink);
+  border:1px solid var(--line);
+  border-radius:5px;
+  padding:10px 16px;
+}
+
+.areaList{
+  display:grid;
+  gap:10px;
+}
+
+.areaRow{
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  gap:12px;
+  align-items:center;
+  border:1px solid var(--line);
+  padding:12px;
+  border-radius:5px;
+  background:#fffdfa;
+}
+
+.areaIcon{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  border-radius:50%;
+  color:var(--gold);
+  font-size:18px;
+}
+
+.areaRow strong{
+  display:block;
+  font:400 16px Georgia;
+}
+
+.areaRow small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+.edit{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:50%;
+  width:34px;
+  height:34px;
+}
+
+.imagePreview{
+  width:100%;
+  max-height:220px;
+  object-fit:cover;
+  border-radius:5px;
+  margin-top:8px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:760px){
+  header{
+    padding:0 13px;
+  }
+
+  .brandtext{
+    font-size:16px;
+  }
+
+  .mark{
+    font-size:40px;
+  }
+
+  .nav button{
+    padding:7px 9px;
+    font-size:12px;
+  }
+
+  .adminWrap{
+    grid-template-columns:1fr;
+    padding:15px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
- <div class="brand"><span class="mark">e</span><span class="brandtext">engel<small>am See</small></span></div>
- <div class="nav"><button id="gb" class="on" onclick="guest()">Gästeansicht</button><button id="ab" onclick="admin()">Bearbeiten</button></div>
+  <div class="brand">
+    <span class="mark">e</span>
+    <span class="brandtext">
+      engel
+      <small>am See</small>
+    </span>
+  </div>
+
+  <div class="nav">
+    <button id="gb" class="on" onclick="guest()">Gästeansicht</button>
+    <button id="ab" onclick="admin()">Bearbeiten</button>
+  </div>
 </header>
 
+
+<!-- GÄSTEANSICHT -->
+
 <section id="guest">
- <div class="hero" id="hero">
-  <div class="heroInner">
-   <div class="brand heroBrand"><span class="mark">e</span><span class="brandtext">engel<small>am See</small></span></div>
-   <div class="copy"><div class="eyebrow">Willkommen</div><h1 id="title"></h1><div class="line"></div><p id="intro"></p></div>
+
+  <div class="hero" id="hero">
+    <div class="heroContent">
+      <div class="kicker">WILLKOMMEN</div>
+      <h1 id="title"></h1>
+      <div id="intro"></div>
+    </div>
   </div>
- </div>
- <div class="quick" id="quick"></div>
- <div class="main">
-  <div class="center"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p class="intro">Informationen, Empfehlungen und kleine Dinge, die Ihren Aufenthalt noch angenehmer machen.</p></div>
-  <div class="cards" id="cards"></div>
- </div>
- <div class="contact" id="contact"></div>
+
+  <div class="quick" id="quick"></div>
+
+  <main class="main">
+
+    <div class="center">
+      <div class="kicker">IHR AUFENTHALT</div>
+      <h2>Alles, was Sie brauchen.</h2>
+      <div class="intro">
+        Informationen, Empfehlungen und alles rund um Ihren Aufenthalt.
+      </div>
+    </div>
+
+    <div class="cards" id="cards"></div>
+
+  </main>
+
+  <div class="footerContact" id="contact"></div>
+
 </section>
+
+
+<!-- ADMINANSICHT -->
 
 <section id="admin">
- <div class="adminwrap">
-  <aside class="side">
-   <div class="brand"><span class="mark">e</span><span class="brandtext">engel<small>am See</small></span></div>
-   <div class="sideitem active">⌂ &nbsp; Dashboard</div><div class="sideitem">▦ &nbsp; Startseite</div><div class="sideitem">☷ &nbsp; Bereiche</div><div class="sideitem">▤ &nbsp; Inhalte</div><div class="sideitem">◷ &nbsp; Öffnungszeiten</div><div class="sideitem">▧ &nbsp; Medien</div>
-  </aside>
-  <main class="work">
-   <div class="worktop"><div><h1>Gästemappe bearbeiten</h1><p>Inhalte pflegen · Änderungen werden im Prototyp lokal gespeichert</p></div><button class="save" onclick="guest()">Gästeansicht ↗</button></div>
-   <div class="grid">
-    <div class="panel"><h2>Startseite</h2>
-     <div class="field"><label>Überschrift</label><input id="iTitle"></div>
-     <div class="field"><label>Willkommenstext</label><textarea id="iIntro"></textarea></div>
-     <div class="field"><label>Hero-Bild</label><img id="photo" class="photo"><input type="file" accept="image/*" onchange="photoChange(event)"></div>
-     <div class="field"><label>Rezeption</label><input id="iPhone"></div>
-     <div class="actions"><button class="save" onclick="save()">Änderungen speichern</button><button class="reset" onclick="reset()">Reset</button></div>
+
+  <div class="adminWrap">
+
+    <div class="adminBox">
+
+      <h2>Gästemappe bearbeiten</h2>
+
+      <div class="field">
+        <label>Titel</label>
+        <input id="iTitle">
+      </div>
+
+      <div class="field">
+        <label>Begrüßungstext</label>
+        <textarea id="iIntro"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Telefon Rezeption</label>
+        <input id="iPhone">
+      </div>
+
+      <div class="field">
+        <label>Hero-Bild</label>
+        <input id="photo" type="file" accept="image/*" onchange="photoChange(event)">
+        <img id="photoPreview" class="imagePreview">
+      </div>
+
+      <div class="adminActions">
+        <button class="primary" onclick="save()">Änderungen speichern</button>
+        <button class="secondary" onclick="reset()">Zurücksetzen</button>
+        <button class="secondary" onclick="guest()">Gästeansicht öffnen</button>
+      </div>
+
     </div>
-    <div class="panel"><h2>Bereiche</h2><div class="area" id="areas"></div><div class="actions"><button class="add" onclick="add()">＋ Bereich hinzufügen</button></div><p class="hint">Jeder Bereich kann später eine eigene Seite bekommen. Im nächsten Schritt können wir Bilder, Öffnungszeiten, PDFs, Links und Buchungsfunktionen ergänzen.</p></div>
-   </div>
-  </main>
- </div>
+
+
+    <div class="adminBox">
+
+      <h2>Bereiche</h2>
+
+      <div class="areaList" id="areas"></div>
+
+      <div class="adminActions">
+        <button class="primary" onclick="addArea()">+ Bereich hinzufügen</button>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
+
 <script>
-const base={title:"Du. Dein See. Dein Engel.",intro:"Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.",phone:"+49 7543 9330",image:"https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",areas:[
-{icon:"⌂",name:"Mein Aufenthalt",desc:"Alles rund um Ihren Aufenthalt"},
-{icon:"♜",name:"Essen & Trinken",desc:"Frühstück, Restaurant und Bar"},
-{icon:"♧",name:"Wellness & Spa",desc:"Spa, Sauna und Anwendungen"},
-{icon:"≈",name:"See & Erleben",desc:"Aktivitäten und Ausflüge"},
-{icon:"⌖",name:"Empfehlungen",desc:"Unsere persönlichen Tipps"},
-{icon:"ⓘ",name:"Wichtige Informationen",desc:"Wissenswertes A–Z"}]};
-let d=JSON.parse(localStorage.getItem("engelMapV11")||"null")||structuredClone(base);
-function render(){
- document.getElementById("title").innerHTML=d.title.replace(/\n/g,"<br>").replace("Dein Engel.","<i>Dein Engel.</i>");
- document.getElementById("intro").textContent=d.intro;document.getElementById("hero").style.backgroundImage=`url("${d.image}")`;
- document.getElementById("contact").textContent="☎ Rezeption · "+d.phone;
- document.getElementById("iTitle").value=d.title;document.getElementById("iIntro").value=d.intro;document.getElementById("iPhone").value=d.phone;document.getElementById("photo").src=d.image;
- document.getElementById("quick").innerHTML=d.areas.map((a,i)=>`<button onclick="document.querySelectorAll('#cards .card')[${i}].scrollIntoView({behavior:'smooth',block:'center'})"><div class="icon">${esc(a.icon)}</div><strong>${esc(a.name)}</strong><small>${esc(a.desc)}</small></button>`).join("");
- document.getElementById("cards").innerHTML=d.areas.slice(0,4).map(a=>`<article class="card"><div class="tag">${esc(a.name)}</div><h3>${esc(a.name)}</h3><p>${esc(a.desc)}. Hier können später ausführliche Informationen, Bilder, Öffnungszeiten und direkte Aktionen hinterlegt werden.</p><button class="cta">Mehr erfahren</button></article>`).join("");
- document.getElementById("areas").innerHTML=d.areas.map((a,i)=>`<div class="areaRow"><div class="areaIcon">${esc(a.icon)}</div><div><strong>${esc(a.name)}</strong><small>${esc(a.desc)}</small></div><button class="edit" onclick="edit(${i})">✎</button></div>`).join("");
+
+const base = {
+  title: "Du. Dein See. Dein Engel.",
+  intro: "Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.",
+  phone: "+49 7543 9330",
+
+  image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85",
+
+  areas: [
+    {
+      icon:"⌂",
+      name:"Mein Aufenthalt",
+      desc:"Alles rund um Ihren Aufenthalt"
+    },
+    {
+      icon:"♜",
+      name:"Essen & Trinken",
+      desc:"Frühstück, Restaurant und Bar"
+    },
+    {
+      icon:"♧",
+      name:"Wellness & Spa",
+      desc:"Spa, Sauna und Anwendungen"
+    },
+    {
+      icon:"≈",
+      name:"See & Erleben",
+      desc:"Aktivitäten und Ausflüge"
+    },
+    {
+      icon:"⌖",
+      name:"Empfehlungen",
+      desc:"Unsere persönlichen Tipps"
+    },
+    {
+      icon:"ⓘ",
+      name:"Wichtige Informationen",
+      desc:"Wissenswertes A–Z"
+    }
+  ]
+};
+
+
+let d =
+  JSON.parse(localStorage.getItem("engelMapV11") || "null")
+  || structuredClone(base);
+
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g,function(c){
+    return {
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[c];
+  });
 }
-function save(){d.title=iTitle.value;d.intro=iIntro.value;d.phone=iPhone.value;localStorage.setItem("engelMapV11",JSON.stringify(d));render();alert("Gespeichert.");}
-function reset(){d=structuredClone(base);localStorage.setItem("engelMapV11",JSON.stringify(d));render();}
-function edit(i){let n=prompt("Name:",d.areas[i].name);if(n===null)return;let x=prompt("Beschreibung:",d.areas[i].desc);if(x===null)return;d.areas[i].name=n;d.areas[i].desc=x;localStorage.setItem("engelMapV11",JSON.stringify(d));render();}
-function add(){let n=prompt("Name des neuen Bereichs:");if(!n)return;let x=prompt("Kurzbeschreibung:")||"Weitere Informationen";d.areas.push({icon:"•",name:n,desc:x});localStorage.setItem("engelMapV11",JSON.stringify(d));render();}
-function photoChange(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{d.image=r.result;document.getElementById("photo").src=r.result};r.readAsDataURL(f);}
-function guest(){document.getElementById("guest").style.display="block";document.getElementById("admin").style.display="none";gb.classList.add("on");ab.classList.remove("on");scrollTo(0,0)}
-function admin(){document.getElementById("guest").style.display="none";document.getElementById("admin").style.display="block";ab.classList.add("on");gb.classList.remove("on");scrollTo(0,0)}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+
+
+function render(){
+
+  /* TITEL + INTRO */
+
+  document.getElementById("title").innerHTML =
+    esc(d.title)
+      .replace(/\n/g,"<br>")
+      .replace(
+        "Dein Engel.",
+        "<i>Dein Engel.</i>"
+      );
+
+  document.getElementById("intro").textContent = d.intro;
+
+
+  /* HERO-BILD */
+
+  document.getElementById("hero").style.backgroundImage =
+    `url("${d.image}")`;
+
+
+  /* KONTAKT */
+
+  document.getElementById("contact").textContent =
+    "☎ Rezeption · " + d.phone;
+
+
+  /* ADMIN-FELDER */
+
+  document.getElementById("iTitle").value = d.title;
+  document.getElementById("iIntro").value = d.intro;
+  document.getElementById("iPhone").value = d.phone;
+
+  document.getElementById("photoPreview").src = d.image;
+
+
+  /* QUICK BUTTONS */
+
+  document.getElementById("quick").innerHTML =
+    d.areas.map((a,i)=>`
+
+      <button onclick="scrollToArea(${i})">
+
+        <div class="icon">
+          ${esc(a.icon)}
+        </div>
+
+        <strong>
+          ${esc(a.name)}
+        </strong>
+
+        <small>
+          ${esc(a.desc)}
+        </small>
+
+      </button>
+
+    `).join("");
+
+
+  /* DETAIL-KARTEN */
+
+  document.getElementById("cards").innerHTML =
+    d.areas.map((a,i)=>`
+
+      <article class="card" id="card-${i}">
+
+        <div class="tag">
+          ${esc(a.name)}
+        </div>
+
+        <h3>
+          ${esc(a.name)}
+        </h3>
+
+        <p>
+          ${esc(a.desc)}.
+          Hier können später ausführliche Informationen,
+          Bilder, Öffnungszeiten und direkte Aktionen
+          hinterlegt werden.
+        </p>
+
+        <button class="cta" onclick="showInfo('${esc(a.name)}')">
+          Mehr erfahren
+        </button>
+
+      </article>
+
+    `).join("");
+
+
+  /* ADMIN-BEREICHE */
+
+  document.getElementById("areas").innerHTML =
+    d.areas.map((a,i)=>`
+
+      <div class="areaRow">
+
+        <div class="areaIcon">
+          ${esc(a.icon)}
+        </div>
+
+        <div>
+          <strong>
+            ${esc(a.name)}
+          </strong>
+
+          <small>
+            ${esc(a.desc)}
+          </small>
+        </div>
+
+        <button
+          class="edit"
+          onclick="edit(${i})"
+          title="Bereich bearbeiten"
+        >
+          ✎
+        </button>
+
+      </div>
+
+    `).join("");
+}
+
+
+/* QUICK-BUTTON → ZUM BEREICH SCROLLEN */
+
+function scrollToArea(i){
+
+  const target =
+    document.getElementById("card-" + i);
+
+  if(!target) return;
+
+  target.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}
+
+
+/* DEMO FÜR "MEHR ERFAHREN" */
+
+function showInfo(name){
+
+  alert(
+    "Bereich: " + name +
+    "\n\nHier können später die ausführlichen Informationen hinterlegt werden."
+  );
+
+}
+
+
+/* GÄSTEANSICHT */
+
+function guest(){
+
+  document.getElementById("guest").style.display = "block";
+  document.getElementById("admin").style.display = "none";
+
+  document.getElementById("gb").classList.add("on");
+  document.getElementById("ab").classList.remove("on");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+/* ADMINANSICHT */
+
+function admin(){
+
+  document.getElementById("guest").style.display = "none";
+  document.getElementById("admin").style.display = "block";
+
+  document.getElementById("gb").classList.remove("on");
+  document.getElementById("ab").classList.add("on");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+/* ÄNDERUNGEN SPEICHERN */
+
+function save(){
+
+  d.title =
+    document.getElementById("iTitle").value;
+
+  d.intro =
+    document.getElementById("iIntro").value;
+
+  d.phone =
+    document.getElementById("iPhone").value;
+
+  localStorage.setItem(
+    "engelMapV11",
+    JSON.stringify(d)
+  );
+
+  render();
+
+  alert("Änderungen wurden gespeichert.");
+}
+
+
+/* ZURÜCKSETZEN */
+
+function reset(){
+
+  d = structuredClone(base);
+
+  localStorage.setItem(
+    "engelMapV11",
+    JSON.stringify(d)
+  );
+
+  render();
+}
+
+
+/* BILD ÄNDERN */
+
+function photoChange(e){
+
+  const file = e.target.files[0];
+
+  if(!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    d.image = reader.result;
+
+    document.getElementById("photoPreview").src =
+      d.image;
+
+    localStorage.setItem(
+      "engelMapV11",
+      JSON.stringify(d)
+    );
+
+    render();
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+/* BEREICH BEARBEITEN */
+
+function edit(i){
+
+  const name =
+    prompt(
+      "Name des Bereichs:",
+      d.areas[i].name
+    );
+
+  if(name === null) return;
+
+  const desc =
+    prompt(
+      "Kurzbeschreibung:",
+      d.areas[i].desc
+    );
+
+  if(desc === null) return;
+
+  d.areas[i].name = name;
+  d.areas[i].desc = desc;
+
+  localStorage.setItem(
+    "engelMapV11",
+    JSON.stringify(d)
+  );
+
+  render();
+}
+
+
+/* BEREICH HINZUFÜGEN */
+
+function addArea(){
+
+  const name =
+    prompt("Name des neuen Bereichs:");
+
+  if(!name) return;
+
+  const desc =
+    prompt("Kurzbeschreibung:");
+
+  if(desc === null) return;
+
+  const icon =
+    prompt("Icon / Symbol:", "○");
+
+  d.areas.push({
+    icon: icon || "○",
+    name:name,
+    desc:desc
+  });
+
+  localStorage.setItem(
+    "engelMapV11",
+    JSON.stringify(d)
+  );
+
+  render();
+}
+
+
+/* START */
+
 render();
+
 </script>
+
 </body>
 </html>
