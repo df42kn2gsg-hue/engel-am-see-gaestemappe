@@ -74,7 +74,7 @@ function render(){
  document.getElementById("intro").textContent=d.intro;document.getElementById("hero").style.backgroundImage=`url("${d.image}")`;
  document.getElementById("contact").textContent="☎ Rezeption · "+d.phone;
  document.getElementById("iTitle").value=d.title;document.getElementById("iIntro").value=d.intro;document.getElementById("iPhone").value=d.phone;document.getElementById("photo").src=d.image;
- document.getElementById("quick").innerHTML=d.areas.map((a,i)=>`<button onclick="alert('Bereich: ${esc(a.name)}')"><div class="qicon">${esc(a.icon)}</div><strong>${esc(a.name)}</strong></button>`).join("");
+ document.getElementById("quick").innerHTML=d.areas.map((a,i)=>`<button onclick="document.querySelectorAll('#areas .card')[${i}].scrollIntoView({behavior:'smooth',block:'center'})"><div class="icon">${esc(a.icon)}</div><strong>${esc(a.name)}</strong><small>${esc(a.desc)}</small></button>`).join("");
  document.getElementById("cards").innerHTML=d.areas.slice(0,4).map(a=>`<article class="card"><div class="tag">${esc(a.name)}</div><h3>${esc(a.name)}</h3><p>${esc(a.desc)}. Hier können später ausführliche Informationen, Bilder, Öffnungszeiten und direkte Aktionen hinterlegt werden.</p><button class="cta">Mehr erfahren</button></article>`).join("");
  document.getElementById("areas").innerHTML=d.areas.map((a,i)=>`<div class="areaRow"><div class="areaIcon">${esc(a.icon)}</div><div><strong>${esc(a.name)}</strong><small>${esc(a.desc)}</small></div><button class="edit" onclick="edit(${i})">✎</button></div>`).join("");
 }
