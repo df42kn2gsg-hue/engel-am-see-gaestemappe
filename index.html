@@ -25,7 +25,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 </style>
 </head>
 <body>
-<header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div><div class="brandtext" id="brandName">engel<small id="brandSub">am See</small></div></div><nav class="nav"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
+<header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div><div class="brandtext" id="brandName">engel<small id="brandSub">am See</small></div></div><nav class="nav" id="navButtons" style="display:none"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
  
 <div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
  
@@ -446,6 +446,14 @@ function moveSection(si,dir){
 }
 document.getElementById('addSectionBtn').addEventListener('click',addSection);
  
+/* Der Bearbeiten-Zugang ist für Gäste komplett unsichtbar. Nur über den geheimen Link
+   ".../?team" erscheinen Navigation und Login – normale Besucher sehen davon nichts. */
+if(new URLSearchParams(location.search).has('team')){
+  document.getElementById('navButtons').style.display='flex';
+  showAdmin();
+}
+ 
 render();
 </script>
 </body></html>
+ 
