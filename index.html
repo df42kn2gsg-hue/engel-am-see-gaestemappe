@@ -25,14 +25,13 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 .lucide-ico{color:var(--gold-dark);stroke-width:1.6;display:inline-block;vertical-align:middle}
 .eyebrow-time{opacity:.85}
 .today-section{margin:52px 42px 0}.today-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px}.weather-box{display:flex;align-items:center;gap:18px}.weather-temp{font-family:Georgia,serif;font-size:44px;color:var(--gold-dark);line-height:1}.weather-meta{font-size:13px;color:var(--muted);line-height:1.7;margin-top:4px}.weather-sun{display:flex;gap:16px;margin-top:8px;font-size:12px;color:var(--muted)}.tip-box{border-left:1px solid var(--line);padding-left:26px}.tip-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:9px}.tip-box h3{margin:0 0 8px;font-family:Georgia,serif;font-size:22px;font-weight:400}.tip-box p{margin:0 0 18px;color:var(--muted);font-size:14px;line-height:1.65}
-.selected-section{margin:60px 0 0;padding:0 42px}.selected-section h2{margin:0 0 20px;font-family:Georgia,serif;font-size:28px;font-weight:400}.scroll-row{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.scroll-card{scroll-snap-align:start;flex:0 0 230px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}.scroll-card h4{margin:14px 0 8px;font-family:Georgia,serif;font-size:18px;font-weight:400}.scroll-card p{margin:0 0 18px;color:var(--muted);font-size:13px;line-height:1.6}
 .service-section{margin:70px 42px 0;background:#faf7f0;border-radius:var(--radius);padding:42px;text-align:center}.service-section p{max-width:520px;margin:0 auto 24px;color:var(--muted);line-height:1.7}.service-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.service-actions a.primary{text-decoration:none;display:inline-block}
 .surroundings-section{margin:60px 42px 0;padding-bottom:20px}
 .concierge-fab{position:fixed;right:22px;bottom:22px;z-index:200;border:1px solid var(--gold);background:#fff;color:var(--gold-dark);border-radius:999px;padding:13px 20px 13px 16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:8px;font-size:14px}
 .concierge-cats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.concierge-cats button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-size:13px;color:var(--ink)}.concierge-cats button:hover{background:var(--gold);border-color:var(--gold);color:#fff}
 .svc-options{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.svc-options label{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}.svc-options input{margin:0}
 @media(max-width:760px){header{height:64px}.header-inner{padding:0 15px}.brandtext{font-size:17px}.nav button{padding:8px 12px;font-size:12px}.hero{min-height:470px}.hero-content{padding:55px 25px 42px}.hero h1{font-size:38px}.hero p{font-size:14px}.quick{margin:-18px 14px 0;grid-template-columns:repeat(2,1fr)}.quick button{min-height:145px;padding:20px 10px}.quick button:nth-child(3n){border-right:1px solid var(--line)}.quick button:nth-child(2n){border-right:0}.quick button:nth-child(n+4){border-bottom:1px solid var(--line)}.quick button:nth-child(n+5){border-bottom:0}.quick strong{font-size:17px}.intro{padding:55px 25px 30px}.intro h2{font-size:29px}.content{padding:0 20px 50px}.section{padding:50px 5px 5px}.section h2{font-size:29px}.cards{grid-template-columns:1fr}.card{padding:23px}.admin-head{display:block}.admin-status{display:inline-block;margin-top:15px}.grid2{grid-template-columns:1fr}.quick-preview{grid-template-columns:1fr 1fr}.section-editor-title strong{font-size:16px}
-.today-section,.selected-section,.service-section,.surroundings-section{margin-left:18px;margin-right:18px}.today-card{grid-template-columns:1fr;padding:24px}.tip-box{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px;margin-top:20px}.service-section{padding:28px}.concierge-fab span{display:none}.concierge-fab{padding:14px;right:16px;bottom:16px}}
+.today-section,.service-section,.surroundings-section{margin-left:18px;margin-right:18px}.today-card{grid-template-columns:1fr;padding:24px}.tip-box{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px;margin-top:20px}.service-section{padding:28px}.concierge-fab span{display:none}.concierge-fab{padding:14px;right:16px;bottom:16px}}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -40,7 +39,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 <body>
 <header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div><div class="brandtext" id="brandName">engel<small id="brandSub">am See</small></div></div><nav class="nav" id="navButtons" style="display:none"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
 
-<div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow eyebrow-time" id="heroEyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="today-section" id="todaySection"></section><section class="selected-section" id="selectedSection"></section><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><section class="service-section" id="serviceSection"></section><section class="surroundings-section" id="surroundingsSection"></section><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
+<div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow eyebrow-time" id="heroEyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="today-section" id="todaySection"></section><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><section class="service-section" id="serviceSection"></section><section class="surroundings-section" id="surroundingsSection"></section><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
 
 <button class="concierge-fab" type="button" id="conciergeFab"><i class="lucide-ico" data-lucide="heart" style="width:18px;height:18px"></i><span>Engel Concierge</span></button>
 
@@ -135,13 +134,6 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
     <div class="admin-card">
-      <h2>Für Sie ausgewählt</h2>
-      <p class="hint" style="margin-top:-8px">Erscheint als scrollbare Empfehlungsleiste auf der Startseite. Icon-Namen z. B. utensils, coffee, wine, waves, cable-car, bubbles, croissant, book-heart (siehe lucide.dev/icons).</p>
-      <div id="selectedEditors"></div>
-      <button class="add-card" id="addSelectedBtn">＋ Neue Empfehlung hinzufügen</button>
-      <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
-    </div>
-    <div class="admin-card">
       <h2>Entdecken Sie die Umgebung</h2>
       <div id="surroundingsEditors"></div>
       <button class="add-card" id="addSurroundingBtn">＋ Neuen Umgebungstipp hinzufügen</button>
@@ -168,11 +160,8 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
     </div>
     <div class="admin-card">
       <h2>Engel Concierge</h2>
-      <div class="grid2">
-        <div class="field"><label>ÜBERSCHRIFT</label><input id="iConciergeHeading"></div>
-        <div class="field"><label>UNTERZEILE</label><input id="iConciergeSub"></div>
-      </div>
-      <p class="hint" id="conciergeIdsHint">Kategorien führen zu einem Bereich der Gästemappe oder zum Serviceformular ("service").</p>
+      <div class="field"><label>ÜBERSCHRIFT</label><input id="iConciergeHeading"></div>
+      <p class="hint" id="conciergeIdsHint">Jede Kategorie zeigt beim Antippen eine Liste konkreter Punkte. Ziel je Punkt: eine Bereich-ID der Gästemappe (springt dorthin) oder "service" (öffnet direkt die Serviceanfrage, optional mit vorausgewähltem Wunsch).</p>
       <div id="conciergeCatEditors"></div>
       <button class="add-card" id="addConciergeCatBtn">＋ Neue Kategorie hinzufügen</button>
       <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
@@ -198,7 +187,10 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 
 <div class="modal" id="modal" onclick="closeModalOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="modalTitle">Informationen</h2><button class="close" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
 
-<div class="modal" id="conciergeModal" onclick="closeConciergeOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="conciergeHeading">Wie können wir Ihren Aufenthalt noch schöner machen?</h2><button class="close" onclick="closeConcierge()">×</button></div><div class="modal-body"><p id="conciergeSub" style="margin-top:-10px;color:var(--muted)"></p><div class="concierge-cats" id="conciergeCats"></div></div></div></div>
+<div class="modal" id="conciergeModal" onclick="closeConciergeOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="conciergeHeading">Wie können wir Ihren Aufenthalt noch schöner machen?</h2><button class="close" onclick="closeConcierge()">×</button></div><div class="modal-body">
+  <button type="button" id="conciergeBack" class="mini" style="display:none;margin-bottom:16px">← Zurück</button>
+  <div class="concierge-cats" id="conciergeCats"></div>
+</div></div></div>
 
 <div class="modal" id="serviceModal" onclick="closeServiceOutside(event)"><div class="modal-box"><div class="modal-top"><h2>Service anfragen</h2><button class="close" onclick="closeServiceModal()">×</button></div><div class="modal-body">
   <div class="svc-options" id="svcOptions">
@@ -209,7 +201,8 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
     <label><input type="checkbox" value="Restaurantreservierung"> Restaurantreservierung</label>
     <label><input type="checkbox" value="Sonstiger Wunsch"> Sonstiger Wunsch</label>
   </div>
-  <div class="field"><label>IHRE NACHRICHT</label><textarea id="svcMessage" placeholder="Ihr Wunsch in ein paar Worten …"></textarea></div>
+  <div class="field"><label>ZIMMERNUMMER *</label><input id="svcRoom" placeholder="z. B. 214" inputmode="numeric"></div>
+  <div class="field"><label>IHRE NACHRICHT (optional)</label><textarea id="svcMessage" placeholder="Ihr Wunsch in ein paar Worten …"></textarea></div>
   <div id="svcConfirm" style="display:none;font-size:14px;margin-bottom:16px;line-height:1.6"></div>
   <button class="primary" type="button" id="svcSendBtn">Anfrage senden</button>
 </div></div></div>
@@ -229,22 +222,32 @@ let isAuthed=false;
 const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.',phone:'+49 7543 9330',image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85',brandName:'engel',brandSub:'am See',logo:'',logoLetter:'e',wifiSsid:'',wifiPassword:'',
 weatherLat:47.5456,weatherLon:9.6844,
 tip:{heading:'Unser Tipp für heute',title:'Ein Abendspaziergang am Bodensee',text:'Genießen Sie die Abendstimmung direkt am Ufer – nur wenige Gehminuten von uns entfernt.',image:'',buttonText:'Entdecken',link:''},
-selected:[
-{lucideIcon:'utensils',title:'Restaurant-Empfehlung',text:'Kurze Beschreibung dieser Empfehlung für Ihre Gäste.',buttonText:'Entdecken',link:''},
-{lucideIcon:'coffee',title:'Café-Tipp',text:'Kurze Beschreibung dieser Empfehlung für Ihre Gäste.',buttonText:'Entdecken',link:''},
-{lucideIcon:'cable-car',title:'Ausflugsziel',text:'Kurze Beschreibung dieser Empfehlung für Ihre Gäste.',buttonText:'Entdecken',link:''}],
 surroundings:[
 {lucideIcon:'waves',title:'Bodensee',text:'Nur wenige Schritte von uns entfernt.',link:''},
 {lucideIcon:'cable-car',title:'Hafen',text:'Kurze Beschreibung ergänzen.',link:''},
 {lucideIcon:'utensils',title:'Restaurants in der Umgebung',text:'Kurze Beschreibung ergänzen.',link:''}],
 service:{intro:'Sie benötigen ein Taxi, möchten einen Tisch reservieren oder haben einen besonderen Wunsch? Wir sind gerne für Sie da.',email:''},
-concierge:{heading:'Wie können wir Ihren Aufenthalt noch schöner machen?',subheading:'Ich suche …',categories:[
-{label:'Restaurant',target:'section-food'},
-{label:'Ausflug',target:'section-experience'},
-{label:'Café',target:'section-food'},
-{label:'Wellness',target:'section-spa'},
-{label:'Taxi',target:'service'},
-{label:'Empfehlung',target:'section-recommendations'}]},
+concierge:{heading:'Wie können wir Ihren Aufenthalt noch schöner machen?',categories:[
+{label:'Essen & Trinken',items:[
+  {label:'Restaurant',target:'section-food'},
+  {label:'Frühstück',target:'section-food'},
+  {label:'Bar',target:'section-food'}]},
+{label:'Wellness & Erholung',items:[
+  {label:'Spa',target:'section-spa'},
+  {label:'Sauna',target:'section-spa'}]},
+{label:'Ausflüge & Umgebung',items:[
+  {label:'Ausflugstipps',target:'section-experience'},
+  {label:'Am See',target:'section-experience'}]},
+{label:'Empfehlungen',items:[
+  {label:'Unsere Tipps',target:'section-recommendations'}]},
+{label:'Service & Anliegen',items:[
+  {label:'Zusätzliches Handtuch',target:'service',serviceType:'Zusätzliches Handtuch'},
+  {label:'Kissen',target:'service',serviceType:'Kissen'},
+  {label:'Housekeeping',target:'service',serviceType:'Housekeeping'},
+  {label:'Taxi',target:'service',serviceType:'Taxi'},
+  {label:'Restaurantreservierung',target:'service',serviceType:'Restaurantreservierung'},
+  {label:'Sonstiger Wunsch',target:'service',serviceType:'Sonstiger Wunsch'}]}
+]},
 sections:[
 {id:'section-stay',icon:'⌂',lucideIcon:'bed-double',name:'Mein Aufenthalt',quick:'Alles rund um Ihren Aufenthalt',heading:'Alles rund um Ihren Aufenthalt',lead:'Hier finden Sie die wichtigsten Informationen für einen entspannten Aufenthalt bei uns.',cards:[
 {icon:'⌂',lucideIcon:'clipboard-clock',title:'An- & Abreise',short:'Informationen zu Check-in, Check-out und allen wichtigen Abläufen rund um Ihre An- und Abreise.',cta:'Mehr erfahren',detail:'<h3>Check-in</h3><p>Die konkreten Check-in-Informationen können hier hinterlegt werden.</p><h3>Check-out</h3><p>Die konkreten Check-out-Informationen können hier hinterlegt werden.</p>'},
@@ -285,7 +288,6 @@ function mergeData(saved){
   const base=structuredClone(defaultData);
   Object.assign(base,saved);
   base.sections=(saved.sections&&saved.sections.length?saved.sections:base.sections);
-  base.selected=(saved.selected&&saved.selected.length?saved.selected:base.selected);
   base.surroundings=(saved.surroundings&&saved.surroundings.length?saved.surroundings:base.surroundings);
   base.tip=Object.assign({},defaultData.tip,saved.tip||{});
   base.service=Object.assign({},defaultData.service,saved.service||{});
@@ -331,7 +333,6 @@ function render(){
   renderContent();
   renderToday();
   loadWeather();
-  renderSelected();
   renderService();
   renderSurroundings();
   renderAdmin();
@@ -377,16 +378,6 @@ async function loadWeather(){
 function weatherCodeLabel(code){
   const map={0:'Klarer Himmel',1:'Überwiegend klar',2:'Teilweise bewölkt',3:'Bewölkt',45:'Nebel',48:'Nebel mit Reifglätte',51:'Leichter Nieselregen',53:'Nieselregen',55:'Starker Nieselregen',61:'Leichter Regen',63:'Regen',65:'Starker Regen',71:'Leichter Schneefall',73:'Schneefall',75:'Starker Schneefall',80:'Regenschauer',81:'Regenschauer',82:'Heftige Regenschauer',95:'Gewitter',96:'Gewitter mit Hagel',99:'Gewitter mit starkem Hagel'};
   return map[code]||'—';
-}
-function renderSelected(){
-  const box=document.getElementById('selectedSection');if(!box)return;
-  if(!data.selected||!data.selected.length){box.innerHTML='';return}
-  box.innerHTML=`<h2>Für Sie ausgewählt</h2><div class="scroll-row">${data.selected.map(it=>`<div class="scroll-card">
-    ${iconHtml(it,28)}
-    <h4>${esc(it.title)}</h4>
-    <p>${esc(it.text)}</p>
-    ${it.link?`<a class="cta" href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.buttonText||'Entdecken')}</a>`:`<span class="cta" style="opacity:.5;cursor:default">${esc(it.buttonText||'Entdecken')}</span>`}
-  </div>`).join('')}</div>`;
 }
 function renderService(){
   const box=document.getElementById('serviceSection');if(!box)return;
@@ -452,40 +443,62 @@ function closeModal(){document.getElementById('modal').classList.remove('open')}
 function closeModalOutside(e){if(e.target.id==='modal')closeModal()}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeConcierge();closeServiceModal();}});
 
-/* ---------- Engel Concierge ---------- */
-function renderConcierge(){
+/* ---------- Engel Concierge (zwei Ebenen: Kategorie -> konkreter Punkt) ---------- */
+let conciergeLevel='cats';
+function renderConciergeLevel(){
   const h=document.getElementById('conciergeHeading');if(h)h.textContent=data.concierge.heading;
-  const sub=document.getElementById('conciergeSub');if(sub)sub.textContent=data.concierge.subheading;
   const cats=document.getElementById('conciergeCats');
-  if(cats)cats.innerHTML=(data.concierge.categories||[]).map(c=>`<button type="button" data-target="${esc(c.target)}">${esc(c.label)}</button>`).join('');
+  const back=document.getElementById('conciergeBack');
+  if(!cats)return;
+  if(conciergeLevel==='cats'){
+    back.style.display='none';
+    cats.innerHTML=(data.concierge.categories||[]).map((c,ci)=>`<button type="button" data-cat="${ci}">${esc(c.label)}</button>`).join('');
+  }else{
+    const cat=data.concierge.categories[conciergeLevel];
+    back.style.display='inline-block';
+    cats.innerHTML=(cat&&cat.items||[]).map((it,ii)=>`<button type="button" data-item="${ii}">${esc(it.label)}</button>`).join('');
+  }
 }
-function openConcierge(){renderConcierge();document.getElementById('conciergeModal').classList.add('open')}
+function openConcierge(){conciergeLevel='cats';renderConciergeLevel();document.getElementById('conciergeModal').classList.add('open')}
 function closeConcierge(){document.getElementById('conciergeModal').classList.remove('open')}
 function closeConciergeOutside(e){if(e.target.id==='conciergeModal')closeConcierge()}
 document.getElementById('conciergeFab').addEventListener('click',openConcierge);
+document.getElementById('conciergeBack').addEventListener('click',()=>{conciergeLevel='cats';renderConciergeLevel();});
 document.getElementById('conciergeModal').addEventListener('click',e=>{
-  const btn=e.target.closest('#conciergeCats button');if(!btn)return;
-  const target=btn.dataset.target;
-  closeConcierge();
-  if(target==='service')openServiceModal();else goTo(target);
+  const catBtn=e.target.closest('#conciergeCats button[data-cat]');
+  if(catBtn){conciergeLevel=+catBtn.dataset.cat;renderConciergeLevel();return;}
+  const itemBtn=e.target.closest('#conciergeCats button[data-item]');
+  if(itemBtn){
+    const cat=data.concierge.categories[conciergeLevel];
+    const item=cat&&cat.items[+itemBtn.dataset.item];
+    if(!item)return;
+    closeConcierge();
+    if(item.target==='service')openServiceModal(item.serviceType);else goTo(item.target);
+  }
 });
 window.closeConcierge=closeConcierge;window.closeConciergeOutside=closeConciergeOutside;
 
 /* ---------- Serviceanfrage ---------- */
-function openServiceModal(){document.getElementById('serviceModal').classList.add('open')}
+function openServiceModal(preset){
+  document.querySelectorAll('#svcOptions input').forEach(i=>{i.checked=(preset&&i.value===preset)});
+  document.getElementById('svcConfirm').style.display='none';
+  document.getElementById('serviceModal').classList.add('open');
+}
 function closeServiceModal(){document.getElementById('serviceModal').classList.remove('open')}
 function closeServiceOutside(e){if(e.target.id==='serviceModal')closeServiceModal()}
 document.getElementById('svcSendBtn').addEventListener('click',()=>{
   const picked=[...document.querySelectorAll('#svcOptions input:checked')].map(i=>i.value);
+  const room=document.getElementById('svcRoom').value.trim();
   const msg=document.getElementById('svcMessage').value.trim();
   const confirmBox=document.getElementById('svcConfirm');
+  if(!room){confirmBox.style.display='block';confirmBox.style.color='#8b3e35';confirmBox.textContent='Bitte geben Sie Ihre Zimmernummer ein, damit wir Ihre Anfrage zuordnen können.';return}
   if(!picked.length&&!msg){confirmBox.style.display='block';confirmBox.style.color='#8b3e35';confirmBox.textContent='Bitte wählen Sie mindestens einen Wunsch aus oder schreiben Sie uns eine Nachricht.';return}
-  const body=(picked.length?'Gewünschte Services: '+picked.join(', ')+'\n\n':'')+(msg?'Nachricht: '+msg:'');
+  const body='Zimmer: '+room+'\n\n'+(picked.length?'Gewünschte Services: '+picked.join(', ')+'\n\n':'')+(msg?'Nachricht: '+msg:'');
   confirmBox.style.color='var(--gold-dark)';
   if(data.service.email){
-    const mailto=`mailto:${encodeURIComponent(data.service.email)}?subject=${encodeURIComponent('Serviceanfrage – Gästemappe')}&body=${encodeURIComponent(body)}`;
+    const mailto=`mailto:${encodeURIComponent(data.service.email)}?subject=${encodeURIComponent('Serviceanfrage Zimmer '+room+' – Gästemappe')}&body=${encodeURIComponent(body)}`;
     window.location.href=mailto;
-    confirmBox.textContent='Ihre E-Mail-App öffnet sich mit einer vorausgefüllten Anfrage – bitte dort einmal auf Senden tippen, damit sie wirklich bei uns ankommt.';
+    confirmBox.textContent='Ihre E-Mail-App öffnet sich mit einer vorausgefüllten Anfrage an die Rezeption – bitte dort einmal auf Senden tippen, damit sie wirklich bei uns ankommt.';
   }else{
     confirmBox.textContent='Vielen Dank! Bitte rufen Sie zur schnellsten Bearbeitung kurz die Rezeption an: '+data.phone+' – ein automatischer Versand ist aktuell noch nicht eingerichtet.';
   }
@@ -548,13 +561,11 @@ function renderAdmin(){
   document.getElementById('iTipButton').value=data.tip.buttonText;
   document.getElementById('iTipImage').value=data.tip.image;
   document.getElementById('iTipLink').value=data.tip.link;
-  renderSelectedEditors();
   renderSurroundingsEditors();
 
   document.getElementById('iServiceIntro').value=data.service.intro;
   document.getElementById('iServiceEmail').value=data.service.email;
   document.getElementById('iConciergeHeading').value=data.concierge.heading;
-  document.getElementById('iConciergeSub').value=data.concierge.subheading;
   document.getElementById('conciergeIdsHint').textContent='Verfügbare Bereich-IDs: '+data.sections.map(s=>s.id).join(', ')+' – oder "service" fürs Serviceformular.';
   renderConciergeCatEditors();
 
@@ -612,41 +623,6 @@ function renderQuickPreview(){
   const box=document.getElementById('quickPreview');if(!box)return;
   box.innerHTML=data.sections.map(s=>`<div>${esc(s.icon)}<b>${esc(s.name)}</b>${esc(s.quick)}</div>`).join('');
 }
-function renderSelectedEditors(){
-  const box=document.getElementById('selectedEditors');if(!box)return;
-  box.innerHTML=data.selected.map((it,i)=>`<div class="card-editor">
-    <div class="card-editor-top"><span class="card-number">Empfehlung ${i+1}</span>
-      <div class="mini-actions">
-        <button class="mini" data-selmove="${i},-1">↑</button>
-        <button class="mini" data-selmove="${i},1">↓</button>
-        <button class="mini danger-mini" data-seldel="${i}">Löschen</button>
-      </div>
-    </div>
-    <div class="grid2">
-      <div class="field"><label>LUCIDE-ICON-NAME</label><input data-sel="${i}" data-key="lucideIcon" value="${esc(it.lucideIcon||'')}" placeholder="z. B. utensils"></div>
-      <div class="field"><label>TITEL</label><input data-sel="${i}" data-key="title" value="${esc(it.title)}"></div>
-    </div>
-    <div class="field"><label>BESCHREIBUNG</label><textarea data-sel="${i}" data-key="text">${esc(it.text)}</textarea></div>
-    <div class="grid2">
-      <div class="field"><label>BUTTON-TEXT</label><input data-sel="${i}" data-key="buttonText" value="${esc(it.buttonText||'Entdecken')}"></div>
-      <div class="field"><label>LINK</label><input data-sel="${i}" data-key="link" value="${esc(it.link||'')}" placeholder="https://..."></div>
-    </div>
-  </div>`).join('');
-}
-document.getElementById('selectedEditors').addEventListener('input',e=>{
-  const el=e.target;if(el.dataset.sel===undefined)return;
-  data.selected[+el.dataset.sel][el.dataset.key]=el.value;
-});
-document.getElementById('selectedEditors').addEventListener('click',e=>{
-  const mv=e.target.closest('[data-selmove]');
-  if(mv){const[i,dir]=mv.dataset.selmove.split(',').map(Number);const arr=data.selected,n=i+dir;if(n>=0&&n<arr.length){[arr[i],arr[n]]=[arr[n],arr[i]];renderSelectedEditors();}return;}
-  const del=e.target.closest('[data-seldel]');
-  if(del){if(!confirm('Diese Empfehlung wirklich löschen?'))return;data.selected.splice(+del.dataset.seldel,1);renderSelectedEditors();}
-});
-document.getElementById('addSelectedBtn').addEventListener('click',()=>{
-  data.selected.push({lucideIcon:'',title:'Neue Empfehlung',text:'Kurze Beschreibung.',buttonText:'Entdecken',link:''});
-  renderSelectedEditors();
-});
 
 function renderSurroundingsEditors(){
   const box=document.getElementById('surroundingsEditors');if(!box)return;
@@ -681,34 +657,71 @@ document.getElementById('addSurroundingBtn').addEventListener('click',()=>{
   renderSurroundingsEditors();
 });
 
-function renderConciergeCatEditors(){
-  const box=document.getElementById('conciergeCatEditors');if(!box)return;
-  box.innerHTML=data.concierge.categories.map((c,i)=>`<div class="card-editor">
-    <div class="card-editor-top"><span class="card-number">Kategorie ${i+1}</span>
+let openConciergeCats=new Set();
+function conciergeItemEditor(ci,it,ii){
+  return `<div class="card-editor" style="background:#fff">
+    <div class="card-editor-top"><span class="card-number">Punkt ${ii+1}</span>
       <div class="mini-actions">
-        <button class="mini" data-catmove="${i},-1">↑</button>
-        <button class="mini" data-catmove="${i},1">↓</button>
-        <button class="mini danger-mini" data-catdel="${i}">Löschen</button>
+        <button class="mini" data-itemmove="${ci},${ii},-1">↑</button>
+        <button class="mini" data-itemmove="${ci},${ii},1">↓</button>
+        <button class="mini danger-mini" data-itemdel="${ci},${ii}">Löschen</button>
       </div>
     </div>
     <div class="grid2">
-      <div class="field"><label>BESCHRIFTUNG</label><input data-cat="${i}" data-key="label" value="${esc(c.label)}"></div>
-      <div class="field"><label>ZIEL (BEREICH-ID ODER "service")</label><input data-cat="${i}" data-key="target" value="${esc(c.target)}"></div>
+      <div class="field"><label>BESCHRIFTUNG</label><input data-ci="${ci}" data-ii="${ii}" data-key="label" value="${esc(it.label)}"></div>
+      <div class="field"><label>ZIEL (BEREICH-ID ODER "service")</label><input data-ci="${ci}" data-ii="${ii}" data-key="target" value="${esc(it.target)}"></div>
+    </div>
+    ${it.target==='service'?`<div class="field"><label>VORAUSGEWÄHLTER WUNSCH IM SERVICE-FORMULAR (optional)</label><input data-ci="${ci}" data-ii="${ii}" data-key="serviceType" value="${esc(it.serviceType||'')}" placeholder="z. B. Taxi"></div>`:''}
+  </div>`;
+}
+function renderConciergeCatEditors(){
+  const box=document.getElementById('conciergeCatEditors');if(!box)return;
+  box.innerHTML=data.concierge.categories.map((c,ci)=>`<div class="section-editor ${openConciergeCats.has(ci)?'open':''}">
+    <div class="section-editor-head" data-ccidx="${ci}">
+      <div class="section-editor-title"><span class="chev">▸</span><strong>${esc(c.label)}</strong></div>
+      <div class="mini-actions">
+        <button class="mini" data-catmove="${ci},-1">↑</button>
+        <button class="mini" data-catmove="${ci},1">↓</button>
+        <button class="mini danger-mini" data-catdel="${ci}">Löschen</button>
+      </div>
+    </div>
+    <div class="section-editor-body">
+      <div class="field"><label>KATEGORIE-NAME</label><input data-cat="${ci}" data-key="label" value="${esc(c.label)}"></div>
+      <h3>Konkrete Punkte</h3>
+      <div>${(c.items||[]).map((it,ii)=>conciergeItemEditor(ci,it,ii)).join('')}</div>
+      <button class="add-card" data-additem="${ci}">＋ Neuen Punkt hinzufügen</button>
     </div>
   </div>`).join('');
 }
 document.getElementById('conciergeCatEditors').addEventListener('input',e=>{
-  const el=e.target;if(el.dataset.cat===undefined)return;
-  data.concierge.categories[+el.dataset.cat][el.dataset.key]=el.value;
+  const el=e.target;
+  if(el.dataset.ii!==undefined){
+    data.concierge.categories[+el.dataset.ci].items[+el.dataset.ii][el.dataset.key]=el.value;
+  }else if(el.dataset.cat!==undefined){
+    data.concierge.categories[+el.dataset.cat][el.dataset.key]=el.value;
+  }
 });
 document.getElementById('conciergeCatEditors').addEventListener('click',e=>{
   const mv=e.target.closest('[data-catmove]');
-  if(mv){const[i,dir]=mv.dataset.catmove.split(',').map(Number);const arr=data.concierge.categories,n=i+dir;if(n>=0&&n<arr.length){[arr[i],arr[n]]=[arr[n],arr[i]];renderConciergeCatEditors();}return;}
+  if(mv){e.stopPropagation();const[i,dir]=mv.dataset.catmove.split(',').map(Number);const arr=data.concierge.categories,n=i+dir;if(n>=0&&n<arr.length){[arr[i],arr[n]]=[arr[n],arr[i]];renderConciergeCatEditors();}return;}
   const del=e.target.closest('[data-catdel]');
-  if(del){if(!confirm('Diese Kategorie wirklich löschen?'))return;data.concierge.categories.splice(+del.dataset.catdel,1);renderConciergeCatEditors();}
+  if(del){e.stopPropagation();if(!confirm('Diese Kategorie wirklich löschen?'))return;data.concierge.categories.splice(+del.dataset.catdel,1);renderConciergeCatEditors();return;}
+  const additem=e.target.closest('[data-additem]');
+  if(additem){e.stopPropagation();data.concierge.categories[+additem.dataset.additem].items.push({label:'Neuer Punkt',target:(data.sections[0]&&data.sections[0].id)||''});renderConciergeCatEditors();return;}
+  const itemmv=e.target.closest('[data-itemmove]');
+  if(itemmv){e.stopPropagation();const[ci,ii,dir]=itemmv.dataset.itemmove.split(',').map(Number);const arr=data.concierge.categories[ci].items,n=ii+dir;if(n>=0&&n<arr.length){[arr[ii],arr[n]]=[arr[n],arr[ii]];renderConciergeCatEditors();}return;}
+  const itemdel=e.target.closest('[data-itemdel]');
+  if(itemdel){e.stopPropagation();const[ci,ii]=itemdel.dataset.itemdel.split(',').map(Number);if(!confirm('Diesen Punkt wirklich löschen?'))return;data.concierge.categories[ci].items.splice(ii,1);renderConciergeCatEditors();return;}
+  const head=e.target.closest('.section-editor-head');
+  if(head){
+    const wrap=head.closest('.section-editor');
+    wrap.classList.toggle('open');
+    const idx=+head.dataset.ccidx;
+    if(wrap.classList.contains('open'))openConciergeCats.add(idx);else openConciergeCats.delete(idx);
+  }
 });
 document.getElementById('addConciergeCatBtn').addEventListener('click',()=>{
-  data.concierge.categories.push({label:'Neue Kategorie',target:(data.sections[0]&&data.sections[0].id)||''});
+  data.concierge.categories.push({label:'Neue Kategorie',items:[]});
   renderConciergeCatEditors();
 });
 function renderLogoPreview(url){
@@ -824,7 +837,6 @@ async function saveSettings(){
   data.service.intro=document.getElementById('iServiceIntro').value;
   data.service.email=document.getElementById('iServiceEmail').value.trim();
   data.concierge.heading=document.getElementById('iConciergeHeading').value;
-  data.concierge.subheading=document.getElementById('iConciergeSub').value;
   const sizeKb=Math.round(new Blob([JSON.stringify(data)]).size/1024);
   if(sizeKb>950){alert('Die Inhalte sind zusammen zu groß für die Datenbank ('+sizeKb+' KB, Limit ca. 1000 KB) – bitte ein kleineres Logo- oder Hero-Bild verwenden, oder statt Hochladen einen Bildlink eintragen.');return;}
   try{
