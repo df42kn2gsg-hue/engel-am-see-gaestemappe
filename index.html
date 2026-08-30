@@ -20,16 +20,29 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 .section-editor{border:1px solid var(--line);border-radius:15px;margin-top:16px;overflow:hidden;background:#fff}.section-editor-head{padding:18px 20px;background:#faf7f0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px;cursor:pointer}.section-editor-title{display:flex;align-items:center;gap:12px;min-width:0}.section-editor-title strong{font-family:Georgia,serif;font-size:19px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.chev{display:inline-block;color:var(--gold-dark);font-size:12px;transition:transform .2s;flex-shrink:0}.section-editor.open .chev{transform:rotate(90deg)}.section-editor-body{display:none;padding:20px}.section-editor.open .section-editor-body{display:block}
 .card-editor{border:1px solid var(--line);border-radius:13px;padding:18px;margin-top:14px;background:#fffdf9}.card-editor-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.card-number{font-size:12px;color:var(--muted);font-weight:bold;text-transform:uppercase;letter-spacing:1px}.mini-actions{display:flex;gap:7px;flex-shrink:0}.mini{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px}.mini.danger-mini{border-color:#d8aaa4;background:#fff7f5;color:#8b3e35}.hint{font-size:12px;color:var(--muted);line-height:1.6;margin:-8px 0 18px}.add-card{margin-top:15px;border:1px dashed #cdbf96;background:#fffdf8;color:var(--gold-dark);border-radius:12px;padding:11px 15px;width:100%}
 .quick-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:5px}.quick-preview div{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fffdf9;font-size:12px}.quick-preview b{display:block;font-family:Georgia,serif;font-size:15px;font-weight:400;margin-top:4px}.notice{background:var(--soft);border-radius:12px;padding:15px 17px;color:var(--muted);font-size:13px;line-height:1.6;margin-top:6px}
-.logo-row{display:flex;align-items:center;gap:18px;margin-bottom:22px;flex-wrap:wrap}.logo-preview{width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--gold);color:#fff;font-family:Georgia,serif;font-size:26px}.logo-preview img{width:100%;height:100%;object-fit:cover;display:block}.logo-controls{display:flex;gap:8px;flex-wrap:wrap}.file-btn{display:inline-flex;align-items:center;cursor:pointer}
+.logo-row{display:flex;align-items:center;gap:18px;margin-bottom:22px;flex-wrap:wrap}.logo-preview{width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--gold);color:#fff;font-family:Georgia,serif;font-size:26px}.logo-preview img{width:100%;height:100%;object-fit:cover;display:block}.hero-preview{width:110px;height:70px;border-radius:10px;overflow:hidden;flex-shrink:0;background:var(--soft) center/cover no-repeat;border:1px solid var(--line)}.logo-controls{display:flex;gap:8px;flex-wrap:wrap}.file-btn{display:inline-flex;align-items:center;cursor:pointer}
 .wifi-card{background:#faf7f0;border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}.wifi-row{display:flex;justify-content:space-between;padding:9px 3px;border-bottom:1px solid var(--line);font-size:14px}.wifi-row:last-of-type{border-bottom:0}.wifi-row span{color:var(--muted)}.wifi-qr{margin:18px auto 6px;display:flex;justify-content:center}.wifi-qr img,.wifi-qr canvas{border-radius:8px;background:#fff;padding:8px}
-@media(max-width:760px){header{height:64px}.header-inner{padding:0 15px}.brandtext{font-size:17px}.nav button{padding:8px 12px;font-size:12px}.hero{min-height:470px}.hero-content{padding:55px 25px 42px}.hero h1{font-size:38px}.hero p{font-size:14px}.quick{margin:-18px 14px 0;grid-template-columns:repeat(2,1fr)}.quick button{min-height:145px;padding:20px 10px}.quick button:nth-child(3n){border-right:1px solid var(--line)}.quick button:nth-child(2n){border-right:0}.quick button:nth-child(n+4){border-bottom:1px solid var(--line)}.quick button:nth-child(n+5){border-bottom:0}.quick strong{font-size:17px}.intro{padding:55px 25px 30px}.intro h2{font-size:29px}.content{padding:0 20px 50px}.section{padding:50px 5px 5px}.section h2{font-size:29px}.cards{grid-template-columns:1fr}.card{padding:23px}.admin-head{display:block}.admin-status{display:inline-block;margin-top:15px}.grid2{grid-template-columns:1fr}.quick-preview{grid-template-columns:1fr 1fr}.section-editor-title strong{font-size:16px}}
+.lucide-ico{color:var(--gold-dark);stroke-width:1.6;display:inline-block;vertical-align:middle}
+.eyebrow-time{opacity:.85}
+.today-section{margin:52px 42px 0}.today-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px}.weather-box{display:flex;align-items:center;gap:18px}.weather-temp{font-family:Georgia,serif;font-size:44px;color:var(--gold-dark);line-height:1}.weather-meta{font-size:13px;color:var(--muted);line-height:1.7;margin-top:4px}.weather-sun{display:flex;gap:16px;margin-top:8px;font-size:12px;color:var(--muted)}.tip-box{border-left:1px solid var(--line);padding-left:26px}.tip-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:9px}.tip-box h3{margin:0 0 8px;font-family:Georgia,serif;font-size:22px;font-weight:400}.tip-box p{margin:0 0 18px;color:var(--muted);font-size:14px;line-height:1.65}
+.selected-section{margin:60px 0 0;padding:0 42px}.selected-section h2{margin:0 0 20px;font-family:Georgia,serif;font-size:28px;font-weight:400}.scroll-row{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.scroll-card{scroll-snap-align:start;flex:0 0 230px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}.scroll-card h4{margin:14px 0 8px;font-family:Georgia,serif;font-size:18px;font-weight:400}.scroll-card p{margin:0 0 18px;color:var(--muted);font-size:13px;line-height:1.6}
+.service-section{margin:70px 42px 0;background:#faf7f0;border-radius:var(--radius);padding:42px;text-align:center}.service-section p{max-width:520px;margin:0 auto 24px;color:var(--muted);line-height:1.7}.service-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.service-actions a.primary{text-decoration:none;display:inline-block}
+.surroundings-section{margin:60px 42px 0;padding-bottom:20px}
+.concierge-fab{position:fixed;right:22px;bottom:22px;z-index:200;border:1px solid var(--gold);background:#fff;color:var(--gold-dark);border-radius:999px;padding:13px 20px 13px 16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:8px;font-size:14px}
+.concierge-cats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.concierge-cats button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-size:13px;color:var(--ink)}.concierge-cats button:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.svc-options{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.svc-options label{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}.svc-options input{margin:0}
+@media(max-width:760px){header{height:64px}.header-inner{padding:0 15px}.brandtext{font-size:17px}.nav button{padding:8px 12px;font-size:12px}.hero{min-height:470px}.hero-content{padding:55px 25px 42px}.hero h1{font-size:38px}.hero p{font-size:14px}.quick{margin:-18px 14px 0;grid-template-columns:repeat(2,1fr)}.quick button{min-height:145px;padding:20px 10px}.quick button:nth-child(3n){border-right:1px solid var(--line)}.quick button:nth-child(2n){border-right:0}.quick button:nth-child(n+4){border-bottom:1px solid var(--line)}.quick button:nth-child(n+5){border-bottom:0}.quick strong{font-size:17px}.intro{padding:55px 25px 30px}.intro h2{font-size:29px}.content{padding:0 20px 50px}.section{padding:50px 5px 5px}.section h2{font-size:29px}.cards{grid-template-columns:1fr}.card{padding:23px}.admin-head{display:block}.admin-status{display:inline-block;margin-top:15px}.grid2{grid-template-columns:1fr}.quick-preview{grid-template-columns:1fr 1fr}.section-editor-title strong{font-size:16px}
+.today-section,.selected-section,.service-section,.surroundings-section{margin-left:18px;margin-right:18px}.today-card{grid-template-columns:1fr;padding:24px}.tip-box{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px;margin-top:20px}.service-section{padding:28px}.concierge-fab span{display:none}.concierge-fab{padding:14px;right:16px;bottom:16px}}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 <header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div><div class="brandtext" id="brandName">engel<small id="brandSub">am See</small></div></div><nav class="nav" id="navButtons" style="display:none"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
 
-<div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
+<div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow eyebrow-time" id="heroEyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="today-section" id="todaySection"></section><section class="selected-section" id="selectedSection"></section><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><section class="service-section" id="serviceSection"></section><section class="surroundings-section" id="surroundingsSection"></section><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
+
+<button class="concierge-fab" type="button" id="conciergeFab"><i class="lucide-ico" data-lucide="heart" style="width:18px;height:18px"></i><span>Engel Concierge</span></button>
 
 <section id="admin"><div class="admin-wrap">
   <div class="admin-head"><div><h1>Gästemappe bearbeiten</h1><p>Wähle unten aus, was du bearbeiten möchtest.</p></div><div class="admin-status" id="saveStatus">Verbinde mit der Cloud …</div></div>
@@ -49,7 +62,9 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
   <div class="admin-tabs" id="adminTabs">
     <button data-tab="brand" class="active">Logo &amp; Marke</button>
     <button data-tab="home">Startseite</button>
+    <button data-tab="today">Tipp &amp; Empfehlungen</button>
     <button data-tab="sections">Bereiche &amp; Kacheln</button>
+    <button data-tab="service">Service &amp; Concierge</button>
     <button data-tab="preview">Schnellmenü-Vorschau</button>
   </div>
 
@@ -79,7 +94,16 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <h2>Startseite</h2>
       <div class="grid2"><div class="field"><label>TITEL</label><input id="iTitle"></div><div class="field"><label>REZEPTION / TELEFON</label><input id="iPhone"></div></div>
       <div class="field"><label>BEGRÜSSUNG</label><textarea id="iIntro"></textarea></div>
-      <div class="field"><label>HERO-BILD · BILDLINK</label><input id="iImage" placeholder="https://..."></div>
+      <div class="field"><label>HERO-BILD</label></div>
+      <div class="logo-row">
+        <div class="hero-preview" id="heroPreview"></div>
+        <div class="logo-controls">
+          <label class="secondary file-btn">Bild hochladen<input type="file" id="heroFile" accept="image/*" hidden></label>
+          <button class="secondary" type="button" id="heroClear">Zurücksetzen</button>
+        </div>
+      </div>
+      <div class="field"><label>ODER BILDLINK EINTRAGEN</label><input id="iImage" placeholder="https://..."></div>
+      <p class="hint">Am besten ein Foto im Querformat, unter ca. 400 KB Dateigröße, damit es zuverlässig gespeichert wird.</p>
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
     <div class="admin-card">
@@ -93,12 +117,65 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
     </div>
   </div>
 
+  <div class="admin-panel" data-panel="today">
+    <div class="admin-card">
+      <h2>Heute am Bodensee · Tipp des Tages</h2>
+      <p class="hint" style="margin-top:-8px">Wetter, Temperatur, Sonnenauf- und -untergang werden automatisch geladen und sind hier nicht bearbeitbar.</p>
+      <div class="field"><label>KLEINE ÜBERSCHRIFT</label><input id="iTipHeading"></div>
+      <div class="grid2">
+        <div class="field"><label>TITEL</label><input id="iTipTitle"></div>
+        <div class="field"><label>BUTTON-TEXT</label><input id="iTipButton"></div>
+      </div>
+      <div class="field"><label>BESCHREIBUNG</label><textarea id="iTipText"></textarea></div>
+      <div class="grid2">
+        <div class="field"><label>BILDLINK (optional, für später)</label><input id="iTipImage" placeholder="https://..."></div>
+        <div class="field"><label>ZIEL / LINK</label><input id="iTipLink" placeholder="https://..."></div>
+      </div>
+      <p class="hint">Ohne Link wird der Button nur angezeigt, ist aber nicht klickbar.</p>
+      <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
+    </div>
+    <div class="admin-card">
+      <h2>Für Sie ausgewählt</h2>
+      <p class="hint" style="margin-top:-8px">Erscheint als scrollbare Empfehlungsleiste auf der Startseite. Icon-Namen z. B. utensils, coffee, wine, waves, cable-car, bubbles, croissant, book-heart (siehe lucide.dev/icons).</p>
+      <div id="selectedEditors"></div>
+      <button class="add-card" id="addSelectedBtn">＋ Neue Empfehlung hinzufügen</button>
+      <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
+    </div>
+    <div class="admin-card">
+      <h2>Entdecken Sie die Umgebung</h2>
+      <div id="surroundingsEditors"></div>
+      <button class="add-card" id="addSurroundingBtn">＋ Neuen Umgebungstipp hinzufügen</button>
+      <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
+    </div>
+  </div>
+
   <div class="admin-panel" data-panel="sections">
     <div class="admin-card">
       <h2>Bereiche &amp; Inhalte</h2>
       <p class="hint">Klicke auf einen Bereich, um ihn auf- oder zuzuklappen und zu bearbeiten. Jede Kachel und der Inhalt hinter „Mehr erfahren" lassen sich darin anpassen.</p>
       <div id="sectionEditors"></div>
       <button class="add-card" id="addSectionBtn">＋ Neuen Bereich hinzufügen</button>
+    </div>
+  </div>
+
+  <div class="admin-panel" data-panel="service">
+    <div class="admin-card">
+      <h2>Wir sind für Sie da</h2>
+      <div class="field"><label>TEXT</label><textarea id="iServiceIntro"></textarea></div>
+      <div class="field"><label>E-MAIL FÜR SERVICEANFRAGEN (optional)</label><input id="iServiceEmail" placeholder="rezeption@ihrhotel.de"></div>
+      <p class="hint">Ohne E-Mail-Adresse werden Gäste gebeten, die Rezeption anzurufen. Mit E-Mail-Adresse öffnet sich beim Absenden die Mail-App des Gastes mit vorausgefüllter Nachricht – ein automatischer Versand ohne eigenes Postfach ist im Browser aus Sicherheitsgründen nicht möglich.</p>
+      <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
+    </div>
+    <div class="admin-card">
+      <h2>Engel Concierge</h2>
+      <div class="grid2">
+        <div class="field"><label>ÜBERSCHRIFT</label><input id="iConciergeHeading"></div>
+        <div class="field"><label>UNTERZEILE</label><input id="iConciergeSub"></div>
+      </div>
+      <p class="hint" id="conciergeIdsHint">Kategorien führen zu einem Bereich der Gästemappe oder zum Serviceformular ("service").</p>
+      <div id="conciergeCatEditors"></div>
+      <button class="add-card" id="addConciergeCatBtn">＋ Neue Kategorie hinzufügen</button>
+      <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
 
@@ -121,6 +198,22 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 
 <div class="modal" id="modal" onclick="closeModalOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="modalTitle">Informationen</h2><button class="close" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
 
+<div class="modal" id="conciergeModal" onclick="closeConciergeOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="conciergeHeading">Wie können wir Ihren Aufenthalt noch schöner machen?</h2><button class="close" onclick="closeConcierge()">×</button></div><div class="modal-body"><p id="conciergeSub" style="margin-top:-10px;color:var(--muted)"></p><div class="concierge-cats" id="conciergeCats"></div></div></div></div>
+
+<div class="modal" id="serviceModal" onclick="closeServiceOutside(event)"><div class="modal-box"><div class="modal-top"><h2>Service anfragen</h2><button class="close" onclick="closeServiceModal()">×</button></div><div class="modal-body">
+  <div class="svc-options" id="svcOptions">
+    <label><input type="checkbox" value="Zusätzliches Handtuch"> Zusätzliches Handtuch</label>
+    <label><input type="checkbox" value="Kissen"> Kissen</label>
+    <label><input type="checkbox" value="Housekeeping"> Housekeeping</label>
+    <label><input type="checkbox" value="Taxi"> Taxi</label>
+    <label><input type="checkbox" value="Restaurantreservierung"> Restaurantreservierung</label>
+    <label><input type="checkbox" value="Sonstiger Wunsch"> Sonstiger Wunsch</label>
+  </div>
+  <div class="field"><label>IHRE NACHRICHT</label><textarea id="svcMessage" placeholder="Ihr Wunsch in ein paar Worten …"></textarea></div>
+  <div id="svcConfirm" style="display:none;font-size:14px;margin-bottom:16px;line-height:1.6"></div>
+  <button class="primary" type="button" id="svcSendBtn">Anfrage senden</button>
+</div></div></div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
@@ -133,35 +226,54 @@ const db=getFirestore(fbApp);
 const contentRef=doc(db,"gaestemappe","content");
 let isAuthed=false;
 
-const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.',phone:'+49 7543 9330',image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85',brandName:'engel',brandSub:'am See',logo:'',logoLetter:'e',wifiSsid:'',wifiPassword:'',sections:[
-{id:'section-stay',icon:'⌂',name:'Mein Aufenthalt',quick:'Alles rund um Ihren Aufenthalt',heading:'Alles rund um Ihren Aufenthalt',lead:'Hier finden Sie die wichtigsten Informationen für einen entspannten Aufenthalt bei uns.',cards:[
-{icon:'⌂',title:'An- & Abreise',short:'Informationen zu Check-in, Check-out und allen wichtigen Abläufen rund um Ihre An- und Abreise.',cta:'Mehr erfahren',detail:'<h3>Check-in</h3><p>Die konkreten Check-in-Informationen können hier hinterlegt werden.</p><h3>Check-out</h3><p>Die konkreten Check-out-Informationen können hier hinterlegt werden.</p>'},
-{icon:'⌁',title:'Ihr Zimmer',short:'Wissenswertes zu Zimmer, Ausstattung und Services während Ihres Aufenthalts.',cta:'Mehr erfahren',detail:'<h3>Zimmerinformationen</h3><p>Hier können Informationen zur Zimmerausstattung, Reinigung, Handtüchern und weiteren Services stehen.</p>'},
-{icon:'◉',title:'Rezeption',short:'Wir helfen Ihnen gerne bei Fragen, Wünschen und Anliegen weiter.',cta:'Kontakt',detail:'<h3>Kontakt</h3><p id="modalPhone"></p><p>Für persönliche Anliegen steht Ihnen unser Rezeptionsteam gerne zur Verfügung.</p>'},
-{icon:'♡',title:'Service',short:'Weitere Services und Informationen für einen angenehmen Aufenthalt.',cta:'Mehr erfahren',detail:'<h3>Serviceangebote</h3><p>Hier können die verschiedenen Services des Hauses hinterlegt werden.</p>'}]},
-{id:'section-food',icon:'♜',name:'Essen & Trinken',quick:'Frühstück, Restaurant und Bar',heading:'Frühstück, Restaurant und Bar',lead:'Genießen Sie kulinarische Momente und entdecken Sie unsere Angebote rund um Essen & Trinken.',cards:[
-{icon:'☕',title:'Frühstück',short:'Alles Wissenswerte rund um unser Frühstücksangebot und die entsprechenden Zeiten.',cta:'Frühstück ansehen',detail:'<h3>Frühstück</h3><p>Die tatsächlichen Frühstückszeiten und Informationen zum Angebot werden hier ergänzt.</p>'},
-{icon:'♜',title:'Restaurant',short:'Informationen zu unserem Restaurant, Speisen und Reservierungen.',cta:'Restaurant entdecken',detail:'<h3>Restaurant</h3><p>Hier können Restaurantinformationen, Speisekarte, Öffnungszeiten und Reservierungsmöglichkeiten hinterlegt werden.</p>'},
-{icon:'◌',title:'Bar',short:'Der passende Ort für einen Drink und einen entspannten Abend.',cta:'Bar entdecken',detail:'<h3>Bar</h3><p>Hier können Öffnungszeiten, Angebot und weitere Informationen zur Bar ergänzt werden.</p>'},
+const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.',phone:'+49 7543 9330',image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85',brandName:'engel',brandSub:'am See',logo:'',logoLetter:'e',wifiSsid:'',wifiPassword:'',
+weatherLat:47.5456,weatherLon:9.6844,
+tip:{heading:'Unser Tipp für heute',title:'Ein Abendspaziergang am Bodensee',text:'Genießen Sie die Abendstimmung direkt am Ufer – nur wenige Gehminuten von uns entfernt.',image:'',buttonText:'Entdecken',link:''},
+selected:[
+{lucideIcon:'utensils',title:'Restaurant-Empfehlung',text:'Kurze Beschreibung dieser Empfehlung für Ihre Gäste.',buttonText:'Entdecken',link:''},
+{lucideIcon:'coffee',title:'Café-Tipp',text:'Kurze Beschreibung dieser Empfehlung für Ihre Gäste.',buttonText:'Entdecken',link:''},
+{lucideIcon:'cable-car',title:'Ausflugsziel',text:'Kurze Beschreibung dieser Empfehlung für Ihre Gäste.',buttonText:'Entdecken',link:''}],
+surroundings:[
+{lucideIcon:'waves',title:'Bodensee',text:'Nur wenige Schritte von uns entfernt.',link:''},
+{lucideIcon:'cable-car',title:'Hafen',text:'Kurze Beschreibung ergänzen.',link:''},
+{lucideIcon:'utensils',title:'Restaurants in der Umgebung',text:'Kurze Beschreibung ergänzen.',link:''}],
+service:{intro:'Sie benötigen ein Taxi, möchten einen Tisch reservieren oder haben einen besonderen Wunsch? Wir sind gerne für Sie da.',email:''},
+concierge:{heading:'Wie können wir Ihren Aufenthalt noch schöner machen?',subheading:'Ich suche …',categories:[
+{label:'Restaurant',target:'section-food'},
+{label:'Ausflug',target:'section-experience'},
+{label:'Café',target:'section-food'},
+{label:'Wellness',target:'section-spa'},
+{label:'Taxi',target:'service'},
+{label:'Empfehlung',target:'section-recommendations'}]},
+sections:[
+{id:'section-stay',icon:'⌂',lucideIcon:'bed-double',name:'Mein Aufenthalt',quick:'Alles rund um Ihren Aufenthalt',heading:'Alles rund um Ihren Aufenthalt',lead:'Hier finden Sie die wichtigsten Informationen für einen entspannten Aufenthalt bei uns.',cards:[
+{icon:'⌂',lucideIcon:'clipboard-clock',title:'An- & Abreise',short:'Informationen zu Check-in, Check-out und allen wichtigen Abläufen rund um Ihre An- und Abreise.',cta:'Mehr erfahren',detail:'<h3>Check-in</h3><p>Die konkreten Check-in-Informationen können hier hinterlegt werden.</p><h3>Check-out</h3><p>Die konkreten Check-out-Informationen können hier hinterlegt werden.</p>'},
+{icon:'⌁',lucideIcon:'bed-double',title:'Ihr Zimmer',short:'Wissenswertes zu Zimmer, Ausstattung und Services während Ihres Aufenthalts.',cta:'Mehr erfahren',detail:'<h3>Zimmerinformationen</h3><p>Hier können Informationen zur Zimmerausstattung, Reinigung, Handtüchern und weiteren Services stehen.</p>'},
+{icon:'◉',lucideIcon:'concierge-bell',title:'Rezeption',short:'Wir helfen Ihnen gerne bei Fragen, Wünschen und Anliegen weiter.',cta:'Kontakt',detail:'<h3>Kontakt</h3><p id="modalPhone"></p><p>Für persönliche Anliegen steht Ihnen unser Rezeptionsteam gerne zur Verfügung.</p>'},
+{icon:'♡',lucideIcon:'hand-platter',title:'Service',short:'Weitere Services und Informationen für einen angenehmen Aufenthalt.',cta:'Mehr erfahren',detail:'<h3>Serviceangebote</h3><p>Hier können die verschiedenen Services des Hauses hinterlegt werden.</p>'}]},
+{id:'section-food',icon:'♜',lucideIcon:'wine',name:'Essen & Trinken',quick:'Frühstück, Restaurant und Bar',heading:'Frühstück, Restaurant und Bar',lead:'Genießen Sie kulinarische Momente und entdecken Sie unsere Angebote rund um Essen & Trinken.',cards:[
+{icon:'☕',lucideIcon:'croissant',title:'Frühstück',short:'Alles Wissenswerte rund um unser Frühstücksangebot und die entsprechenden Zeiten.',cta:'Frühstück ansehen',detail:'<h3>Frühstück</h3><p>Die tatsächlichen Frühstückszeiten und Informationen zum Angebot werden hier ergänzt.</p>'},
+{icon:'♜',lucideIcon:'utensils',title:'Restaurant',short:'Informationen zu unserem Restaurant, Speisen und Reservierungen.',cta:'Restaurant entdecken',detail:'<h3>Restaurant</h3><p>Hier können Restaurantinformationen, Speisekarte, Öffnungszeiten und Reservierungsmöglichkeiten hinterlegt werden.</p>'},
+{icon:'◌',lucideIcon:'wine',title:'Bar',short:'Der passende Ort für einen Drink und einen entspannten Abend.',cta:'Bar entdecken',detail:'<h3>Bar</h3><p>Hier können Öffnungszeiten, Angebot und weitere Informationen zur Bar ergänzt werden.</p>'},
 {icon:'≋',title:'Speisekarten',short:'Speisekarten und weitere kulinarische Angebote direkt in der digitalen Gästemappe.',cta:'Speisekarten öffnen',detail:'<h3>Speisekarten</h3><p>Hier können digitale Speisekarten als Links oder Dokumente eingebunden werden.</p>'}]},
-{id:'section-spa',icon:'♧',name:'Wellness & Spa',quick:'Spa, Sauna und Anwendungen',heading:'Spa, Sauna und Anwendungen',lead:'Zeit für Ruhe, Entspannung und Erholung.',cards:[
-{icon:'♨',title:'Spa',short:'Entdecken Sie unseren Wellnessbereich und die verschiedenen Möglichkeiten zur Entspannung.',cta:'Spa entdecken',detail:'<h3>Spa</h3><p>Hier werden die konkreten Informationen zum Spa-Bereich ergänzt.</p>'},
+{id:'section-spa',icon:'♧',lucideIcon:'bubbles',name:'Wellness & Spa',quick:'Spa, Sauna und Anwendungen',heading:'Spa, Sauna und Anwendungen',lead:'Zeit für Ruhe, Entspannung und Erholung.',cards:[
+{icon:'♨',lucideIcon:'bubbles',title:'Spa',short:'Entdecken Sie unseren Wellnessbereich und die verschiedenen Möglichkeiten zur Entspannung.',cta:'Spa entdecken',detail:'<h3>Spa</h3><p>Hier werden die konkreten Informationen zum Spa-Bereich ergänzt.</p>'},
 {icon:'◒',title:'Sauna',short:'Informationen zu Sauna, Nutzung und den entsprechenden Zeiten.',cta:'Sauna ansehen',detail:'<h3>Sauna</h3><p>Hier können Saunaangebote, Öffnungszeiten und wichtige Hinweise ergänzt werden.</p>'},
 {icon:'✦',title:'Anwendungen',short:'Massagen, Beauty und weitere Anwendungen für Ihre persönliche Auszeit.',cta:'Anwendungen ansehen',detail:'<h3>Anwendungen</h3><p>Hier können Anwendungen, Preise, Dauer und Buchungsmöglichkeiten hinterlegt werden.</p>'},
 {icon:'+',title:'Termin buchen',short:'Finden Sie hier später die Möglichkeit, direkt einen Wellness-Termin anzufragen.',cta:'Termin anfragen',detail:'<h3>Wellness-Termin</h3><p>Hier kann eine direkte Kontakt- oder Buchungsmöglichkeit eingebunden werden.</p>'}]},
-{id:'section-experience',icon:'≈',name:'See & Erleben',quick:'Aktivitäten und Ausflüge',heading:'Aktivitäten und Ausflüge',lead:'Entdecken Sie die Umgebung und machen Sie Ihren Aufenthalt zu Ihrem persönlichen Erlebnis.',cards:[
-{icon:'≈',title:'Am See',short:'Ideen und Möglichkeiten für besondere Momente direkt am Wasser.',cta:'Entdecken',detail:'<h3>Erlebnisse am See</h3><p>Hier können konkrete Aktivitäten rund um den See ergänzt werden.</p>'},
+{id:'section-experience',icon:'≈',lucideIcon:'waves',name:'See & Erleben',quick:'Aktivitäten und Ausflüge',heading:'Aktivitäten und Ausflüge',lead:'Entdecken Sie die Umgebung und machen Sie Ihren Aufenthalt zu Ihrem persönlichen Erlebnis.',cards:[
+{icon:'≈',lucideIcon:'waves',title:'Am See',short:'Ideen und Möglichkeiten für besondere Momente direkt am Wasser.',cta:'Entdecken',detail:'<h3>Erlebnisse am See</h3><p>Hier können konkrete Aktivitäten rund um den See ergänzt werden.</p>'},
 {icon:'⌁',title:'Aktiv unterwegs',short:'Wandern, Radfahren und weitere Möglichkeiten, die Umgebung aktiv zu entdecken.',cta:'Aktivitäten ansehen',detail:'<h3>Aktivitäten</h3><p>Hier können Wanderungen, Radtouren und weitere Aktivitäten hinterlegt werden.</p>'},
-{icon:'△',title:'Ausflüge',short:'Interessante Ziele und Ausflugsideen für Ihre Zeit außerhalb des Hauses.',cta:'Ausflüge entdecken',detail:'<h3>Ausflugstipps</h3><p>Hier werden konkrete Ausflugsziele mit Beschreibung, Entfernung und gegebenenfalls Links ergänzt.</p>'},
-{icon:'✦',title:'Wetter & Planung',short:'Aktuelle Informationen und passende Empfehlungen für die Tagesplanung.',cta:'Mehr erfahren',detail:'<h3>Wetter & Planung</h3><p>Dieser Bereich kann mit aktuellen Wetterinformationen und passenden Aktivitäten verbunden werden.</p>'}]},
-{id:'section-recommendations',icon:'✦',name:'Empfehlungen',quick:'Unsere persönlichen Tipps',heading:'Unsere persönlichen Tipps',lead:'Empfehlungen, die wir unseren Gästen wirklich gerne weitergeben.',cards:[
+{icon:'△',lucideIcon:'cable-car',title:'Ausflüge',short:'Interessante Ziele und Ausflugsideen für Ihre Zeit außerhalb des Hauses.',cta:'Ausflüge entdecken',detail:'<h3>Ausflugstipps</h3><p>Hier werden konkrete Ausflugsziele mit Beschreibung, Entfernung und gegebenenfalls Links ergänzt.</p>'},
+{icon:'✦',lucideIcon:'cloud-sun',title:'Wetter & Planung',short:'Aktuelle Informationen und passende Empfehlungen für die Tagesplanung.',cta:'Mehr erfahren',detail:'<h3>Wetter & Planung</h3><p>Dieser Bereich kann mit aktuellen Wetterinformationen und passenden Aktivitäten verbunden werden.</p>'}]},
+{id:'section-recommendations',icon:'✦',lucideIcon:'book-heart',name:'Empfehlungen',quick:'Unsere persönlichen Tipps',heading:'Unsere persönlichen Tipps',lead:'Empfehlungen, die wir unseren Gästen wirklich gerne weitergeben.',cards:[
 {icon:'♡',title:'Essen gehen',short:'Unsere persönlichen Restaurant-Empfehlungen in der Umgebung.',cta:'Empfehlungen ansehen',detail:'<h3>Unsere Restaurant-Tipps</h3><p>Hier werden konkrete persönliche Empfehlungen mit Beschreibung und Link ergänzt.</p>'},
 {icon:'☕',title:'Cafés & Genuss',short:'Kleine Lieblingsorte für Kaffee, Kuchen und entspannte Stunden.',cta:'Tipps ansehen',detail:'<h3>Cafés & Genuss</h3><p>Hier können persönliche Café- und Genuss-Empfehlungen hinterlegt werden.</p>'},
 {icon:'△',title:'Besondere Orte',short:'Orte in der Umgebung, die man nicht unbedingt im Reiseführer findet.',cta:'Orte entdecken',detail:'<h3>Besondere Orte</h3><p>Hier können persönliche Geheimtipps des Hauses ergänzt werden.</p>'},
 {icon:'✦',title:'Unser Tipp',short:'Empfehlungen des Teams für einen besonders schönen Tag.',cta:'Tipp ansehen',detail:'<h3>Unser persönlicher Tipp</h3><p>Hier kann regelmäßig ein besonderer Tipp des Hauses präsentiert werden.</p>'}]},
 {id:'section-info',icon:'ⓘ',name:'Wichtige Informationen',quick:'Wissenswertes A–Z',heading:'Wissenswertes A–Z',lead:'Die wichtigsten Informationen schnell und übersichtlich an einem Ort.',cards:[
 {icon:'ⓘ',title:'Kontakt',short:'Rezeption und wichtige Kontaktdaten des Hauses.',cta:'Kontakt ansehen',detail:'<h3>Rezeption</h3><p id="detailPhone"></p>'},
-{icon:'⌂',title:'WLAN',short:'Informationen zum WLAN und zur Verbindung.',cta:'WLAN anzeigen',special:'wifi',detail:'<h3>WLAN</h3><div id="wifiBlock"></div>'},
+{icon:'⌂',lucideIcon:'wifi',title:'WLAN',short:'Informationen zum WLAN und zur Verbindung.',cta:'WLAN anzeigen',special:'wifi',detail:'<h3>WLAN</h3><div id="wifiBlock"></div>'},
 {icon:'!',title:'Notfallinformationen',short:'Wichtige Informationen für Notfälle und medizinische Hilfe.',cta:'Informationen ansehen',detail:'<h3>Im Notfall</h3><p>Hier können die konkreten Notfallinformationen des Hauses hinterlegt werden.</p>'},
 {icon:'A–Z',title:'Gästeinformationen',short:'Weitere wichtige Hinweise zu Ihrem Aufenthalt.',cta:'A–Z öffnen',detail:'<h3>Gästeinformationen</h3><p>Hier können weitere Themen wie Parken, Haustiere, Reinigung, Gepäck, Abreise und vieles mehr gesammelt werden.</p>'}]}
 ]};
@@ -169,7 +281,18 @@ const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei
 let data=structuredClone(defaultData);
 let openSections=new Set();
 
-function mergeData(saved){const base=structuredClone(defaultData);Object.assign(base,saved);base.sections=(saved.sections&&saved.sections.length?saved.sections:base.sections);return base}
+function mergeData(saved){
+  const base=structuredClone(defaultData);
+  Object.assign(base,saved);
+  base.sections=(saved.sections&&saved.sections.length?saved.sections:base.sections);
+  base.selected=(saved.selected&&saved.selected.length?saved.selected:base.selected);
+  base.surroundings=(saved.surroundings&&saved.surroundings.length?saved.surroundings:base.surroundings);
+  base.tip=Object.assign({},defaultData.tip,saved.tip||{});
+  base.service=Object.assign({},defaultData.service,saved.service||{});
+  base.concierge=Object.assign({},defaultData.concierge,saved.concierge||{});
+  if(saved.concierge&&saved.concierge.categories&&saved.concierge.categories.length)base.concierge.categories=saved.concierge.categories;
+  return base;
+}
 
 /* Lädt die Inhalte live aus der Cloud – jede Änderung von jedem Gerät kommt automatisch hier an */
 onSnapshot(contentRef,snap=>{
@@ -181,9 +304,22 @@ onSnapshot(contentRef,snap=>{
   document.getElementById('saveStatus').textContent='Verbindung fehlgeschlagen';
 });
 function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
+function iconHtml(item,size){
+  if(item&&item.lucideIcon)return `<i class="lucide-ico" data-lucide="${esc(item.lucideIcon)}" style="width:${size||22}px;height:${size||22}px"></i>`;
+  return esc((item&&item.icon)||'');
+}
+function hydrateIcons(){if(window.lucide)lucide.createIcons();}
+function timeGreeting(){
+  const h=new Date().getHours();
+  if(h>=5&&h<11)return'Guten Morgen';
+  if(h>=11&&h<17)return'Schön, dass Sie da sind.';
+  if(h>=17&&h<22)return'Einen schönen Abend.';
+  return'Gute Nacht';
+}
 
 /* ---------- Gästeansicht rendern ---------- */
 function render(){
+  document.getElementById('heroEyebrow').textContent=timeGreeting();
   document.getElementById('title').innerHTML=esc(data.title).replace('Dein Engel.','<i>Dein Engel.</i>');
   document.getElementById('intro').textContent=data.intro;
   document.getElementById('footerPhone').textContent=data.phone;
@@ -193,7 +329,85 @@ function render(){
   renderBrandMark();
   renderQuick();
   renderContent();
+  renderToday();
+  loadWeather();
+  renderSelected();
+  renderService();
+  renderSurroundings();
   renderAdmin();
+  hydrateIcons();
+}
+function renderToday(){
+  const box=document.getElementById('todaySection');if(!box)return;
+  box.innerHTML=`<div class="section-eyebrow" style="margin:0 0 16px 4px">Heute am Bodensee</div><div class="today-card">
+    <div class="weather-box">
+      <i class="lucide-ico" data-lucide="cloud-sun" style="width:46px;height:46px;flex-shrink:0"></i>
+      <div>
+        <div class="weather-temp" id="weatherTemp">–</div>
+        <div class="weather-meta" id="weatherCond">Wetterdaten werden geladen …</div>
+        <div class="weather-sun"><span id="weatherSunrise"></span><span id="weatherSunset"></span></div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-eyebrow">${esc(data.tip.heading)}</div>
+      <h3>${esc(data.tip.title)}</h3>
+      <p>${esc(data.tip.text)}</p>
+      ${data.tip.link?`<a class="cta" href="${esc(data.tip.link)}" target="_blank" rel="noopener">${esc(data.tip.buttonText||'Entdecken')}</a>`:`<span class="cta" style="opacity:.5;cursor:default">${esc(data.tip.buttonText||'Entdecken')}</span>`}
+    </div>
+  </div>`;
+}
+async function loadWeather(){
+  const t=document.getElementById('weatherTemp'),c=document.getElementById('weatherCond'),sr=document.getElementById('weatherSunrise'),ss=document.getElementById('weatherSunset');
+  if(!t)return;
+  try{
+    const lat=data.weatherLat||47.5456,lon=data.weatherLon||9.6844;
+    const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&daily=sunrise,sunset&timezone=auto`;
+    const res=await fetch(url);
+    if(!res.ok)throw new Error('Wetterdienst nicht erreichbar');
+    const j=await res.json();
+    t.textContent=Math.round(j.current.temperature_2m)+'°';
+    c.textContent=weatherCodeLabel(j.current.weather_code);
+    const fmt=iso=>new Date(iso).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+    if(sr)sr.textContent='↑ '+fmt(j.daily.sunrise[0]);
+    if(ss)ss.textContent='↓ '+fmt(j.daily.sunset[0]);
+  }catch(err){
+    if(c)c.textContent='Wetterdaten aktuell nicht verfügbar.';
+  }
+}
+function weatherCodeLabel(code){
+  const map={0:'Klarer Himmel',1:'Überwiegend klar',2:'Teilweise bewölkt',3:'Bewölkt',45:'Nebel',48:'Nebel mit Reifglätte',51:'Leichter Nieselregen',53:'Nieselregen',55:'Starker Nieselregen',61:'Leichter Regen',63:'Regen',65:'Starker Regen',71:'Leichter Schneefall',73:'Schneefall',75:'Starker Schneefall',80:'Regenschauer',81:'Regenschauer',82:'Heftige Regenschauer',95:'Gewitter',96:'Gewitter mit Hagel',99:'Gewitter mit starkem Hagel'};
+  return map[code]||'—';
+}
+function renderSelected(){
+  const box=document.getElementById('selectedSection');if(!box)return;
+  if(!data.selected||!data.selected.length){box.innerHTML='';return}
+  box.innerHTML=`<h2>Für Sie ausgewählt</h2><div class="scroll-row">${data.selected.map(it=>`<div class="scroll-card">
+    ${iconHtml(it,28)}
+    <h4>${esc(it.title)}</h4>
+    <p>${esc(it.text)}</p>
+    ${it.link?`<a class="cta" href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.buttonText||'Entdecken')}</a>`:`<span class="cta" style="opacity:.5;cursor:default">${esc(it.buttonText||'Entdecken')}</span>`}
+  </div>`).join('')}</div>`;
+}
+function renderService(){
+  const box=document.getElementById('serviceSection');if(!box)return;
+  box.innerHTML=`<h2 style="margin:0 0 14px;font-family:Georgia,serif;font-weight:400;font-size:28px">Wir sind für Sie da</h2>
+  <p>${esc(data.service.intro)}</p>
+  <div class="service-actions">
+    <a class="primary" href="tel:${esc((data.phone||'').replace(/\s+/g,''))}">Rezeption anrufen</a>
+    <button class="secondary" type="button" id="openServiceModalBtn">Service anfragen</button>
+  </div>`;
+  const svcBtn=document.getElementById('openServiceModalBtn');
+  if(svcBtn)svcBtn.addEventListener('click',openServiceModal);
+}
+function renderSurroundings(){
+  const box=document.getElementById('surroundingsSection');if(!box)return;
+  if(!data.surroundings||!data.surroundings.length){box.innerHTML='';return}
+  box.innerHTML=`<h2 style="margin:0 0 20px;font-family:Georgia,serif;font-weight:400;font-size:28px">Entdecken Sie die Umgebung</h2><div class="cards">${data.surroundings.map(it=>`<article class="card">
+    <div class="card-icon">${iconHtml(it,24)}</div>
+    <h3>${esc(it.title)}</h3>
+    <p>${esc(it.text)}</p>
+    ${it.link?`<a class="cta" href="${esc(it.link)}" target="_blank" rel="noopener">Entdecken</a>`:''}
+  </article>`).join('')}</div>`;
 }
 function renderBrandMark(){
   const el=document.getElementById('brandMark');
@@ -201,10 +415,10 @@ function renderBrandMark(){
   else{el.textContent=(data.logoLetter||data.brandName||'e').trim().charAt(0)||'e';el.style.background='var(--gold)';}
 }
 function renderQuick(){
-  document.getElementById('quick').innerHTML=data.sections.map((s,si)=>`<button data-target="${esc(s.id)}"><div class="icon">${esc(s.icon)}</div><strong>${esc(s.name)}</strong><small>${esc(s.quick)}</small></button>`).join('');
+  document.getElementById('quick').innerHTML=data.sections.map((s,si)=>`<button data-target="${esc(s.id)}"><div class="icon">${iconHtml(s,20)}</div><strong>${esc(s.name)}</strong><small>${esc(s.quick)}</small></button>`).join('');
 }
 function renderContent(){
-  document.getElementById('content').innerHTML=data.sections.map((s,si)=>`<section class="section" id="${esc(s.id)}"><div class="section-head"><div class="section-eyebrow">${esc(s.name)}</div><h2>${esc(s.heading)}</h2><p class="section-lead">${esc(s.lead)}</p></div><div class="cards">${s.cards.map((c,ci)=>`<article class="card"><div class="card-icon">${esc(c.icon)}</div><h3>${esc(c.title)}</h3><p>${esc(c.short)}</p><button class="cta" data-si="${si}" data-ci="${ci}">${esc(c.cta)}</button></article>`).join('')}</div></section>`).join('');
+  document.getElementById('content').innerHTML=data.sections.map((s,si)=>`<section class="section" id="${esc(s.id)}"><div class="section-head"><div class="section-eyebrow">${esc(s.name)}</div><h2>${esc(s.heading)}</h2><p class="section-lead">${esc(s.lead)}</p></div><div class="cards">${s.cards.map((c,ci)=>`<article class="card"><div class="card-icon">${iconHtml(c,24)}</div><h3>${esc(c.title)}</h3><p>${esc(c.short)}</p><button class="cta" data-si="${si}" data-ci="${ci}">${esc(c.cta)}</button></article>`).join('')}</div></section>`).join('');
 }
 function goTo(id){const el=document.getElementById(id);if(!el)return;showGuest();setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),50)}
 function openDetail(title,html,special){
@@ -236,7 +450,48 @@ function buildWifiString(ssid,pw){
 }
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 function closeModalOutside(e){if(e.target.id==='modal')closeModal()}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeConcierge();closeServiceModal();}});
+
+/* ---------- Engel Concierge ---------- */
+function renderConcierge(){
+  const h=document.getElementById('conciergeHeading');if(h)h.textContent=data.concierge.heading;
+  const sub=document.getElementById('conciergeSub');if(sub)sub.textContent=data.concierge.subheading;
+  const cats=document.getElementById('conciergeCats');
+  if(cats)cats.innerHTML=(data.concierge.categories||[]).map(c=>`<button type="button" data-target="${esc(c.target)}">${esc(c.label)}</button>`).join('');
+}
+function openConcierge(){renderConcierge();document.getElementById('conciergeModal').classList.add('open')}
+function closeConcierge(){document.getElementById('conciergeModal').classList.remove('open')}
+function closeConciergeOutside(e){if(e.target.id==='conciergeModal')closeConcierge()}
+document.getElementById('conciergeFab').addEventListener('click',openConcierge);
+document.getElementById('conciergeModal').addEventListener('click',e=>{
+  const btn=e.target.closest('#conciergeCats button');if(!btn)return;
+  const target=btn.dataset.target;
+  closeConcierge();
+  if(target==='service')openServiceModal();else goTo(target);
+});
+window.closeConcierge=closeConcierge;window.closeConciergeOutside=closeConciergeOutside;
+
+/* ---------- Serviceanfrage ---------- */
+function openServiceModal(){document.getElementById('serviceModal').classList.add('open')}
+function closeServiceModal(){document.getElementById('serviceModal').classList.remove('open')}
+function closeServiceOutside(e){if(e.target.id==='serviceModal')closeServiceModal()}
+document.getElementById('svcSendBtn').addEventListener('click',()=>{
+  const picked=[...document.querySelectorAll('#svcOptions input:checked')].map(i=>i.value);
+  const msg=document.getElementById('svcMessage').value.trim();
+  const confirmBox=document.getElementById('svcConfirm');
+  if(!picked.length&&!msg){confirmBox.style.display='block';confirmBox.style.color='#8b3e35';confirmBox.textContent='Bitte wählen Sie mindestens einen Wunsch aus oder schreiben Sie uns eine Nachricht.';return}
+  const body=(picked.length?'Gewünschte Services: '+picked.join(', ')+'\n\n':'')+(msg?'Nachricht: '+msg:'');
+  confirmBox.style.color='var(--gold-dark)';
+  if(data.service.email){
+    const mailto=`mailto:${encodeURIComponent(data.service.email)}?subject=${encodeURIComponent('Serviceanfrage – Gästemappe')}&body=${encodeURIComponent(body)}`;
+    window.location.href=mailto;
+    confirmBox.textContent='Ihre E-Mail-App öffnet sich mit einer vorausgefüllten Anfrage – bitte dort einmal auf Senden tippen, damit sie wirklich bei uns ankommt.';
+  }else{
+    confirmBox.textContent='Vielen Dank! Bitte rufen Sie zur schnellsten Bearbeitung kurz die Rezeption an: '+data.phone+' – ein automatischer Versand ist aktuell noch nicht eingerichtet.';
+  }
+  confirmBox.style.display='block';
+});
+window.openServiceModal=openServiceModal;window.closeServiceModal=closeServiceModal;window.closeServiceOutside=closeServiceOutside;
 
 /* Klicks in der Gästeansicht per Delegation statt fehleranfälliger onclick-Attribute */
 document.getElementById('quick').addEventListener('click',e=>{
@@ -278,6 +533,7 @@ function renderAdmin(){
   document.getElementById('iIntro').value=data.intro;
   document.getElementById('iPhone').value=data.phone;
   document.getElementById('iImage').value=data.image;
+  renderHeroPreview(data.image);
   document.getElementById('iWifiSsid').value=data.wifiSsid;
   document.getElementById('iWifiPassword').value=data.wifiPassword;
   document.getElementById('iBrandName').value=data.brandName;
@@ -285,6 +541,22 @@ function renderAdmin(){
   document.getElementById('iLogo').value=data.logo;
   document.getElementById('iLogoLetter').value=data.logoLetter;
   renderLogoPreview(data.logo);
+
+  document.getElementById('iTipHeading').value=data.tip.heading;
+  document.getElementById('iTipTitle').value=data.tip.title;
+  document.getElementById('iTipText').value=data.tip.text;
+  document.getElementById('iTipButton').value=data.tip.buttonText;
+  document.getElementById('iTipImage').value=data.tip.image;
+  document.getElementById('iTipLink').value=data.tip.link;
+  renderSelectedEditors();
+  renderSurroundingsEditors();
+
+  document.getElementById('iServiceIntro').value=data.service.intro;
+  document.getElementById('iServiceEmail').value=data.service.email;
+  document.getElementById('iConciergeHeading').value=data.concierge.heading;
+  document.getElementById('iConciergeSub').value=data.concierge.subheading;
+  document.getElementById('conciergeIdsHint').textContent='Verfügbare Bereich-IDs: '+data.sections.map(s=>s.id).join(', ')+' – oder "service" fürs Serviceformular.';
+  renderConciergeCatEditors();
 
   document.getElementById('sectionEditors').innerHTML=data.sections.map((s,si)=>`<div class="section-editor ${openSections.has(s.id)?'open':''}">
     <div class="section-editor-head" data-sid="${esc(s.id)}">
@@ -299,8 +571,9 @@ function renderAdmin(){
     <div class="section-editor-body">
       <div class="grid2">
         <div class="field"><label>BEREICH-NAME</label><input data-si="${si}" data-key="name" value="${esc(s.name)}"></div>
-        <div class="field"><label>SYMBOL</label><input data-si="${si}" data-key="icon" value="${esc(s.icon)}"></div>
+        <div class="field"><label>SYMBOL (FALLBACK)</label><input data-si="${si}" data-key="icon" value="${esc(s.icon)}"></div>
       </div>
+      <div class="field"><label>LUCIDE-ICON-NAME (optional, überschreibt Symbol)</label><input data-si="${si}" data-key="lucideIcon" value="${esc(s.lucideIcon||'')}" placeholder="z. B. bed-double"></div>
       <div class="field"><label>SCHNELLMENÜ-BESCHREIBUNG</label><input data-si="${si}" data-key="quick" value="${esc(s.quick)}"></div>
       <div class="field"><label>ÜBERSCHRIFT DES BEREICHS</label><input data-si="${si}" data-key="heading" value="${esc(s.heading)}"></div>
       <div class="field"><label>EINLEITUNG</label><textarea data-si="${si}" data-key="lead">${esc(s.lead)}</textarea></div>
@@ -322,9 +595,10 @@ function cardEditor(si,c,ci){
       </div>
     </div>
     <div class="grid2">
-      <div class="field"><label>SYMBOL</label><input data-si="${si}" data-ci="${ci}" data-key="icon" value="${esc(c.icon)}"></div>
+      <div class="field"><label>SYMBOL (FALLBACK)</label><input data-si="${si}" data-ci="${ci}" data-key="icon" value="${esc(c.icon)}"></div>
       <div class="field"><label>TITEL</label><input data-si="${si}" data-ci="${ci}" data-key="title" value="${esc(c.title)}"></div>
     </div>
+    <div class="field"><label>LUCIDE-ICON-NAME (optional, überschreibt Symbol)</label><input data-si="${si}" data-ci="${ci}" data-key="lucideIcon" value="${esc(c.lucideIcon||'')}" placeholder="z. B. bed-double"></div>
     <div class="field"><label>KURZBESCHREIBUNG</label><textarea data-si="${si}" data-ci="${ci}" data-key="short">${esc(c.short)}</textarea></div>
     <div class="grid2">
       <div class="field"><label>BUTTON-TEXT</label><input data-si="${si}" data-ci="${ci}" data-key="cta" value="${esc(c.cta)}"></div>
@@ -338,6 +612,105 @@ function renderQuickPreview(){
   const box=document.getElementById('quickPreview');if(!box)return;
   box.innerHTML=data.sections.map(s=>`<div>${esc(s.icon)}<b>${esc(s.name)}</b>${esc(s.quick)}</div>`).join('');
 }
+function renderSelectedEditors(){
+  const box=document.getElementById('selectedEditors');if(!box)return;
+  box.innerHTML=data.selected.map((it,i)=>`<div class="card-editor">
+    <div class="card-editor-top"><span class="card-number">Empfehlung ${i+1}</span>
+      <div class="mini-actions">
+        <button class="mini" data-selmove="${i},-1">↑</button>
+        <button class="mini" data-selmove="${i},1">↓</button>
+        <button class="mini danger-mini" data-seldel="${i}">Löschen</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>LUCIDE-ICON-NAME</label><input data-sel="${i}" data-key="lucideIcon" value="${esc(it.lucideIcon||'')}" placeholder="z. B. utensils"></div>
+      <div class="field"><label>TITEL</label><input data-sel="${i}" data-key="title" value="${esc(it.title)}"></div>
+    </div>
+    <div class="field"><label>BESCHREIBUNG</label><textarea data-sel="${i}" data-key="text">${esc(it.text)}</textarea></div>
+    <div class="grid2">
+      <div class="field"><label>BUTTON-TEXT</label><input data-sel="${i}" data-key="buttonText" value="${esc(it.buttonText||'Entdecken')}"></div>
+      <div class="field"><label>LINK</label><input data-sel="${i}" data-key="link" value="${esc(it.link||'')}" placeholder="https://..."></div>
+    </div>
+  </div>`).join('');
+}
+document.getElementById('selectedEditors').addEventListener('input',e=>{
+  const el=e.target;if(el.dataset.sel===undefined)return;
+  data.selected[+el.dataset.sel][el.dataset.key]=el.value;
+});
+document.getElementById('selectedEditors').addEventListener('click',e=>{
+  const mv=e.target.closest('[data-selmove]');
+  if(mv){const[i,dir]=mv.dataset.selmove.split(',').map(Number);const arr=data.selected,n=i+dir;if(n>=0&&n<arr.length){[arr[i],arr[n]]=[arr[n],arr[i]];renderSelectedEditors();}return;}
+  const del=e.target.closest('[data-seldel]');
+  if(del){if(!confirm('Diese Empfehlung wirklich löschen?'))return;data.selected.splice(+del.dataset.seldel,1);renderSelectedEditors();}
+});
+document.getElementById('addSelectedBtn').addEventListener('click',()=>{
+  data.selected.push({lucideIcon:'',title:'Neue Empfehlung',text:'Kurze Beschreibung.',buttonText:'Entdecken',link:''});
+  renderSelectedEditors();
+});
+
+function renderSurroundingsEditors(){
+  const box=document.getElementById('surroundingsEditors');if(!box)return;
+  box.innerHTML=data.surroundings.map((it,i)=>`<div class="card-editor">
+    <div class="card-editor-top"><span class="card-number">Umgebungstipp ${i+1}</span>
+      <div class="mini-actions">
+        <button class="mini" data-surmove="${i},-1">↑</button>
+        <button class="mini" data-surmove="${i},1">↓</button>
+        <button class="mini danger-mini" data-surdel="${i}">Löschen</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>LUCIDE-ICON-NAME</label><input data-sur="${i}" data-key="lucideIcon" value="${esc(it.lucideIcon||'')}" placeholder="z. B. waves"></div>
+      <div class="field"><label>TITEL</label><input data-sur="${i}" data-key="title" value="${esc(it.title)}"></div>
+    </div>
+    <div class="field"><label>BESCHREIBUNG</label><textarea data-sur="${i}" data-key="text">${esc(it.text)}</textarea></div>
+    <div class="field"><label>LINK (z. B. Google-Maps-Link)</label><input data-sur="${i}" data-key="link" value="${esc(it.link||'')}" placeholder="https://..."></div>
+  </div>`).join('');
+}
+document.getElementById('surroundingsEditors').addEventListener('input',e=>{
+  const el=e.target;if(el.dataset.sur===undefined)return;
+  data.surroundings[+el.dataset.sur][el.dataset.key]=el.value;
+});
+document.getElementById('surroundingsEditors').addEventListener('click',e=>{
+  const mv=e.target.closest('[data-surmove]');
+  if(mv){const[i,dir]=mv.dataset.surmove.split(',').map(Number);const arr=data.surroundings,n=i+dir;if(n>=0&&n<arr.length){[arr[i],arr[n]]=[arr[n],arr[i]];renderSurroundingsEditors();}return;}
+  const del=e.target.closest('[data-surdel]');
+  if(del){if(!confirm('Diesen Umgebungstipp wirklich löschen?'))return;data.surroundings.splice(+del.dataset.surdel,1);renderSurroundingsEditors();}
+});
+document.getElementById('addSurroundingBtn').addEventListener('click',()=>{
+  data.surroundings.push({lucideIcon:'',title:'Neuer Umgebungstipp',text:'Kurze Beschreibung.',link:''});
+  renderSurroundingsEditors();
+});
+
+function renderConciergeCatEditors(){
+  const box=document.getElementById('conciergeCatEditors');if(!box)return;
+  box.innerHTML=data.concierge.categories.map((c,i)=>`<div class="card-editor">
+    <div class="card-editor-top"><span class="card-number">Kategorie ${i+1}</span>
+      <div class="mini-actions">
+        <button class="mini" data-catmove="${i},-1">↑</button>
+        <button class="mini" data-catmove="${i},1">↓</button>
+        <button class="mini danger-mini" data-catdel="${i}">Löschen</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>BESCHRIFTUNG</label><input data-cat="${i}" data-key="label" value="${esc(c.label)}"></div>
+      <div class="field"><label>ZIEL (BEREICH-ID ODER "service")</label><input data-cat="${i}" data-key="target" value="${esc(c.target)}"></div>
+    </div>
+  </div>`).join('');
+}
+document.getElementById('conciergeCatEditors').addEventListener('input',e=>{
+  const el=e.target;if(el.dataset.cat===undefined)return;
+  data.concierge.categories[+el.dataset.cat][el.dataset.key]=el.value;
+});
+document.getElementById('conciergeCatEditors').addEventListener('click',e=>{
+  const mv=e.target.closest('[data-catmove]');
+  if(mv){const[i,dir]=mv.dataset.catmove.split(',').map(Number);const arr=data.concierge.categories,n=i+dir;if(n>=0&&n<arr.length){[arr[i],arr[n]]=[arr[n],arr[i]];renderConciergeCatEditors();}return;}
+  const del=e.target.closest('[data-catdel]');
+  if(del){if(!confirm('Diese Kategorie wirklich löschen?'))return;data.concierge.categories.splice(+del.dataset.catdel,1);renderConciergeCatEditors();}
+});
+document.getElementById('addConciergeCatBtn').addEventListener('click',()=>{
+  data.concierge.categories.push({label:'Neue Kategorie',target:(data.sections[0]&&data.sections[0].id)||''});
+  renderConciergeCatEditors();
+});
 function renderLogoPreview(url){
   const box=document.getElementById('logoPreview');if(!box)return;
   if(url){box.innerHTML=`<img src="${esc(url)}" alt="Logo-Vorschau">`;box.style.background='transparent';}
@@ -345,6 +718,10 @@ function renderLogoPreview(url){
     const letter=(document.getElementById('iLogoLetter').value||document.getElementById('iBrandName').value||'e').trim().charAt(0)||'e';
     box.textContent=letter;box.style.background='var(--gold)';
   }
+}
+function renderHeroPreview(url){
+  const box=document.getElementById('heroPreview');if(!box)return;
+  box.style.backgroundImage=url?`url("${url.replace(/"/g,'')}")`:'none';
 }
 
 /* Live-Bindung für Bereich- und Kachel-Felder (aktualisiert sofort das Datenmodell + die Schnellmenü-Vorschau) */
@@ -398,7 +775,7 @@ document.getElementById('adminTabs').addEventListener('click',e=>{
 document.getElementById('logoFile').addEventListener('change',e=>{
   const file=e.target.files[0];if(!file)return;
   if(!file.type.startsWith('image/')){alert('Bitte eine Bilddatei auswählen.');return;}
-  if(file.size>800000){alert('Bitte ein kleineres Bild wählen (unter 800 KB), damit es zuverlässig gespeichert werden kann.');return;}
+  if(file.size>250000){alert('Bitte ein kleineres Bild wählen (unter 250 KB), damit zusammen mit dem Hero-Bild noch genug Platz in der Datenbank bleibt.');return;}
   const reader=new FileReader();
   reader.onload=()=>{document.getElementById('iLogo').value=reader.result;renderLogoPreview(reader.result);};
   reader.readAsDataURL(file);
@@ -410,6 +787,21 @@ document.getElementById('logoClear').addEventListener('click',()=>{
 document.getElementById('iLogo').addEventListener('input',e=>renderLogoPreview(e.target.value.trim()));
 document.getElementById('iLogoLetter').addEventListener('input',()=>renderLogoPreview(document.getElementById('iLogo').value.trim()));
 document.getElementById('iBrandName').addEventListener('input',()=>renderLogoPreview(document.getElementById('iLogo').value.trim()));
+
+/* Hero-Bild: Upload oder Link */
+document.getElementById('heroFile').addEventListener('change',e=>{
+  const file=e.target.files[0];if(!file)return;
+  if(!file.type.startsWith('image/')){alert('Bitte eine Bilddatei auswählen.');return;}
+  if(file.size>450000){alert('Bitte ein kleineres Bild wählen (unter 450 KB), damit es zuverlässig gespeichert werden kann. Alternativ einfach einen Bildlink eintragen statt hochzuladen.');return;}
+  const reader=new FileReader();
+  reader.onload=()=>{document.getElementById('iImage').value=reader.result;renderHeroPreview(reader.result);};
+  reader.readAsDataURL(file);
+});
+document.getElementById('heroClear').addEventListener('click',()=>{
+  document.getElementById('iImage').value=defaultData.image;
+  renderHeroPreview(defaultData.image);
+});
+document.getElementById('iImage').addEventListener('input',e=>renderHeroPreview(e.target.value.trim()));
 
 async function saveSettings(){
   if(!isAuthed){alert('Bitte zuerst anmelden.');return}
@@ -423,6 +815,18 @@ async function saveSettings(){
   data.brandSub=document.getElementById('iBrandSub').value.trim();
   data.logo=document.getElementById('iLogo').value.trim();
   data.logoLetter=document.getElementById('iLogoLetter').value.trim()||defaultData.logoLetter;
+  data.tip.heading=document.getElementById('iTipHeading').value;
+  data.tip.title=document.getElementById('iTipTitle').value;
+  data.tip.text=document.getElementById('iTipText').value;
+  data.tip.buttonText=document.getElementById('iTipButton').value;
+  data.tip.image=document.getElementById('iTipImage').value.trim();
+  data.tip.link=document.getElementById('iTipLink').value.trim();
+  data.service.intro=document.getElementById('iServiceIntro').value;
+  data.service.email=document.getElementById('iServiceEmail').value.trim();
+  data.concierge.heading=document.getElementById('iConciergeHeading').value;
+  data.concierge.subheading=document.getElementById('iConciergeSub').value;
+  const sizeKb=Math.round(new Blob([JSON.stringify(data)]).size/1024);
+  if(sizeKb>950){alert('Die Inhalte sind zusammen zu groß für die Datenbank ('+sizeKb+' KB, Limit ca. 1000 KB) – bitte ein kleineres Logo- oder Hero-Bild verwenden, oder statt Hochladen einen Bildlink eintragen.');return;}
   try{
     await setDoc(contentRef,data);
     document.getElementById('saveStatus').textContent='✓ In der Cloud gespeichert';
