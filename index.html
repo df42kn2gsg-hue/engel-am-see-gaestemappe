@@ -26,19 +26,31 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 </head>
 <body>
 <header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div><div class="brandtext" id="brandName">engel<small id="brandSub">am See</small></div></div><nav class="nav"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
-
+ 
 <div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
-
+ 
 <section id="admin"><div class="admin-wrap">
-  <div class="admin-head"><div><h1>Gästemappe bearbeiten</h1><p>Wähle unten aus, was du bearbeiten möchtest.</p></div><div class="admin-status" id="saveStatus">Gespeichert auf diesem Gerät</div></div>
-
+  <div class="admin-head"><div><h1>Gästemappe bearbeiten</h1><p>Wähle unten aus, was du bearbeiten möchtest.</p></div><div class="admin-status" id="saveStatus">Verbinde mit der Cloud …</div></div>
+ 
+  <div id="loginPanel" class="admin-card" style="max-width:420px;margin:40px auto">
+    <h2>Anmelden</h2>
+    <p class="hint" style="margin-top:-8px">Nur fürs Team – bitte mit dem gemeinsamen Zugang anmelden.</p>
+    <div class="field"><label>E-MAIL</label><input id="loginEmail" type="email" autocomplete="username"></div>
+    <div class="field"><label>PASSWORT</label><input id="loginPassword" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')login()"></div>
+    <div id="loginError" style="color:#8b3e35;font-size:13px;margin-bottom:14px"></div>
+    <div class="admin-actions"><button class="primary" onclick="login()">Anmelden</button></div>
+  </div>
+ 
+  <div id="adminContent" style="display:none">
+  <div class="admin-actions" style="justify-content:flex-end;margin-bottom:18px"><span class="hint" id="authStatus" style="margin:0 10px 0 0;align-self:center"></span><button class="secondary" onclick="logout()">Abmelden</button></div>
+ 
   <div class="admin-tabs" id="adminTabs">
     <button data-tab="brand" class="active">Logo &amp; Marke</button>
     <button data-tab="home">Startseite</button>
     <button data-tab="sections">Bereiche &amp; Kacheln</button>
     <button data-tab="preview">Schnellmenü-Vorschau</button>
   </div>
-
+ 
   <div class="admin-panel active" data-panel="brand">
     <div class="admin-card">
       <h2>Logo &amp; Marke</h2>
@@ -59,7 +71,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="home">
     <div class="admin-card">
       <h2>Startseite</h2>
@@ -69,7 +81,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="sections">
     <div class="admin-card">
       <h2>Bereiche &amp; Inhalte</h2>
@@ -78,7 +90,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <button class="add-card" id="addSectionBtn">＋ Neuen Bereich hinzufügen</button>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="preview">
     <div class="admin-card">
       <h2>Schnellmenü-Vorschau</h2>
@@ -86,18 +98,30 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="quick-preview" id="quickPreview"></div>
     </div>
   </div>
-
+ 
   <div class="admin-footer-actions">
     <button class="secondary" onclick="saveSettings()">Änderungen speichern</button>
     <button class="danger" onclick="resetSettings()">Alles zurücksetzen</button>
     <button class="secondary" onclick="showGuest()">Zur Gästeansicht</button>
   </div>
-  <div class="notice">Die Bearbeitung wird aktuell im Browser gespeichert. Wenn du die Seite auf einem anderen Gerät öffnest, sind diese Änderungen dort noch nicht automatisch vorhanden. Eine echte gemeinsame Redaktionsoberfläche können wir später als nächsten Schritt bauen.</div>
+  <div class="notice">Änderungen werden in der Cloud gespeichert und sind danach für alle Geräte und alle Team-Mitglieder sichtbar – ganz ohne Extra-Schritt.</div>
+  </div>
 </div></section>
-
+ 
 <div class="modal" id="modal" onclick="closeModalOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="modalTitle">Informationen</h2><button class="close" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
-
-<script>
+ 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+ 
+const firebaseConfig={apiKey:"AIzaSyCbx-IfrBCTAC1QS0hosp9xLd5CO5HflIw",authDomain:"hotel-engel-am-see-gaestemappe.firebaseapp.com",projectId:"hotel-engel-am-see-gaestemappe",storageBucket:"hotel-engel-am-see-gaestemappe.firebasestorage.app",messagingSenderId:"254143213047",appId:"1:254143213047:web:f67023c60db1329d04d2f2"};
+const fbApp=initializeApp(firebaseConfig);
+const auth=getAuth(fbApp);
+const db=getFirestore(fbApp);
+const contentRef=doc(db,"gaestemappe","content");
+let isAuthed=false;
+ 
 const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.',phone:'+49 7543 9330',image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85',brandName:'engel',brandSub:'am See',logo:'',logoLetter:'e',sections:[
 {id:'section-stay',icon:'⌂',name:'Mein Aufenthalt',quick:'Alles rund um Ihren Aufenthalt',heading:'Alles rund um Ihren Aufenthalt',lead:'Hier finden Sie die wichtigsten Informationen für einen entspannten Aufenthalt bei uns.',cards:[
 {icon:'⌂',title:'An- & Abreise',short:'Informationen zu Check-in, Check-out und allen wichtigen Abläufen rund um Ihre An- und Abreise.',cta:'Mehr erfahren',detail:'<h3>Check-in</h3><p>Die konkreten Check-in-Informationen können hier hinterlegt werden.</p><h3>Check-out</h3><p>Die konkreten Check-out-Informationen können hier hinterlegt werden.</p>'},
@@ -130,14 +154,23 @@ const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei
 {icon:'!',title:'Notfallinformationen',short:'Wichtige Informationen für Notfälle und medizinische Hilfe.',cta:'Informationen ansehen',detail:'<h3>Im Notfall</h3><p>Hier können die konkreten Notfallinformationen des Hauses hinterlegt werden.</p>'},
 {icon:'A–Z',title:'Gästeinformationen',short:'Weitere wichtige Hinweise zu Ihrem Aufenthalt.',cta:'A–Z öffnen',detail:'<h3>Gästeinformationen</h3><p>Hier können weitere Themen wie Parken, Haustiere, Reinigung, Gepäck, Abreise und vieles mehr gesammelt werden.</p>'}]}
 ]};
-
-let data=loadData();
+ 
+let data=structuredClone(defaultData);
 let openSections=new Set();
-
-function loadData(){try{const saved=JSON.parse(localStorage.getItem('engelGuestMap'));if(saved&&saved.sections)return mergeData(saved)}catch(e){}return structuredClone(defaultData)}
+ 
 function mergeData(saved){const base=structuredClone(defaultData);Object.assign(base,saved);base.sections=(saved.sections&&saved.sections.length?saved.sections:base.sections);return base}
+ 
+/* Lädt die Inhalte live aus der Cloud – jede Änderung von jedem Gerät kommt automatisch hier an */
+onSnapshot(contentRef,snap=>{
+  data=snap.exists()?mergeData(snap.data()):structuredClone(defaultData);
+  document.getElementById('saveStatus').textContent=snap.exists()?'✓ Verbunden':'Noch keine Inhalte in der Cloud – einmal speichern zum Einrichten';
+  render();
+},err=>{
+  console.error(err);
+  document.getElementById('saveStatus').textContent='Verbindung fehlgeschlagen';
+});
 function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
-
+ 
 /* ---------- Gästeansicht rendern ---------- */
 function render(){
   document.getElementById('title').innerHTML=esc(data.title).replace('Dein Engel.','<i>Dein Engel.</i>');
@@ -173,7 +206,7 @@ function openDetail(title,html){
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 function closeModalOutside(e){if(e.target.id==='modal')closeModal()}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-
+ 
 /* Klicks in der Gästeansicht per Delegation statt fehleranfälliger onclick-Attribute */
 document.getElementById('quick').addEventListener('click',e=>{
   const btn=e.target.closest('button');if(!btn)return;
@@ -185,10 +218,29 @@ document.getElementById('content').addEventListener('click',e=>{
   const c=s.cards[+btn.dataset.ci];if(!c)return;
   openDetail(c.detailTitle||c.title,c.detail);
 });
-
+ 
 function showGuest(){document.getElementById('guest').style.display='block';document.getElementById('admin').style.display='none';document.getElementById('guestButton').classList.add('active');document.getElementById('adminButton').classList.remove('active');window.scrollTo({top:0,behavior:'smooth'})}
-function showAdmin(){document.getElementById('guest').style.display='none';document.getElementById('admin').style.display='block';document.getElementById('guestButton').classList.remove('active');document.getElementById('adminButton').classList.add('active');renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
-
+function showAdmin(){document.getElementById('guest').style.display='none';document.getElementById('admin').style.display='block';document.getElementById('guestButton').classList.remove('active');document.getElementById('adminButton').classList.add('active');if(isAuthed)renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
+ 
+/* ---------- Anmeldung ---------- */
+onAuthStateChanged(auth,user=>{
+  isAuthed=!!user;
+  document.getElementById('loginPanel').style.display=isAuthed?'none':'block';
+  document.getElementById('adminContent').style.display=isAuthed?'block':'none';
+  document.getElementById('authStatus').textContent=isAuthed?('Angemeldet als '+user.email):'';
+  if(isAuthed)renderAdmin();
+});
+function login(){
+  const email=document.getElementById('loginEmail').value.trim();
+  const pw=document.getElementById('loginPassword').value;
+  const err=document.getElementById('loginError');
+  err.textContent='';
+  signInWithEmailAndPassword(auth,email,pw).catch(()=>{err.textContent='E-Mail oder Passwort falsch.'});
+}
+function logout(){signOut(auth)}
+window.login=login;window.logout=logout;window.showGuest=showGuest;window.showAdmin=showAdmin;
+window.closeModal=closeModal;window.closeModalOutside=closeModalOutside;
+ 
 /* ---------- Admin / Bearbeiten ---------- */
 function renderAdmin(){
   document.getElementById('iTitle').value=data.title;
@@ -200,7 +252,7 @@ function renderAdmin(){
   document.getElementById('iLogo').value=data.logo;
   document.getElementById('iLogoLetter').value=data.logoLetter;
   renderLogoPreview(data.logo);
-
+ 
   document.getElementById('sectionEditors').innerHTML=data.sections.map((s,si)=>`<div class="section-editor ${openSections.has(s.id)?'open':''}">
     <div class="section-editor-head" data-sid="${esc(s.id)}">
       <div class="section-editor-title"><span class="chev">▸</span><strong>${esc(s.name)}</strong></div>
@@ -224,7 +276,7 @@ function renderAdmin(){
       <button class="add-card" data-addcard="${si}">＋ Neue Kachel hinzufügen</button>
     </div>
   </div>`).join('');
-
+ 
   renderQuickPreview();
 }
 function cardEditor(si,c,ci){
@@ -261,7 +313,7 @@ function renderLogoPreview(url){
     box.textContent=letter;box.style.background='var(--gold)';
   }
 }
-
+ 
 /* Live-Bindung für Bereich- und Kachel-Felder (aktualisiert sofort das Datenmodell + die Schnellmenü-Vorschau) */
 document.getElementById('sectionEditors').addEventListener('input',e=>{
   const el=e.target;
@@ -272,27 +324,27 @@ document.getElementById('sectionEditors').addEventListener('input',e=>{
     renderQuickPreview();
   }
 });
-
+ 
 /* Klicks innerhalb der Bereichsliste per Delegation (Auf-/Zuklappen, Verschieben, Löschen, Kacheln verwalten) */
 document.getElementById('sectionEditors').addEventListener('click',e=>{
   const gotoBtn=e.target.closest('[data-goto]');
   if(gotoBtn){e.stopPropagation();goTo(gotoBtn.dataset.goto);return;}
-
+ 
   const moveBtn=e.target.closest('[data-move]');
   if(moveBtn){e.stopPropagation();moveSection(+moveBtn.dataset.si,+moveBtn.dataset.move);return;}
-
+ 
   const delBtn=e.target.closest('[data-delsection]');
   if(delBtn){e.stopPropagation();deleteSection(+delBtn.dataset.delsection);return;}
-
+ 
   const addCardBtn=e.target.closest('[data-addcard]');
   if(addCardBtn){e.stopPropagation();addCard(+addCardBtn.dataset.addcard);return;}
-
+ 
   const moveCardBtn=e.target.closest('[data-movecard]');
   if(moveCardBtn){e.stopPropagation();const[si,ci,dir]=moveCardBtn.dataset.movecard.split(',').map(Number);moveCard(si,ci,dir);return;}
-
+ 
   const delCardBtn=e.target.closest('[data-delcard]');
   if(delCardBtn){e.stopPropagation();const[si,ci]=delCardBtn.dataset.delcard.split(',').map(Number);deleteCard(si,ci);return;}
-
+ 
   const head=e.target.closest('.section-editor-head');
   if(head){
     const wrap=head.closest('.section-editor');
@@ -300,7 +352,7 @@ document.getElementById('sectionEditors').addEventListener('click',e=>{
     if(wrap.classList.contains('open'))openSections.add(head.dataset.sid);else openSections.delete(head.dataset.sid);
   }
 });
-
+ 
 document.getElementById('adminTabs').addEventListener('click',e=>{
   const btn=e.target.closest('button');if(!btn)return;
   document.querySelectorAll('#adminTabs button').forEach(b=>b.classList.remove('active'));
@@ -308,7 +360,7 @@ document.getElementById('adminTabs').addEventListener('click',e=>{
   document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
   document.querySelector(`.admin-panel[data-panel="${btn.dataset.tab}"]`).classList.add('active');
 });
-
+ 
 /* Logo: Upload, Link, Buchstabe */
 document.getElementById('logoFile').addEventListener('change',e=>{
   const file=e.target.files[0];if(!file)return;
@@ -325,8 +377,9 @@ document.getElementById('logoClear').addEventListener('click',()=>{
 document.getElementById('iLogo').addEventListener('input',e=>renderLogoPreview(e.target.value.trim()));
 document.getElementById('iLogoLetter').addEventListener('input',()=>renderLogoPreview(document.getElementById('iLogo').value.trim()));
 document.getElementById('iBrandName').addEventListener('input',()=>renderLogoPreview(document.getElementById('iLogo').value.trim()));
-
-function saveSettings(){
+ 
+async function saveSettings(){
+  if(!isAuthed){alert('Bitte zuerst anmelden.');return}
   data.title=document.getElementById('iTitle').value;
   data.intro=document.getElementById('iIntro').value;
   data.phone=document.getElementById('iPhone').value;
@@ -336,22 +389,26 @@ function saveSettings(){
   data.logo=document.getElementById('iLogo').value.trim();
   data.logoLetter=document.getElementById('iLogoLetter').value.trim()||defaultData.logoLetter;
   try{
-    localStorage.setItem('engelGuestMap',JSON.stringify(data));
-    document.getElementById('saveStatus').textContent='✓ Gespeichert';
-    render();
-    alert('Änderungen wurden gespeichert.');
+    await setDoc(contentRef,data);
+    document.getElementById('saveStatus').textContent='✓ In der Cloud gespeichert';
+    alert('Änderungen wurden für alle gespeichert.');
   }catch(err){
-    alert('Speichern fehlgeschlagen – vermutlich ist ein Bild zu groß. Bitte ein kleineres Logo- oder Hero-Bild verwenden.');
+    alert('Speichern fehlgeschlagen: '+err.message+' (vermutlich ist ein Bild zu groß oder die Anmeldung ist abgelaufen).');
   }
 }
-function resetSettings(){
-  if(!confirm('Wirklich alle lokalen Änderungen zurücksetzen?'))return;
+async function resetSettings(){
+  if(!isAuthed){alert('Bitte zuerst anmelden.');return}
+  if(!confirm('Wirklich alle Inhalte für alle zurücksetzen?'))return;
   data=structuredClone(defaultData);
-  localStorage.setItem('engelGuestMap',JSON.stringify(data));
-  openSections=new Set();
-  render();
+  try{
+    await setDoc(contentRef,data);
+    openSections=new Set();
+  }catch(err){
+    alert('Zurücksetzen fehlgeschlagen: '+err.message);
+  }
 }
-
+window.saveSettings=saveSettings;window.resetSettings=resetSettings;
+ 
 function addCard(si){
   data.sections[si].cards.push({icon:'✦',title:'Neue Kachel',short:'Kurze Beschreibung für diesen Inhalt.',cta:'Mehr erfahren',detail:'<h3>Neue Information</h3><p>Hier kann der ausführliche Inhalt hinterlegt werden.</p>'});
   renderAdmin();
@@ -388,7 +445,7 @@ function moveSection(si,dir){
   renderAdmin();
 }
 document.getElementById('addSectionBtn').addEventListener('click',addSection);
-
+ 
 render();
 </script>
 </body></html>
