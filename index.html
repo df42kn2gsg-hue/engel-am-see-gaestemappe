@@ -38,14 +38,14 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 </head>
 <body>
 <header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div><div class="brandtext" id="brandName">engel<small id="brandSub">am See</small></div></div><nav class="nav" id="navButtons" style="display:none"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
-
+ 
 <div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow eyebrow-time" id="heroEyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="today-section" id="todaySection"></section><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><section class="service-section" id="serviceSection"></section><section class="surroundings-section" id="surroundingsSection"></section><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
-
+ 
 <button class="concierge-fab" type="button" id="conciergeFab"><i class="lucide-ico" data-lucide="heart" style="width:18px;height:18px"></i><span>Engel Concierge</span></button>
-
+ 
 <section id="admin"><div class="admin-wrap">
   <div class="admin-head"><div><h1>Gästemappe bearbeiten</h1><p>Wähle unten aus, was du bearbeiten möchtest.</p></div><div class="admin-status" id="saveStatus">Verbinde mit der Cloud …</div></div>
-
+ 
   <div id="loginPanel" class="admin-card" style="max-width:420px;margin:40px auto">
     <h2>Anmelden</h2>
     <p class="hint" style="margin-top:-8px">Nur fürs Team – bitte mit dem gemeinsamen Zugang anmelden.</p>
@@ -54,10 +54,10 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
     <div id="loginError" style="color:#8b3e35;font-size:13px;margin-bottom:14px"></div>
     <div class="admin-actions"><button class="primary" onclick="login()">Anmelden</button></div>
   </div>
-
+ 
   <div id="adminContent" style="display:none">
   <div class="admin-actions" style="justify-content:flex-end;margin-bottom:18px"><span class="hint" id="authStatus" style="margin:0 10px 0 0;align-self:center"></span><button class="secondary" onclick="logout()">Abmelden</button></div>
-
+ 
   <div class="admin-tabs" id="adminTabs">
     <button data-tab="brand" class="active">Logo &amp; Marke</button>
     <button data-tab="home">Startseite</button>
@@ -66,7 +66,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
     <button data-tab="service">Service &amp; Concierge</button>
     <button data-tab="preview">Schnellmenü-Vorschau</button>
   </div>
-
+ 
   <div class="admin-panel active" data-panel="brand">
     <div class="admin-card">
       <h2>Logo &amp; Marke</h2>
@@ -87,7 +87,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="home">
     <div class="admin-card">
       <h2>Startseite</h2>
@@ -115,7 +115,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="today">
     <div class="admin-card">
       <h2>Heute am Bodensee · Tipp des Tages</h2>
@@ -140,7 +140,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="sections">
     <div class="admin-card">
       <h2>Bereiche &amp; Inhalte</h2>
@@ -149,7 +149,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <button class="add-card" id="addSectionBtn">＋ Neuen Bereich hinzufügen</button>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="service">
     <div class="admin-card">
       <h2>Wir sind für Sie da</h2>
@@ -167,7 +167,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
-
+ 
   <div class="admin-panel" data-panel="preview">
     <div class="admin-card">
       <h2>Schnellmenü-Vorschau</h2>
@@ -175,7 +175,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="quick-preview" id="quickPreview"></div>
     </div>
   </div>
-
+ 
   <div class="admin-footer-actions">
     <button class="secondary" onclick="saveSettings()">Änderungen speichern</button>
     <button class="danger" onclick="resetSettings()">Alles zurücksetzen</button>
@@ -184,14 +184,14 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
   <div class="notice">Änderungen werden in der Cloud gespeichert und sind danach für alle Geräte und alle Team-Mitglieder sichtbar – ganz ohne Extra-Schritt.</div>
   </div>
 </div></section>
-
+ 
 <div class="modal" id="modal" onclick="closeModalOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="modalTitle">Informationen</h2><button class="close" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
-
+ 
 <div class="modal" id="conciergeModal" onclick="closeConciergeOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="conciergeHeading">Wie können wir Ihren Aufenthalt noch schöner machen?</h2><button class="close" onclick="closeConcierge()">×</button></div><div class="modal-body">
   <button type="button" id="conciergeBack" class="mini" style="display:none;margin-bottom:16px">← Zurück</button>
   <div class="concierge-cats" id="conciergeCats"></div>
 </div></div></div>
-
+ 
 <div class="modal" id="serviceModal" onclick="closeServiceOutside(event)"><div class="modal-box"><div class="modal-top"><h2>Service anfragen</h2><button class="close" onclick="closeServiceModal()">×</button></div><div class="modal-body">
   <div class="svc-options" id="svcOptions">
     <label><input type="checkbox" value="Zusätzliches Handtuch"> Zusätzliches Handtuch</label>
@@ -206,19 +206,19 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
   <div id="svcConfirm" style="display:none;font-size:14px;margin-bottom:16px;line-height:1.6"></div>
   <button class="primary" type="button" id="svcSendBtn">Anfrage senden</button>
 </div></div></div>
-
+ 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
-
+ 
 const firebaseConfig={apiKey:"AIzaSyCbx-IfrBCTAC1QS0hosp9xLd5CO5HflIw",authDomain:"hotel-engel-am-see-gaestemappe.firebaseapp.com",projectId:"hotel-engel-am-see-gaestemappe",storageBucket:"hotel-engel-am-see-gaestemappe.firebasestorage.app",messagingSenderId:"254143213047",appId:"1:254143213047:web:f67023c60db1329d04d2f2"};
 const fbApp=initializeApp(firebaseConfig);
 const auth=getAuth(fbApp);
 const db=getFirestore(fbApp);
 const contentRef=doc(db,"gaestemappe","content");
 let isAuthed=false;
-
+ 
 const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.',phone:'+49 7543 9330',image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85',brandName:'engel',brandSub:'am See',logo:'',logoLetter:'e',wifiSsid:'',wifiPassword:'',
 weatherLat:47.5456,weatherLon:9.6844,
 tip:{heading:'Unser Tipp für heute',title:'Ein Abendspaziergang am Bodensee',text:'Genießen Sie die Abendstimmung direkt am Ufer – nur wenige Gehminuten von uns entfernt.',image:'',buttonText:'Entdecken',link:''},
@@ -280,10 +280,10 @@ sections:[
 {icon:'!',title:'Notfallinformationen',short:'Wichtige Informationen für Notfälle und medizinische Hilfe.',cta:'Informationen ansehen',detail:'<h3>Im Notfall</h3><p>Hier können die konkreten Notfallinformationen des Hauses hinterlegt werden.</p>'},
 {icon:'A–Z',title:'Gästeinformationen',short:'Weitere wichtige Hinweise zu Ihrem Aufenthalt.',cta:'A–Z öffnen',detail:'<h3>Gästeinformationen</h3><p>Hier können weitere Themen wie Parken, Haustiere, Reinigung, Gepäck, Abreise und vieles mehr gesammelt werden.</p>'}]}
 ]};
-
+ 
 let data=structuredClone(defaultData);
 let openSections=new Set();
-
+ 
 function mergeData(saved){
   const base=structuredClone(defaultData);
   Object.assign(base,saved);
@@ -295,7 +295,7 @@ function mergeData(saved){
   if(saved.concierge&&saved.concierge.categories&&saved.concierge.categories.length)base.concierge.categories=saved.concierge.categories;
   return base;
 }
-
+ 
 /* Lädt die Inhalte live aus der Cloud – jede Änderung von jedem Gerät kommt automatisch hier an */
 onSnapshot(contentRef,snap=>{
   data=snap.exists()?mergeData(snap.data()):structuredClone(defaultData);
@@ -318,7 +318,7 @@ function timeGreeting(){
   if(h>=17&&h<22)return'Einen schönen Abend.';
   return'Gute Nacht';
 }
-
+ 
 /* ---------- Gästeansicht rendern ---------- */
 function render(){
   document.getElementById('heroEyebrow').textContent=timeGreeting();
@@ -442,7 +442,7 @@ function buildWifiString(ssid,pw){
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 function closeModalOutside(e){if(e.target.id==='modal')closeModal()}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeConcierge();closeServiceModal();}});
-
+ 
 /* ---------- Engel Concierge (zwei Ebenen: Kategorie -> konkreter Punkt) ---------- */
 let conciergeLevel='cats';
 function renderConciergeLevel(){
@@ -477,7 +477,7 @@ document.getElementById('conciergeModal').addEventListener('click',e=>{
   }
 });
 window.closeConcierge=closeConcierge;window.closeConciergeOutside=closeConciergeOutside;
-
+ 
 /* ---------- Serviceanfrage ---------- */
 function openServiceModal(preset){
   document.querySelectorAll('#svcOptions input').forEach(i=>{i.checked=(preset&&i.value===preset)});
@@ -505,7 +505,7 @@ document.getElementById('svcSendBtn').addEventListener('click',()=>{
   confirmBox.style.display='block';
 });
 window.openServiceModal=openServiceModal;window.closeServiceModal=closeServiceModal;window.closeServiceOutside=closeServiceOutside;
-
+ 
 /* Klicks in der Gästeansicht per Delegation statt fehleranfälliger onclick-Attribute */
 document.getElementById('quick').addEventListener('click',e=>{
   const btn=e.target.closest('button');if(!btn)return;
@@ -517,10 +517,10 @@ document.getElementById('content').addEventListener('click',e=>{
   const c=s.cards[+btn.dataset.ci];if(!c)return;
   openDetail(c.detailTitle||c.title,c.detail,c.special);
 });
-
+ 
 function showGuest(){document.getElementById('guest').style.display='block';document.getElementById('admin').style.display='none';document.getElementById('guestButton').classList.add('active');document.getElementById('adminButton').classList.remove('active');window.scrollTo({top:0,behavior:'smooth'})}
 function showAdmin(){document.getElementById('guest').style.display='none';document.getElementById('admin').style.display='block';document.getElementById('guestButton').classList.remove('active');document.getElementById('adminButton').classList.add('active');if(isAuthed)renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
-
+ 
 /* ---------- Anmeldung ---------- */
 onAuthStateChanged(auth,user=>{
   isAuthed=!!user;
@@ -539,7 +539,7 @@ function login(){
 function logout(){signOut(auth)}
 window.login=login;window.logout=logout;window.showGuest=showGuest;window.showAdmin=showAdmin;
 window.closeModal=closeModal;window.closeModalOutside=closeModalOutside;
-
+ 
 /* ---------- Admin / Bearbeiten ---------- */
 function renderAdmin(){
   document.getElementById('iTitle').value=data.title;
@@ -554,7 +554,7 @@ function renderAdmin(){
   document.getElementById('iLogo').value=data.logo;
   document.getElementById('iLogoLetter').value=data.logoLetter;
   renderLogoPreview(data.logo);
-
+ 
   document.getElementById('iTipHeading').value=data.tip.heading;
   document.getElementById('iTipTitle').value=data.tip.title;
   document.getElementById('iTipText').value=data.tip.text;
@@ -562,13 +562,13 @@ function renderAdmin(){
   document.getElementById('iTipImage').value=data.tip.image;
   document.getElementById('iTipLink').value=data.tip.link;
   renderSurroundingsEditors();
-
+ 
   document.getElementById('iServiceIntro').value=data.service.intro;
   document.getElementById('iServiceEmail').value=data.service.email;
   document.getElementById('iConciergeHeading').value=data.concierge.heading;
   document.getElementById('conciergeIdsHint').textContent='Verfügbare Bereich-IDs: '+data.sections.map(s=>s.id).join(', ')+' – oder "service" fürs Serviceformular.';
   renderConciergeCatEditors();
-
+ 
   document.getElementById('sectionEditors').innerHTML=data.sections.map((s,si)=>`<div class="section-editor ${openSections.has(s.id)?'open':''}">
     <div class="section-editor-head" data-sid="${esc(s.id)}">
       <div class="section-editor-title"><span class="chev">▸</span><strong>${esc(s.name)}</strong></div>
@@ -593,7 +593,7 @@ function renderAdmin(){
       <button class="add-card" data-addcard="${si}">＋ Neue Kachel hinzufügen</button>
     </div>
   </div>`).join('');
-
+ 
   renderQuickPreview();
 }
 function cardEditor(si,c,ci){
@@ -623,7 +623,7 @@ function renderQuickPreview(){
   const box=document.getElementById('quickPreview');if(!box)return;
   box.innerHTML=data.sections.map(s=>`<div>${esc(s.icon)}<b>${esc(s.name)}</b>${esc(s.quick)}</div>`).join('');
 }
-
+ 
 function renderSurroundingsEditors(){
   const box=document.getElementById('surroundingsEditors');if(!box)return;
   box.innerHTML=data.surroundings.map((it,i)=>`<div class="card-editor">
@@ -656,7 +656,7 @@ document.getElementById('addSurroundingBtn').addEventListener('click',()=>{
   data.surroundings.push({lucideIcon:'',title:'Neuer Umgebungstipp',text:'Kurze Beschreibung.',link:''});
   renderSurroundingsEditors();
 });
-
+ 
 let openConciergeCats=new Set();
 function conciergeItemEditor(ci,it,ii){
   return `<div class="card-editor" style="background:#fff">
@@ -736,7 +736,7 @@ function renderHeroPreview(url){
   const box=document.getElementById('heroPreview');if(!box)return;
   box.style.backgroundImage=url?`url("${url.replace(/"/g,'')}")`:'none';
 }
-
+ 
 /* Live-Bindung für Bereich- und Kachel-Felder (aktualisiert sofort das Datenmodell + die Schnellmenü-Vorschau) */
 document.getElementById('sectionEditors').addEventListener('input',e=>{
   const el=e.target;
@@ -747,27 +747,27 @@ document.getElementById('sectionEditors').addEventListener('input',e=>{
     renderQuickPreview();
   }
 });
-
+ 
 /* Klicks innerhalb der Bereichsliste per Delegation (Auf-/Zuklappen, Verschieben, Löschen, Kacheln verwalten) */
 document.getElementById('sectionEditors').addEventListener('click',e=>{
   const gotoBtn=e.target.closest('[data-goto]');
   if(gotoBtn){e.stopPropagation();goTo(gotoBtn.dataset.goto);return;}
-
+ 
   const moveBtn=e.target.closest('[data-move]');
   if(moveBtn){e.stopPropagation();moveSection(+moveBtn.dataset.si,+moveBtn.dataset.move);return;}
-
+ 
   const delBtn=e.target.closest('[data-delsection]');
   if(delBtn){e.stopPropagation();deleteSection(+delBtn.dataset.delsection);return;}
-
+ 
   const addCardBtn=e.target.closest('[data-addcard]');
   if(addCardBtn){e.stopPropagation();addCard(+addCardBtn.dataset.addcard);return;}
-
+ 
   const moveCardBtn=e.target.closest('[data-movecard]');
   if(moveCardBtn){e.stopPropagation();const[si,ci,dir]=moveCardBtn.dataset.movecard.split(',').map(Number);moveCard(si,ci,dir);return;}
-
+ 
   const delCardBtn=e.target.closest('[data-delcard]');
   if(delCardBtn){e.stopPropagation();const[si,ci]=delCardBtn.dataset.delcard.split(',').map(Number);deleteCard(si,ci);return;}
-
+ 
   const head=e.target.closest('.section-editor-head');
   if(head){
     const wrap=head.closest('.section-editor');
@@ -775,7 +775,7 @@ document.getElementById('sectionEditors').addEventListener('click',e=>{
     if(wrap.classList.contains('open'))openSections.add(head.dataset.sid);else openSections.delete(head.dataset.sid);
   }
 });
-
+ 
 document.getElementById('adminTabs').addEventListener('click',e=>{
   const btn=e.target.closest('button');if(!btn)return;
   document.querySelectorAll('#adminTabs button').forEach(b=>b.classList.remove('active'));
@@ -783,7 +783,7 @@ document.getElementById('adminTabs').addEventListener('click',e=>{
   document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
   document.querySelector(`.admin-panel[data-panel="${btn.dataset.tab}"]`).classList.add('active');
 });
-
+ 
 /* Logo: Upload, Link, Buchstabe */
 document.getElementById('logoFile').addEventListener('change',e=>{
   const file=e.target.files[0];if(!file)return;
@@ -800,7 +800,7 @@ document.getElementById('logoClear').addEventListener('click',()=>{
 document.getElementById('iLogo').addEventListener('input',e=>renderLogoPreview(e.target.value.trim()));
 document.getElementById('iLogoLetter').addEventListener('input',()=>renderLogoPreview(document.getElementById('iLogo').value.trim()));
 document.getElementById('iBrandName').addEventListener('input',()=>renderLogoPreview(document.getElementById('iLogo').value.trim()));
-
+ 
 /* Hero-Bild: Upload oder Link */
 document.getElementById('heroFile').addEventListener('change',e=>{
   const file=e.target.files[0];if(!file)return;
@@ -815,7 +815,7 @@ document.getElementById('heroClear').addEventListener('click',()=>{
   renderHeroPreview(defaultData.image);
 });
 document.getElementById('iImage').addEventListener('input',e=>renderHeroPreview(e.target.value.trim()));
-
+ 
 async function saveSettings(){
   if(!isAuthed){alert('Bitte zuerst anmelden.');return}
   data.title=document.getElementById('iTitle').value;
@@ -859,7 +859,7 @@ async function resetSettings(){
   }
 }
 window.saveSettings=saveSettings;window.resetSettings=resetSettings;
-
+ 
 function addCard(si){
   data.sections[si].cards.push({icon:'✦',title:'Neue Kachel',short:'Kurze Beschreibung für diesen Inhalt.',cta:'Mehr erfahren',detail:'<h3>Neue Information</h3><p>Hier kann der ausführliche Inhalt hinterlegt werden.</p>'});
   renderAdmin();
@@ -896,14 +896,14 @@ function moveSection(si,dir){
   renderAdmin();
 }
 document.getElementById('addSectionBtn').addEventListener('click',addSection);
-
+ 
 /* Der Bearbeiten-Zugang ist für Gäste komplett unsichtbar. Nur über den geheimen Link
    ".../?team" erscheinen Navigation und Login – normale Besucher sehen davon nichts. */
 if(new URLSearchParams(location.search).has('team')){
   document.getElementById('navButtons').style.display='flex';
   showAdmin();
 }
-
+ 
 render();
 </script>
 </body></html>
