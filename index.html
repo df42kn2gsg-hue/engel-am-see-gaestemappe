@@ -41,12 +41,12 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
 </head>
 <body>
 <header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div></div><nav class="nav" id="navButtons" style="display:none"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
- 
+
 <div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow eyebrow-time" id="heroEyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="concierge-invite"><button class="concierge-fab" type="button" id="conciergeFab"><i class="lucide-ico" data-lucide="heart" style="width:18px;height:18px"></i><span>Engel Concierge</span></button></section><section class="today-section" id="todaySection"></section><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><section class="service-section" id="serviceSection"></section><section class="surroundings-section" id="surroundingsSection"></section><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
- 
+
 <section id="admin"><div class="admin-wrap">
   <div class="admin-head"><div><h1>Gästemappe bearbeiten</h1><p>Wähle unten aus, was du bearbeiten möchtest.</p></div><div class="admin-status" id="saveStatus">Verbinde mit der Cloud …</div></div>
- 
+
   <div id="loginPanel" class="admin-card" style="max-width:420px;margin:40px auto">
     <h2>Anmelden</h2>
     <p class="hint" style="margin-top:-8px">Nur fürs Team – bitte mit dem gemeinsamen Zugang anmelden.</p>
@@ -55,10 +55,10 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
     <div id="loginError" style="color:#8b3e35;font-size:13px;margin-bottom:14px"></div>
     <div class="admin-actions"><button class="primary" onclick="login()">Anmelden</button></div>
   </div>
- 
+
   <div id="adminContent" style="display:none">
   <div class="admin-actions" style="justify-content:flex-end;margin-bottom:18px"><span class="hint" id="authStatus" style="margin:0 10px 0 0;align-self:center"></span><button class="secondary" onclick="logout()">Abmelden</button></div>
- 
+
   <div class="admin-tabs" id="adminTabs">
     <button data-tab="brand" class="active">Logo &amp; Marke</button>
     <button data-tab="fonts">Schriftart</button>
@@ -68,7 +68,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
     <button data-tab="service">Service &amp; Concierge</button>
     <button data-tab="preview">Schnellmenü-Vorschau</button>
   </div>
- 
+
   <div class="admin-panel active" data-panel="brand">
     <div class="admin-card">
       <h2>Logo &amp; Marke</h2>
@@ -85,7 +85,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
- 
+
   <div class="admin-panel" data-panel="fonts">
     <div class="admin-card">
       <h2>Überschriften-Schriftart</h2>
@@ -112,7 +112,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
- 
+
   <div class="admin-panel" data-panel="home">
     <div class="admin-card">
       <h2>Startseite</h2>
@@ -140,15 +140,15 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
- 
+
   <div class="admin-panel" data-panel="today">
     <div class="admin-card">
-      <h2>Heute am Bodensee · Tipp des Tages</h2>
-      <p class="hint" style="margin-top:-8px">Wetter, Temperatur, Sonnenauf- und -untergang werden automatisch geladen und sind hier nicht bearbeitbar.</p>
+      <h2>Heute am Bodensee · Wetterabhängige Tipps</h2>
+      <p class="hint" style="margin-top:-8px">Wetter, Temperatur, Sonnenauf- und -untergang werden automatisch geladen. Für jede Wetterlage kannst du einen eigenen Tipp hinterlegen – passend zur aktuellen Wetterlage wird automatisch der richtige angezeigt. "Standard" springt ein, wenn keine passende Wetterlage hinterlegt ist oder die Wetterdaten mal nicht verfügbar sind.</p>
       <div class="field"><label>KLEINE ÜBERSCHRIFT</label><input id="iTipHeading"></div>
-      <div class="field"><label>TITEL</label><input id="iTipTitle"></div>
-      <div class="field"><label>BESCHREIBUNG</label><textarea id="iTipText"></textarea></div>
-      <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
+      <div id="tipEditors"></div>
+      <button class="add-card" id="addTipBtn">＋ Neuen Tipp hinzufügen</button>
+      <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
     <div class="admin-card">
       <h2>Entdecken Sie die Umgebung</h2>
@@ -157,7 +157,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions" style="margin-top:15px"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
- 
+
   <div class="admin-panel" data-panel="sections">
     <div class="admin-card">
       <h2>Bereiche &amp; Inhalte</h2>
@@ -166,7 +166,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <button class="add-card" id="addSectionBtn">＋ Neuen Bereich hinzufügen</button>
     </div>
   </div>
- 
+
   <div class="admin-panel" data-panel="service">
     <div class="admin-card">
       <h2>Wir sind für Sie da</h2>
@@ -194,7 +194,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
- 
+
   <div class="admin-panel" data-panel="preview">
     <div class="admin-card">
       <h2>Schnellmenü-Vorschau</h2>
@@ -202,7 +202,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       <div class="quick-preview" id="quickPreview"></div>
     </div>
   </div>
- 
+
   <div class="admin-footer-actions">
     <button class="secondary" onclick="saveSettings()">Änderungen speichern</button>
     <button class="danger" onclick="resetSettings()">Alles zurücksetzen</button>
@@ -211,9 +211,9 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
   <div class="notice">Änderungen werden in der Cloud gespeichert und sind danach für alle Geräte und alle Team-Mitglieder sichtbar – ganz ohne Extra-Schritt.</div>
   </div>
 </div></section>
- 
+
 <div class="modal" id="modal" onclick="closeModalOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="modalTitle">Informationen</h2><button class="close" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
- 
+
 <div class="modal" id="serviceModal" onclick="closeServiceOutside(event)"><div class="modal-box"><div class="modal-top"><h2 id="serviceModalHeading">Engel Concierge</h2><button class="close" onclick="closeServiceModal()">×</button></div><div class="modal-body">
   <p class="svc-intro">Teilen Sie uns mit, womit wir Ihnen weiterhelfen können – wir kümmern uns darum.</p>
   <div id="svcGroups"></div>
@@ -223,23 +223,28 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
   <div id="svcConfirm" style="display:none;font-size:14px;margin-bottom:16px;line-height:1.6"></div>
   <button class="primary" type="button" id="svcSendBtn">Anfrage senden</button>
 </div></div></div>
- 
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
- 
+
 const firebaseConfig={apiKey:"AIzaSyCbx-IfrBCTAC1QS0hosp9xLd5CO5HflIw",authDomain:"hotel-engel-am-see-gaestemappe.firebaseapp.com",projectId:"hotel-engel-am-see-gaestemappe",storageBucket:"hotel-engel-am-see-gaestemappe.firebasestorage.app",messagingSenderId:"254143213047",appId:"1:254143213047:web:f67023c60db1329d04d2f2"};
 const fbApp=initializeApp(firebaseConfig);
 const auth=getAuth(fbApp);
 const db=getFirestore(fbApp);
 const contentRef=doc(db,"gaestemappe","content");
 let isAuthed=false;
- 
+
 const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.',phone:'+49 7543 9330',image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85',brandName:'engel',brandSub:'am See',logo:'',logoLetter:'e',wifiSsid:'',wifiPassword:'',
 fonts:{headingGoogleFont:'',headingFontData:'',bodyGoogleFont:'',bodyFontData:''},
 weatherLat:47.5456,weatherLon:9.6844,
-tip:{heading:'Unser Tipp für heute',title:'Ein Abendspaziergang am Bodensee',text:'Genießen Sie die Abendstimmung direkt am Ufer – nur wenige Gehminuten von uns entfernt.'},
+tipHeading:'Unser Tipp für heute',
+tips:[
+{condition:'default',title:'Ein Abendspaziergang am Bodensee',text:'Genießen Sie die Abendstimmung direkt am Ufer – nur wenige Gehminuten von uns entfernt.'},
+{condition:'sonnig',title:'Sonnenbaden am Ufer',text:'Perfektes Wetter für einen Spaziergang oder ein Eis direkt am See.'},
+{condition:'regen',title:'Gemütlich drinnen',text:'Bei diesem Wetter empfehlen wir unseren Spa-Bereich oder eine ruhige Stunde in der Lounge.'}
+],
 surroundings:[
 {lucideIcon:'waves',title:'Bodensee',text:'Nur wenige Schritte von uns entfernt.',link:''},
 {lucideIcon:'cable-car',title:'Hafen',text:'Kurze Beschreibung ergänzen.',link:''},
@@ -282,23 +287,23 @@ sections:[
 {icon:'!',title:'Notfallinformationen',short:'Wichtige Informationen für Notfälle und medizinische Hilfe.',cta:'Informationen ansehen',detail:'<h3>Im Notfall</h3><p>Hier können die konkreten Notfallinformationen des Hauses hinterlegt werden.</p>'},
 {icon:'A–Z',title:'Gästeinformationen',short:'Weitere wichtige Hinweise zu Ihrem Aufenthalt.',cta:'A–Z öffnen',detail:'<h3>Gästeinformationen</h3><p>Hier können weitere Themen wie Parken, Haustiere, Reinigung, Gepäck, Abreise und vieles mehr gesammelt werden.</p>'}]}
 ]};
- 
+
 let data=structuredClone(defaultData);
 let openSections=new Set();
- 
+
 function mergeData(saved){
   const base=structuredClone(defaultData);
   Object.assign(base,saved);
   base.sections=(saved.sections&&saved.sections.length?saved.sections:base.sections);
   base.surroundings=(saved.surroundings&&saved.surroundings.length?saved.surroundings:base.surroundings);
-  base.tip=Object.assign({},defaultData.tip,saved.tip||{});
+  base.tips=(saved.tips&&saved.tips.length?saved.tips:base.tips);
   base.service=Object.assign({},defaultData.service,saved.service||{});
   base.fonts=Object.assign({},defaultData.fonts,saved.fonts||{});
   base.concierge=Object.assign({},defaultData.concierge,saved.concierge||{});
   if(saved.concierge&&saved.concierge.groups&&saved.concierge.groups.length)base.concierge.groups=saved.concierge.groups;
   return base;
 }
- 
+
 /* Lädt die Inhalte live aus der Cloud – jede Änderung von jedem Gerät kommt automatisch hier an */
 onSnapshot(contentRef,snap=>{
   data=snap.exists()?mergeData(snap.data()):structuredClone(defaultData);
@@ -355,7 +360,7 @@ function timeGreeting(){
   if(h>=17&&h<22)return'Einen schönen Abend.';
   return'Gute Nacht';
 }
- 
+
 /* ---------- Gästeansicht rendern ---------- */
 function render(){
   applyFonts();
@@ -387,11 +392,29 @@ function renderToday(){
       </div>
     </div>
     <div class="tip-box">
-      <div class="tip-eyebrow">${esc(data.tip.heading)}</div>
-      <h3>${esc(data.tip.title)}</h3>
-      <p style="margin-bottom:0">${esc(data.tip.text)}</p>
+      <div class="tip-eyebrow">${esc(data.tipHeading||'Unser Tipp für heute')}</div>
+      <h3 id="tipTitle"></h3>
+      <p id="tipText" style="margin-bottom:0"></p>
     </div>
   </div>`;
+  renderTipForCategory('default');
+}
+function renderTipForCategory(cat){
+  const list=data.tips||[];
+  const match=list.find(t=>t.condition===cat)||list.find(t=>t.condition==='default')||list[0];
+  const titleEl=document.getElementById('tipTitle'),textEl=document.getElementById('tipText');
+  if(!match||!titleEl)return;
+  titleEl.textContent=match.title;
+  textEl.textContent=match.text;
+}
+function weatherCategory(code){
+  if([0,1].includes(code))return'sonnig';
+  if([2,3].includes(code))return'bewoelkt';
+  if([45,48].includes(code))return'nebel';
+  if([51,53,55,61,63,65,80,81,82].includes(code))return'regen';
+  if([71,73,75,77,85,86].includes(code))return'schnee';
+  if([95,96,99].includes(code))return'gewitter';
+  return'default';
 }
 async function loadWeather(){
   const t=document.getElementById('weatherTemp'),c=document.getElementById('weatherCond'),sr=document.getElementById('weatherSunrise'),ss=document.getElementById('weatherSunset');
@@ -407,6 +430,7 @@ async function loadWeather(){
     const fmt=iso=>new Date(iso).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
     if(sr)sr.textContent='↑ '+fmt(j.daily.sunrise[0]);
     if(ss)ss.textContent='↓ '+fmt(j.daily.sunset[0]);
+    renderTipForCategory(weatherCategory(j.current.weather_code));
   }catch(err){
     if(c)c.textContent='Wetterdaten aktuell nicht verfügbar.';
   }
@@ -478,7 +502,7 @@ function buildWifiString(ssid,pw){
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 function closeModalOutside(e){if(e.target.id==='modal')closeModal()}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeServiceModal();}});
- 
+
 /* ---------- Engel Concierge = Serviceformular, direkt und gruppiert ---------- */
 function renderSvcGroups(){
   const box=document.getElementById('svcGroups');if(!box)return;
@@ -510,7 +534,7 @@ document.getElementById('svcSendBtn').addEventListener('click',()=>{
   confirmBox.style.color='var(--gold-dark)';
   const sendBtn=document.getElementById('svcSendBtn');
   const wishesText=picked.length?picked.join(', '):'—';
- 
+
   /* Bevorzugt: echter automatischer Versand über EmailJS, falls eingerichtet */
   if(data.service.emailjsServiceId&&data.service.emailjsTemplateId&&data.service.emailjsPublicKey&&window.emailjs){
     sendBtn.disabled=true;confirmBox.textContent='Anfrage wird gesendet …';
@@ -536,7 +560,7 @@ document.getElementById('svcSendBtn').addEventListener('click',()=>{
   }
 });
 window.openServiceModal=openServiceModal;window.closeServiceModal=closeServiceModal;window.closeServiceOutside=closeServiceOutside;
- 
+
 /* Klicks in der Gästeansicht per Delegation statt fehleranfälliger onclick-Attribute */
 document.getElementById('quick').addEventListener('click',e=>{
   const btn=e.target.closest('button');if(!btn)return;
@@ -548,10 +572,10 @@ document.getElementById('content').addEventListener('click',e=>{
   const c=s.cards[+btn.dataset.ci];if(!c)return;
   openDetail(c.detailTitle||c.title,c.detail,c.special);
 });
- 
+
 function showGuest(){document.getElementById('guest').style.display='block';document.getElementById('admin').style.display='none';document.getElementById('guestButton').classList.add('active');document.getElementById('adminButton').classList.remove('active');window.scrollTo({top:0,behavior:'smooth'})}
 function showAdmin(){document.getElementById('guest').style.display='none';document.getElementById('admin').style.display='block';document.getElementById('guestButton').classList.remove('active');document.getElementById('adminButton').classList.add('active');if(isAuthed)renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
- 
+
 /* ---------- Anmeldung ---------- */
 onAuthStateChanged(auth,user=>{
   isAuthed=!!user;
@@ -570,7 +594,7 @@ function login(){
 function logout(){signOut(auth)}
 window.login=login;window.logout=logout;window.showGuest=showGuest;window.showAdmin=showAdmin;
 window.closeModal=closeModal;window.closeModalOutside=closeModalOutside;
- 
+
 /* ---------- Admin / Bearbeiten ---------- */
 function renderAdmin(){
   document.getElementById('iTitle').value=data.title;
@@ -588,12 +612,11 @@ function renderAdmin(){
   headingFontDataValue=data.fonts.headingFontData||'';
   bodyFontDataValue=data.fonts.bodyFontData||'';
   if(typeof updateFontStatus==='function')updateFontStatus();
- 
-  document.getElementById('iTipHeading').value=data.tip.heading;
-  document.getElementById('iTipTitle').value=data.tip.title;
-  document.getElementById('iTipText').value=data.tip.text;
+
+  document.getElementById('iTipHeading').value=data.tipHeading;
+  renderTipEditors();
   renderSurroundingsEditors();
- 
+
   document.getElementById('iServiceIntro').value=data.service.intro;
   document.getElementById('iServiceEmail').value=data.service.email;
   document.getElementById('iEmailjsService').value=data.service.emailjsServiceId;
@@ -601,7 +624,7 @@ function renderAdmin(){
   document.getElementById('iEmailjsKey').value=data.service.emailjsPublicKey;
   document.getElementById('iConciergeHeading').value=data.concierge.heading;
   renderConciergeGroupEditors();
- 
+
   document.getElementById('sectionEditors').innerHTML=data.sections.map((s,si)=>`<div class="section-editor ${openSections.has(s.id)?'open':''}">
     <div class="section-editor-head" data-sid="${esc(s.id)}">
       <div class="section-editor-title"><span class="chev">▸</span><strong>${esc(s.name)}</strong></div>
@@ -626,7 +649,7 @@ function renderAdmin(){
       <button class="add-card" data-addcard="${si}">＋ Neue Kachel hinzufügen</button>
     </div>
   </div>`).join('');
- 
+
   renderQuickPreview();
 }
 function cardEditor(si,c,ci){
@@ -656,7 +679,44 @@ function renderQuickPreview(){
   const box=document.getElementById('quickPreview');if(!box)return;
   box.innerHTML=data.sections.map(s=>`<div>${esc(s.icon)}<b>${esc(s.name)}</b>${esc(s.quick)}</div>`).join('');
 }
- 
+
+function tipEditor(t,i){
+  const cats=[['default','Standard (falls keine Wetterlage passt)'],['sonnig','Sonnig / Klar'],['bewoelkt','Bewölkt'],['nebel','Nebel'],['regen','Regen'],['schnee','Schnee'],['gewitter','Gewitter']];
+  return `<div class="card-editor">
+    <div class="card-editor-top"><span class="card-number">Tipp ${i+1}</span>
+      <div class="mini-actions">
+        <button class="mini" data-tipmove="${i},-1">↑</button>
+        <button class="mini" data-tipmove="${i},1">↓</button>
+        <button class="mini danger-mini" data-tipdel="${i}">Löschen</button>
+      </div>
+    </div>
+    <div class="field"><label>WETTERLAGE</label>
+      <select data-tip="${i}" data-key="condition">${cats.map(([val,label])=>`<option value="${val}" ${t.condition===val?'selected':''}>${label}</option>`).join('')}</select>
+    </div>
+    <div class="field"><label>TITEL</label><input data-tip="${i}" data-key="title" value="${esc(t.title)}"></div>
+    <div class="field"><label>BESCHREIBUNG</label><textarea data-tip="${i}" data-key="text">${esc(t.text)}</textarea></div>
+  </div>`;
+}
+function renderTipEditors(){
+  const box=document.getElementById('tipEditors');if(!box)return;
+  box.innerHTML=data.tips.map((t,i)=>tipEditor(t,i)).join('');
+}
+function bindTipField(e){
+  const el=e.target;if(el.dataset.tip===undefined)return;
+  data.tips[+el.dataset.tip][el.dataset.key]=el.value;
+}
+document.getElementById('tipEditors').addEventListener('input',bindTipField);
+document.getElementById('tipEditors').addEventListener('change',bindTipField);
+document.getElementById('tipEditors').addEventListener('click',e=>{
+  const mv=e.target.closest('[data-tipmove]');
+  if(mv){const[i,dir]=mv.dataset.tipmove.split(',').map(Number);const arr=data.tips,n=i+dir;if(n>=0&&n<arr.length){[arr[i],arr[n]]=[arr[n],arr[i]];renderTipEditors();}return;}
+  const del=e.target.closest('[data-tipdel]');
+  if(del){if(data.tips.length<=1){alert('Es muss mindestens ein Tipp bestehen bleiben.');return}if(!confirm('Diesen Tipp wirklich löschen?'))return;data.tips.splice(+del.dataset.tipdel,1);renderTipEditors();}
+});
+document.getElementById('addTipBtn').addEventListener('click',()=>{
+  data.tips.push({condition:'default',title:'Neuer Tipp',text:'Kurze Beschreibung.'});
+  renderTipEditors();
+});
 function renderSurroundingsEditors(){
   const box=document.getElementById('surroundingsEditors');if(!box)return;
   box.innerHTML=data.surroundings.map((it,i)=>`<div class="card-editor">
@@ -689,7 +749,7 @@ document.getElementById('addSurroundingBtn').addEventListener('click',()=>{
   data.surroundings.push({lucideIcon:'',title:'Neuer Umgebungstipp',text:'Kurze Beschreibung.',link:''});
   renderSurroundingsEditors();
 });
- 
+
 function renderConciergeGroupEditors(){
   const box=document.getElementById('conciergeGroupEditors');if(!box)return;
   box.innerHTML=data.concierge.groups.map((g,gi)=>`<div class="card-editor">
@@ -731,7 +791,7 @@ function renderHeroPreview(url){
   const box=document.getElementById('heroPreview');if(!box)return;
   box.style.backgroundImage=url?`url("${url.replace(/"/g,'')}")`:'none';
 }
- 
+
 /* Live-Bindung für Bereich- und Kachel-Felder (aktualisiert sofort das Datenmodell + die Schnellmenü-Vorschau) */
 document.getElementById('sectionEditors').addEventListener('input',e=>{
   const el=e.target;
@@ -742,27 +802,27 @@ document.getElementById('sectionEditors').addEventListener('input',e=>{
     renderQuickPreview();
   }
 });
- 
+
 /* Klicks innerhalb der Bereichsliste per Delegation (Auf-/Zuklappen, Verschieben, Löschen, Kacheln verwalten) */
 document.getElementById('sectionEditors').addEventListener('click',e=>{
   const gotoBtn=e.target.closest('[data-goto]');
   if(gotoBtn){e.stopPropagation();goTo(gotoBtn.dataset.goto);return;}
- 
+
   const moveBtn=e.target.closest('[data-move]');
   if(moveBtn){e.stopPropagation();moveSection(+moveBtn.dataset.si,+moveBtn.dataset.move);return;}
- 
+
   const delBtn=e.target.closest('[data-delsection]');
   if(delBtn){e.stopPropagation();deleteSection(+delBtn.dataset.delsection);return;}
- 
+
   const addCardBtn=e.target.closest('[data-addcard]');
   if(addCardBtn){e.stopPropagation();addCard(+addCardBtn.dataset.addcard);return;}
- 
+
   const moveCardBtn=e.target.closest('[data-movecard]');
   if(moveCardBtn){e.stopPropagation();const[si,ci,dir]=moveCardBtn.dataset.movecard.split(',').map(Number);moveCard(si,ci,dir);return;}
- 
+
   const delCardBtn=e.target.closest('[data-delcard]');
   if(delCardBtn){e.stopPropagation();const[si,ci]=delCardBtn.dataset.delcard.split(',').map(Number);deleteCard(si,ci);return;}
- 
+
   const head=e.target.closest('.section-editor-head');
   if(head){
     const wrap=head.closest('.section-editor');
@@ -770,7 +830,7 @@ document.getElementById('sectionEditors').addEventListener('click',e=>{
     if(wrap.classList.contains('open'))openSections.add(head.dataset.sid);else openSections.delete(head.dataset.sid);
   }
 });
- 
+
 document.getElementById('adminTabs').addEventListener('click',e=>{
   const btn=e.target.closest('button');if(!btn)return;
   document.querySelectorAll('#adminTabs button').forEach(b=>b.classList.remove('active'));
@@ -778,7 +838,7 @@ document.getElementById('adminTabs').addEventListener('click',e=>{
   document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
   document.querySelector(`.admin-panel[data-panel="${btn.dataset.tab}"]`).classList.add('active');
 });
- 
+
 /* Logo: Upload, Link, Buchstabe */
 document.getElementById('logoFile').addEventListener('change',e=>{
   const file=e.target.files[0];if(!file)return;
@@ -794,7 +854,7 @@ document.getElementById('logoClear').addEventListener('click',()=>{
 });
 document.getElementById('iLogo').addEventListener('input',e=>renderLogoPreview(e.target.value.trim()));
 document.getElementById('iLogoLetter').addEventListener('input',()=>renderLogoPreview(document.getElementById('iLogo').value.trim()));
- 
+
 /* Hero-Bild: Upload oder Link */
 document.getElementById('heroFile').addEventListener('change',e=>{
   const file=e.target.files[0];if(!file)return;
@@ -809,7 +869,7 @@ document.getElementById('heroClear').addEventListener('click',()=>{
   renderHeroPreview(defaultData.image);
 });
 document.getElementById('iImage').addEventListener('input',e=>renderHeroPreview(e.target.value.trim()));
- 
+
 /* Schriftarten: Datei-Upload (bevorzugt) oder Google-Fonts-Name */
 let headingFontDataValue='',bodyFontDataValue='';
 function updateFontStatus(){
@@ -833,7 +893,7 @@ document.getElementById('bodyFontFile').addEventListener('change',e=>{
   reader.readAsDataURL(file);
 });
 document.getElementById('bodyFontClear').addEventListener('click',()=>{bodyFontDataValue='';updateFontStatus();});
- 
+
 async function saveSettings(){
   if(!isAuthed){alert('Bitte zuerst anmelden.');return}
   data.title=document.getElementById('iTitle').value;
@@ -848,9 +908,7 @@ async function saveSettings(){
   data.fonts.bodyGoogleFont=document.getElementById('iBodyGoogleFont').value.trim();
   data.fonts.headingFontData=headingFontDataValue;
   data.fonts.bodyFontData=bodyFontDataValue;
-  data.tip.heading=document.getElementById('iTipHeading').value;
-  data.tip.title=document.getElementById('iTipTitle').value;
-  data.tip.text=document.getElementById('iTipText').value;
+  data.tipHeading=document.getElementById('iTipHeading').value;
   data.service.intro=document.getElementById('iServiceIntro').value;
   data.service.email=document.getElementById('iServiceEmail').value.trim();
   data.service.emailjsServiceId=document.getElementById('iEmailjsService').value.trim();
@@ -879,7 +937,7 @@ async function resetSettings(){
   }
 }
 window.saveSettings=saveSettings;window.resetSettings=resetSettings;
- 
+
 function addCard(si){
   data.sections[si].cards.push({icon:'✦',title:'Neue Kachel',short:'Kurze Beschreibung für diesen Inhalt.',cta:'Mehr erfahren',detail:'<h3>Neue Information</h3><p>Hier kann der ausführliche Inhalt hinterlegt werden.</p>'});
   renderAdmin();
@@ -916,14 +974,14 @@ function moveSection(si,dir){
   renderAdmin();
 }
 document.getElementById('addSectionBtn').addEventListener('click',addSection);
- 
+
 /* Der Bearbeiten-Zugang ist für Gäste komplett unsichtbar. Nur über den geheimen Link
    ".../?team" erscheinen Navigation und Login – normale Besucher sehen davon nichts. */
 if(new URLSearchParams(location.search).has('team')){
   document.getElementById('navButtons').style.display='flex';
   showAdmin();
 }
- 
+
 render();
 </script>
 </body></html>
