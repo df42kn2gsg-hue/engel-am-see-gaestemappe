@@ -677,7 +677,7 @@ function renderAdmin(){
         <div class="field"><label>BEREICH-NAME</label><input data-si="${si}" data-key="name" value="${esc(s.name)}"></div>
         <div class="field"><label>SYMBOL (FALLBACK)</label><input data-si="${si}" data-key="icon" value="${esc(s.icon)}"></div>
       </div>
-      <div class="field"><label>LUCIDE-ICON-NAME (optional, überschreibt Symbol)</label><input data-si="${si}" data-key="lucideIcon" value="${esc(s.lucideIcon||'')}" placeholder="z. B. bed-double"></div>
+      <div class="field"><label>LUCIDE-ICON-NAME (optional, überschreibt Symbol)</label><input data-si="${si}" data-key="lucideIcon" value="${esc(s.lucideIcon||'')}" placeholder="z. B. bed-double" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"></div>
       <div class="field"><label>SCHNELLMENÜ-BESCHREIBUNG</label><input data-si="${si}" data-key="quick" value="${esc(s.quick)}"></div>
       <div class="field"><label>ÜBERSCHRIFT DES BEREICHS</label><input data-si="${si}" data-key="heading" value="${esc(s.heading)}"></div>
       <div class="field"><label>EINLEITUNG</label><textarea data-si="${si}" data-key="lead">${esc(s.lead)}</textarea></div>
@@ -702,7 +702,7 @@ function cardEditor(si,c,ci){
       <div class="field"><label>SYMBOL (FALLBACK)</label><input data-si="${si}" data-ci="${ci}" data-key="icon" value="${esc(c.icon)}"></div>
       <div class="field"><label>TITEL</label><input data-si="${si}" data-ci="${ci}" data-key="title" value="${esc(c.title)}"></div>
     </div>
-    <div class="field"><label>LUCIDE-ICON-NAME (optional, überschreibt Symbol)</label><input data-si="${si}" data-ci="${ci}" data-key="lucideIcon" value="${esc(c.lucideIcon||'')}" placeholder="z. B. bed-double"></div>
+    <div class="field"><label>LUCIDE-ICON-NAME (optional, überschreibt Symbol)</label><input data-si="${si}" data-ci="${ci}" data-key="lucideIcon" value="${esc(c.lucideIcon||'')}" placeholder="z. B. bed-double" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"></div>
     <div class="field"><label>KURZBESCHREIBUNG</label><textarea data-si="${si}" data-ci="${ci}" data-key="short">${esc(c.short)}</textarea></div>
     <div class="grid2">
       <div class="field"><label>BUTTON-TEXT</label><input data-si="${si}" data-ci="${ci}" data-key="cta" value="${esc(c.cta)}"></div>
@@ -765,7 +765,7 @@ function renderSurroundingsEditors(){
       </div>
     </div>
     <div class="grid2">
-      <div class="field"><label>LUCIDE-ICON-NAME</label><input data-sur="${i}" data-key="lucideIcon" value="${esc(it.lucideIcon||'')}" placeholder="z. B. waves"></div>
+      <div class="field"><label>LUCIDE-ICON-NAME</label><input data-sur="${i}" data-key="lucideIcon" value="${esc(it.lucideIcon||'')}" placeholder="z. B. waves" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"></div>
       <div class="field"><label>TITEL</label><input data-sur="${i}" data-key="title" value="${esc(it.title)}"></div>
     </div>
     <div class="field"><label>BESCHREIBUNG</label><textarea data-sur="${i}" data-key="text">${esc(it.text)}</textarea></div>
@@ -774,7 +774,7 @@ function renderSurroundingsEditors(){
 }
 document.getElementById('surroundingsEditors').addEventListener('input',e=>{
   const el=e.target;if(el.dataset.sur===undefined)return;
-  data.surroundings[+el.dataset.sur][el.dataset.key]=el.value;
+  data.surroundings[+el.dataset.sur][el.dataset.key]=(el.dataset.key==='lucideIcon'?el.value.trim().toLowerCase().replace(/\s+/g,'-'):el.value);
 });
 document.getElementById('surroundingsEditors').addEventListener('click',e=>{
   const mv=e.target.closest('[data-surmove]');
@@ -832,10 +832,11 @@ function renderHeroPreview(url){
 /* Live-Bindung für Bereich- und Kachel-Felder (aktualisiert sofort das Datenmodell + die Schnellmenü-Vorschau) */
 document.getElementById('sectionEditors').addEventListener('input',e=>{
   const el=e.target;
+  const val=el.dataset.key==='lucideIcon'?el.value.trim().toLowerCase().replace(/\s+/g,'-'):el.value;
   if(el.dataset.ci!==undefined){
-    data.sections[+el.dataset.si].cards[+el.dataset.ci][el.dataset.key]=el.value;
+    data.sections[+el.dataset.si].cards[+el.dataset.ci][el.dataset.key]=val;
   }else if(el.dataset.si!==undefined){
-    data.sections[+el.dataset.si][el.dataset.key]=el.value;
+    data.sections[+el.dataset.si][el.dataset.key]=val;
     renderQuickPreview();
   }
 });
