@@ -191,6 +191,7 @@ header{position:sticky;top:0;z-index:100;height:72px;background:rgba(255,253,249
       </div>
       <div class="field"><label>EMAILJS PUBLIC KEY</label><input id="iEmailjsKey" placeholder="z. B. AbCdEfGhIjKlMnOp"></div>
       <p class="hint">Kostenloses Konto auf emailjs.com – bis 200 E-Mails/Monat gratis. Sag mir Bescheid, dann leite ich dich Schritt für Schritt durch die Einrichtung.</p>
+      <p class="hint" id="emailUsageStatus" style="font-weight:bold;color:var(--gold-dark)">Lade aktuelle Nutzung …</p>
       <div class="admin-actions"><button class="primary" onclick="saveSettings()">Änderungen speichern</button></div>
     </div>
   </div>
@@ -234,6 +235,25 @@ const fbApp=initializeApp(firebaseConfig);
 const auth=getAuth(fbApp);
 const db=getFirestore(fbApp);
 const contentRef=doc(db,"gaestemappe","content");
+const usageRef=doc(db,"usage","emailStats");
+let usage={month:'',count:0};
+onSnapshot(usageRef,snap=>{
+  usage=snap.exists()?snap.data():{month:'',count:0};
+  renderEmailUsage();
+},()=>{});
+function currentMonthKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');}
+function renderEmailUsage(){
+  const el=document.getElementById('emailUsageStatus');if(!el)return;
+  const mk=currentMonthKey();
+  const used=(usage.month===mk)?(usage.count||0):0;
+  const remaining=Math.max(0,200-used);
+  el.textContent=`Noch ${remaining} von 200 kostenlosen E-Mails in diesem Monat verfügbar (${used} bereits über diese Seite verschickt).`;
+}
+async function incrementEmailUsage(){
+  const mk=currentMonthKey();
+  const used=(usage.month===mk)?(usage.count||0)+1:1;
+  try{await setDoc(usageRef,{month:mk,count:used});}catch(e){}
+}
 let isAuthed=false;
 
 const defaultData={title:'Du. Dein See. Dein Engel.',intro:'Schön, dass Sie bei uns sind. Wir wünschen Ihnen eine erholsame Zeit am See.',phone:'+49 7543 9330',image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85',brandName:'engel',brandSub:'am See',logo:'',logoLetter:'e',wifiSsid:'',wifiPassword:'',
@@ -543,6 +563,7 @@ document.getElementById('svcSendBtn').addEventListener('click',()=>{
     },{publicKey:data.service.emailjsPublicKey}).then(()=>{
       confirmBox.textContent='Vielen Dank! Ihre Anfrage wurde direkt an die Rezeption gesendet.';
       sendBtn.disabled=false;
+      incrementEmailUsage();
     }).catch(()=>{
       confirmBox.style.color='#8b3e35';
       confirmBox.textContent='Der automatische Versand hat leider nicht funktioniert. Bitte rufen Sie kurz die Rezeption an: '+data.phone;
