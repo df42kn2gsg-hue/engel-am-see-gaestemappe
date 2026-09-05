@@ -10,7 +10,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-body)}button,input,textarea,select{font:inherit}button{cursor:pointer}
 header{position:sticky;top:0;z-index:100;height:88px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .header-inner{max-width:1180px;height:100%;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;color:var(--gold-dark)}.mark{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);color:#fff;font-family:var(--font-heading);font-size:19px;overflow:hidden;flex-shrink:0}.mark img{width:100%;height:100%;object-fit:cover;display:block}.mark.has-logo{width:auto;height:62px;border-radius:0;background:transparent;overflow:visible}.mark.has-logo img{width:auto;height:100%;max-width:280px;object-fit:contain}.nav{display:flex;gap:8px}.nav button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:9px 16px}.nav button.active{background:var(--gold);border-color:var(--gold);color:#fff}
-.page{max-width:1100px;margin:auto;background:var(--paper);min-height:calc(100vh - 88px)}.hero{min-height:540px;position:relative;display:flex;align-items:flex-end;overflow:hidden;background-image:linear-gradient(135deg,#262C38,#3E4759 60%,var(--gold-dark));background-size:cover;background-position:center;transition:background-image .3s ease}.hero-content{width:100%;padding:80px 60px 58px;color:#fff}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}.hero h1{max-width:800px;margin:0;font-family:var(--font-heading);font-size:54px;line-height:1.05;font-weight:400}.hero h1 i{color:#D9C078;font-weight:400}.hero-line{width:48px;height:2px;background:var(--gold);margin:22px 0}.hero p{max-width:600px;margin:0;font-size:16px;line-height:1.7}
+.page{max-width:1100px;margin:auto;background:var(--paper);min-height:calc(100vh - 88px)}.hero{min-height:540px;position:relative;display:flex;align-items:flex-end;overflow:hidden;background-image:linear-gradient(135deg,#262C38,#3E4759 60%,var(--gold-dark));background-size:cover;background-position:center;transition:background-image .3s ease}.hero-content{width:100%;padding:80px 60px 58px;color:#fff;position:relative;z-index:2}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}.hero h1{max-width:800px;margin:0;font-family:var(--font-heading);font-size:54px;line-height:1.05;font-weight:400}.hero h1 i{color:#D9C078;font-weight:400}.hero-line{width:48px;height:2px;background:var(--gold);margin:22px 0}.hero p{max-width:600px;margin:0;font-size:16px;line-height:1.7}
 .quick{position:relative;z-index:5;margin:-24px 28px 0;background:var(--paper);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:repeat(3,1fr)}.quick button{min-height:145px;padding:25px 18px 22px;background:var(--paper);border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:background .2s,transform .2s}.quick button:nth-child(3n){border-right:0}.quick button:nth-child(n+4){border-bottom:0}.quick button:hover{background:var(--soft);transform:translateY(-2px)}.quick .icon{width:42px;height:42px;margin-bottom:10px;border:1px solid #d8cda9;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-dark);font-size:20px}.quick strong{display:block;font-family:var(--font-heading);font-size:19px;font-weight:400;margin-bottom:7px;text-align:center}.quick small{display:block;max-width:190px;color:var(--muted);font-size:12px;line-height:1.45;text-align:center}
 .intro{padding:72px 60px 45px;text-align:center}.intro .eyebrow{color:var(--gold-dark);margin-bottom:10px}.intro h2{margin:0 0 14px;font-family:var(--font-heading);font-size:34px;font-weight:400}.intro p{max-width:650px;margin:auto;color:var(--muted);line-height:1.7}.content{padding:0 42px 70px}.section{scroll-margin-top:95px;padding:65px 18px 10px}.section-head{margin-bottom:30px}.section-eyebrow{color:var(--gold-dark);font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}.section h2{margin:0 0 10px;font-family:var(--font-heading);font-size:34px;font-weight:400}.section-lead{max-width:650px;margin:0;color:var(--muted);line-height:1.65}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(48,45,41,.08)}.card-icon{font-size:24px;color:var(--gold-dark);margin-bottom:18px}.card h3{margin:0 0 9px;font-family:var(--font-heading);font-size:22px;font-weight:400}.card p{margin:0 0 20px;color:var(--muted);line-height:1.65;font-size:14px}.cta{border:1px solid var(--gold);background:transparent;color:var(--gold-dark);border-radius:999px;padding:9px 15px;font-size:13px}.cta:hover{background:var(--gold);color:#fff}.footer{margin-top:30px;padding:25px;text-align:center;background:var(--soft);color:var(--gold-dark);font-size:13px;letter-spacing:.3px}
 .modal{position:fixed;inset:0;z-index:500;background:rgba(35,32,27,.55);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal-box{width:min(650px,100%);max-height:85vh;overflow:auto;background:var(--paper);border-radius:20px;box-shadow:0 25px 80px rgba(0,0,0,.25)}.modal-top{padding:28px 30px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.modal-top h2{margin:0;font-family:var(--font-heading);font-size:29px;font-weight:400}.close{width:34px;height:34px;border:1px solid var(--line);background:var(--paper);border-radius:50%;font-size:18px;color:var(--muted)}.modal-body{padding:28px 30px 32px}.modal-body h3{margin:0 0 8px;font-family:var(--font-heading);font-size:20px;font-weight:400}.modal-body p{margin:0 0 22px;color:var(--muted);line-height:1.7}.modal-body a{color:var(--gold-dark)}
@@ -31,6 +31,10 @@ header{position:sticky;top:0;z-index:100;height:88px;background:rgba(255,255,255
 .concierge-invite{display:flex;justify-content:center;padding:44px 20px 6px}.concierge-fab{border:1px solid var(--dryblood);background:var(--paper);color:var(--dryblood);border-radius:999px;padding:14px 24px;box-shadow:var(--shadow);display:inline-flex;align-items:center;gap:9px;font-size:14px}.concierge-fab:hover{background:var(--dryblood);color:#fff}.concierge-fab:hover .lucide-ico{color:#fff}
 .svc-group{margin-bottom:22px}.svc-group-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-dark);font-weight:bold;margin-bottom:11px}
 .svc-options{display:flex;flex-wrap:wrap;gap:10px}.svc-options label{position:relative;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 18px;font-size:13px;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,color .15s;user-select:none}.svc-options input{position:absolute;opacity:0;width:0;height:0}.svc-options label:has(input:checked){background:var(--gold);border-color:var(--gold);color:#fff}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}.reveal.in-view{opacity:1;transform:translateY(0)}
+.weather-countdown{margin-top:10px;font-size:12px;color:var(--gold-dark);font-style:italic}
+.hero-fx{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.2s ease}.hero-fx.active{opacity:1}.hero-fx.fx-sonnig{background:radial-gradient(circle at 82% 18%,rgba(255,214,140,.4),transparent 45%);animation:fxSunPulse 6s ease-in-out infinite}@keyframes fxSunPulse{0%,100%{opacity:.65}50%{opacity:1}}.hero-fx.fx-regen{background-image:repeating-linear-gradient(112deg,rgba(255,255,255,.16) 0px,rgba(255,255,255,.16) 1px,transparent 1px,transparent 15px);animation:fxRainMove .7s linear infinite}@keyframes fxRainMove{from{background-position:0 0}to{background-position:-42px 60px}}
+.sparkle-burst{position:relative;height:0;overflow:visible}.sparkle-burst span{position:absolute;top:-4px;color:var(--gold);font-size:17px;animation:sparklePop 1.3s ease-out forwards}@keyframes sparklePop{0%{opacity:0;transform:translateY(6px) scale(.5)}30%{opacity:1;transform:translateY(-8px) scale(1.15)}100%{opacity:0;transform:translateY(-32px) scale(.8)}}
 .svc-divider{display:flex;align-items:center;gap:12px;margin:26px 0 18px;color:var(--gold-dark);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:bold}.svc-divider::after{content:'';flex:1;height:1px;background:var(--line)}
 .svc-intro{color:var(--muted);line-height:1.65;margin:-8px 0 24px}
 @media(max-width:760px){header{height:74px}.mark.has-logo{height:48px}.mark.has-logo img{max-width:200px}.header-inner{padding:0 15px}.nav button{padding:8px 12px;font-size:12px}.hero{min-height:470px}.hero-content{padding:55px 25px 42px}.hero h1{font-size:38px}.hero p{font-size:14px}.quick{margin:-18px 14px 0;grid-template-columns:repeat(2,1fr)}.quick button{min-height:145px;padding:20px 10px}.quick button:nth-child(3n){border-right:1px solid var(--line)}.quick button:nth-child(2n){border-right:0}.quick button:nth-child(n+4){border-bottom:1px solid var(--line)}.quick button:nth-child(n+5){border-bottom:0}.quick strong{font-size:17px}.intro{padding:55px 25px 30px}.intro h2{font-size:29px}.content{padding:0 20px 50px}.section{padding:50px 5px 5px}.section h2{font-size:29px}.cards{grid-template-columns:1fr}.card{padding:23px}.admin-head{display:block}.admin-status{display:inline-block;margin-top:15px}.grid2{grid-template-columns:1fr}.quick-preview{grid-template-columns:1fr 1fr}.section-editor-title strong{font-size:16px}
@@ -43,7 +47,7 @@ header{position:sticky;top:0;z-index:100;height:88px;background:rgba(255,255,255
 <body>
 <header><div class="header-inner"><div class="brand"><div class="mark" id="brandMark">e</div></div><nav class="nav" id="navButtons" style="display:none"><button id="guestButton" class="active" onclick="showGuest()">Gästeansicht</button><button id="adminButton" onclick="showAdmin()">Bearbeiten</button></nav></div></header>
 
-<div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-content"><div class="eyebrow eyebrow-time" id="heroEyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="concierge-invite"><button class="concierge-fab" type="button" id="conciergeFab"><i class="lucide-ico" data-lucide="heart" style="width:18px;height:18px;color:var(--dryblood)"></i><span>Engel Concierge</span></button></section><section class="today-section" id="todaySection"></section><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><section class="service-section" id="serviceSection"></section><section class="surroundings-section" id="surroundingsSection"></section><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
+<div id="guest"><main class="page"><section class="hero" id="hero"><div class="hero-fx" id="heroFx"></div><div class="hero-content"><div class="eyebrow eyebrow-time" id="heroEyebrow">Willkommen</div><h1 id="title"></h1><div class="hero-line"></div><p id="intro"></p></div></section><div class="quick" id="quick"></div><section class="concierge-invite reveal"><button class="concierge-fab" type="button" id="conciergeFab"><i class="lucide-ico" data-lucide="heart" style="width:18px;height:18px;color:var(--dryblood)"></i><span>Engel Concierge</span></button></section><section class="today-section" id="todaySection"></section><section class="intro"><div class="eyebrow">Ihr Aufenthalt</div><h2>Alles, was Sie brauchen.</h2><p>Entdecken Sie unser Haus, unsere Angebote und unsere persönlichen Empfehlungen für Ihren Aufenthalt.</p></section><div class="content" id="content"></div><section class="service-section" id="serviceSection"></section><section class="surroundings-section" id="surroundingsSection"></section><footer class="footer">☎ Rezeption · <span id="footerPhone"></span></footer></main></div>
 
 <section id="admin"><div class="admin-wrap">
   <div class="admin-head"><div><h1>Gästemappe bearbeiten</h1><p>Wähle unten aus, was du bearbeiten möchtest.</p></div><div class="admin-status" id="saveStatus">Verbinde mit der Cloud …</div></div>
@@ -393,10 +397,12 @@ function render(){
   renderSurroundings();
   renderAdmin();
   hydrateIcons();
+  initScrollReveal();
   if(window.emailjs&&data.service.emailjsPublicKey)emailjs.init({publicKey:data.service.emailjsPublicKey});
 }
 function renderToday(){
   const box=document.getElementById('todaySection');if(!box)return;
+  box.classList.add('reveal');
   box.innerHTML=`<div class="section-eyebrow" style="margin:0 0 16px 4px">Heute am Bodensee</div><div class="today-card">
     <div class="weather-box">
       <i class="lucide-ico" data-lucide="cloud-sun" style="width:46px;height:46px;flex-shrink:0;color:var(--violat)"></i>
@@ -404,6 +410,7 @@ function renderToday(){
         <div class="weather-temp" id="weatherTemp">–</div>
         <div class="weather-meta" id="weatherCond">Wetterdaten werden geladen …</div>
         <div class="weather-sun"><span id="weatherSunrise"></span><span id="weatherSunset"></span></div>
+        <div class="weather-countdown" id="weatherCountdown"></div>
       </div>
     </div>
     <div class="tip-box">
@@ -431,6 +438,19 @@ function weatherCategory(code){
   if([95,96,99].includes(code))return'gewitter';
   return'default';
 }
+let sunsetDate=null,sunsetIntervalId=null;
+function updateSunsetCountdown(){
+  const el=document.getElementById('weatherCountdown');if(!el)return;
+  if(!sunsetDate){el.textContent='';return}
+  const diffMs=sunsetDate.getTime()-Date.now();
+  if(diffMs<=0){el.textContent='';return}
+  const h=Math.floor(diffMs/3600000),m=Math.floor((diffMs%3600000)/60000);
+  el.textContent=`☼ Noch ${h>0?h+' Std. ':''}${m} Min. bis zum Sonnenuntergang`;
+}
+function setHeroWeatherFx(cat){
+  const fx=document.getElementById('heroFx');if(!fx)return;
+  fx.className='hero-fx'+((cat==='sonnig'||cat==='regen')?' active fx-'+cat:'');
+}
 async function loadWeather(){
   const t=document.getElementById('weatherTemp'),c=document.getElementById('weatherCond'),sr=document.getElementById('weatherSunrise'),ss=document.getElementById('weatherSunset');
   if(!t)return;
@@ -445,7 +465,13 @@ async function loadWeather(){
     const fmt=iso=>new Date(iso).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
     if(sr)sr.textContent='↑ '+fmt(j.daily.sunrise[0]);
     if(ss)ss.textContent='↓ '+fmt(j.daily.sunset[0]);
-    renderTipForCategory(weatherCategory(j.current.weather_code));
+    sunsetDate=new Date(j.daily.sunset[0]);
+    updateSunsetCountdown();
+    if(sunsetIntervalId)clearInterval(sunsetIntervalId);
+    sunsetIntervalId=setInterval(updateSunsetCountdown,60000);
+    const cat=weatherCategory(j.current.weather_code);
+    renderTipForCategory(cat);
+    setHeroWeatherFx(cat);
   }catch(err){
     if(c)c.textContent='Wetterdaten aktuell nicht verfügbar.';
   }
@@ -456,6 +482,7 @@ function weatherCodeLabel(code){
 }
 function renderService(){
   const box=document.getElementById('serviceSection');if(!box)return;
+  box.classList.add('reveal');
   box.innerHTML=`<h2 style="margin:0 0 14px;font-family:var(--font-heading);font-weight:400;font-size:28px">Wir sind für Sie da</h2>
   <p>${esc(data.service.intro)}</p>
   <div class="service-actions">
@@ -468,7 +495,7 @@ function renderService(){
 function renderSurroundings(){
   const box=document.getElementById('surroundingsSection');if(!box)return;
   if(!data.surroundings||!data.surroundings.length){box.innerHTML='';return}
-  box.innerHTML=`<h2 style="margin:0 0 20px;font-family:var(--font-heading);font-weight:400;font-size:28px">Entdecken Sie die Umgebung</h2><div class="cards">${data.surroundings.map(it=>`<article class="card">
+  box.innerHTML=`<h2 style="margin:0 0 20px;font-family:var(--font-heading);font-weight:400;font-size:28px">Entdecken Sie die Umgebung</h2><div class="cards">${data.surroundings.map((it,i)=>`<article class="card reveal" style="transition-delay:${(i%4)*0.08}s">
     <div class="card-icon">${iconHtml(it,24)}</div>
     <h3>${esc(it.title)}</h3>
     <p>${esc(it.text)}</p>
@@ -489,10 +516,20 @@ function renderBrandMark(){
   el.innerHTML=`<img src="${esc(data.logo)}" alt="Logo">`;el.classList.add('has-logo');el.style.background='';
 }
 function renderQuick(){
-  document.getElementById('quick').innerHTML=data.sections.map((s,si)=>`<button data-target="${esc(s.id)}"><div class="icon">${iconHtml(s,20)}</div><strong>${esc(s.name)}</strong><small>${esc(s.quick)}</small></button>`).join('');
+  document.getElementById('quick').innerHTML=data.sections.map((s,si)=>`<button class="reveal" style="transition-delay:${si*0.06}s" data-target="${esc(s.id)}"><div class="icon">${iconHtml(s,20)}</div><strong>${esc(s.name)}</strong><small>${esc(s.quick)}</small></button>`).join('');
 }
 function renderContent(){
-  document.getElementById('content').innerHTML=data.sections.map((s,si)=>`<section class="section" id="${esc(s.id)}"><div class="section-head"><div class="section-eyebrow">${esc(s.name)}</div><h2>${esc(s.heading)}</h2><p class="section-lead">${esc(s.lead)}</p></div><div class="cards">${s.cards.map((c,ci)=>`<article class="card"><div class="card-icon">${iconHtml(c,24)}</div><h3>${esc(c.title)}</h3><p>${esc(c.short)}</p><button class="cta" data-si="${si}" data-ci="${ci}">${esc(c.cta)}</button></article>`).join('')}</div></section>`).join('');
+  document.getElementById('content').innerHTML=data.sections.map((s,si)=>`<section class="section" id="${esc(s.id)}"><div class="section-head"><div class="section-eyebrow">${esc(s.name)}</div><h2>${esc(s.heading)}</h2><p class="section-lead">${esc(s.lead)}</p></div><div class="cards">${s.cards.map((c,ci)=>`<article class="card reveal" style="transition-delay:${(ci%4)*0.08}s"><div class="card-icon">${iconHtml(c,24)}</div><h3>${esc(c.title)}</h3><p>${esc(c.short)}</p><button class="cta" data-si="${si}" data-ci="${ci}">${esc(c.cta)}</button></article>`).join('')}</div></section>`).join('');
+}
+function initScrollReveal(){
+  const els=document.querySelectorAll('.reveal:not(.in-view)');
+  if(!('IntersectionObserver'in window)){els.forEach(el=>el.classList.add('in-view'));return;}
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('in-view');obs.unobserve(entry.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>obs.observe(el));
 }
 function goTo(id){const el=document.getElementById(id);if(!el)return;showGuest();setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),50)}
 function openDetail(title,html,special){
@@ -567,6 +604,7 @@ document.getElementById('svcSendBtn').addEventListener('click',()=>{
       confirmBox.textContent='Vielen Dank! Ihre Anfrage wurde direkt an die Rezeption gesendet.';
       sendBtn.disabled=false;
       incrementEmailUsage();
+      sparkleConfirm();
     }).catch(()=>{
       confirmBox.style.color='#8b3e35';
       confirmBox.textContent='Der automatische Versand hat leider nicht funktioniert. Bitte rufen Sie kurz die Rezeption an: '+data.phone;
@@ -579,10 +617,26 @@ document.getElementById('svcSendBtn').addEventListener('click',()=>{
     const mailto=`mailto:${encodeURIComponent(data.service.email)}?subject=${encodeURIComponent('Serviceanfrage Zimmer '+room+' – Gästemappe')}&body=${encodeURIComponent(body)}`;
     window.location.href=mailto;
     confirmBox.textContent='Ihre E-Mail-App öffnet sich mit einer vorausgefüllten Anfrage an die Rezeption – bitte dort einmal auf Senden tippen, damit sie wirklich bei uns ankommt.';
+    sparkleConfirm();
   }else{
     confirmBox.textContent='Vielen Dank! Bitte rufen Sie zur schnellsten Bearbeitung kurz die Rezeption an: '+data.phone+' – ein automatischer Versand ist aktuell noch nicht eingerichtet.';
   }
 });
+function sparkleConfirm(){
+  const box=document.getElementById('svcConfirm');if(!box)return;
+  const burst=document.createElement('div');
+  burst.className='sparkle-burst';
+  const glyphs=['✦','✧','✨','✦'];
+  for(let i=0;i<6;i++){
+    const s=document.createElement('span');
+    s.textContent=glyphs[i%glyphs.length];
+    s.style.left=(8+Math.random()*84)+'%';
+    s.style.animationDelay=(Math.random()*0.35)+'s';
+    burst.appendChild(s);
+  }
+  box.appendChild(burst);
+  setTimeout(()=>burst.remove(),1700);
+}
 window.openServiceModal=openServiceModal;window.closeServiceModal=closeServiceModal;window.closeServiceOutside=closeServiceOutside;
 
 /* Klicks in der Gästeansicht per Delegation statt fehleranfälliger onclick-Attribute */
